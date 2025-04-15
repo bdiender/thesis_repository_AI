@@ -1,0 +1,62 @@
+% % Specify and motivate the proposed approach(es) that you will implement / apply. If it includes a pipeline or architecture, it makes sense to give a rough visualization and description.
+
+\section{Methodology}
+\label{sec:methodology}
+
+The methodology follows Choenni et al.~\cite{choenni-etal-2023-cross} in adapting a three-stage fine-tuning setup outlined in Section~\ref{sub:training_setup}, with the model being fine-tuned for dependency parsing in a variety of languages. The choice for dependency parsing was based on the availability of uniform datasets in a wide variety of languages through Universal Dependencies (UD)~\cite{nivre-etal-2016-universal}. The selection of languages is clarified in Section~\ref{sub:languages}, the specifics of the model are discussed in Section~\ref{sub:model}.
+
+\subsection{Model}
+\label{sub:model}
+	Following Choenni et al.,~\cite{choenni-etal-2023-cross} the model used is derived from UDify,~\cite{kondratyuk-straka-2019-75} which is itself based on M-BERT~\cite{devlin-etal-2019-bert}. UDify incorporates a layer attention mechanism that scales each layer for its importance to the task at hand. That is, during fine-tuning, a weighted sum $\mathbf{e}_j$ is computed for input token $j$ over all layers $i \in [1, ..., 12]$ as follows:
+
+	$$
+		\mathbf{e}_j = \sum_i\mathbf{U}_{i,j} \cdot \text{softmax}(\mathbf{w})_i
+	$$
+
+	\noindent where $\mathbf{U}_{i,j}$ is the output of layer $i$ at token position $j$ and $\mathbf{w}$ is a vector trained alongside the model such that $\mathbf{w}_i$ reflects the importance of layer $i$. Dependency arcs between tokens are scored using a biaffine attention classifier,~\cite{dozat-manning-2016-deep} after which the optimal parse tree is decoded using the Chu-Liu/Egmonds algorithm.~\cite{chu-1965-shortest}
+
+
+\subsection{Fine-tuning setup}
+\label{sub:training_setup}
+	As stated, the fine-tuning setup follows three stages adapted from Choenni et al.~\cite{choenni-etal-2023-cross}
+
+	In the first stage, the model $M$ is fine-tuned on a German-language (\textit{deu}) treebank to instill general knowledge of the task at hand. In the second stage, four copies of $M$ are fine-tuned separately on treebanks of auxiliary languages $\ell \in \{\textit{nld}\textit{swe}\textit{ces}, \textit{hun}\}$\footnote{Dutch, Swedish, Czech, and Hungarian.} to obtain four instances of $M^\ell$. Finally, each $M^\ell$ is fine-tuned on each low-resource language $\lambda \in \{\textit{gsw}, \textit{fao}, \textit{hsb}, \textit{vep}\}$,\footnote{Swiss German, Faroese, Upper Sorbian, and Veps.} resulting in 16 instances of \m{\ell}{\lambda}. If time permits, both the second and third stage are ideally repeated across at least five random seeds.
+
+% \subsection{Languages}
+% \label{sub:languages}
+
+% The selection of languages is based on their prevalence in the pre-training data for mBERT and their typological relatedness. For typological relatedness, the syntactic feature-vectors (\texttt{syntax\_knn}) from the URIEL knowledge base~\cite{littell-etal-2017-uriel} are used. Languages are then presented as vectors encoding their typological features, and relatedness is taken to be the cosine similarity between those vectors.
+
+% The initial language German is chosen as one of the most well-represented languages in mBERT's pre-training data.~\cite{wu-dredze-2020-languages} Moreover,~\cite{turc-etal-2021-revisiting} found German (alongside Russian) to be the most effective language for cross-lingual transfer. The intermediary languages are then selected as they have roughly the same amount of pre-training data for mBERT. In addition, they each represent a different level of relatedness to German: Phylogenetically, Hungarian and German are entirely unrelated; Czech and German are both part of the Indo-European language family, but are respectively part of the Slavic and Germanic branches; Swedish and German are both Germanic languages, but are respectively part of the North and West Germanic subbranches; and Dutch and German are both members of the West Germanic subbranch. As shown in Figure~\ref{fig:hcd}, this phylogenetic structure is also captured by a hierarchical clustering analysis of the languages' \texttt{syntax\_knn} vectors.
+
+
+\subsection{Languages}
+\label{sub:languages}
+	Broadly speaking, language selection is based on their typological similarity and their prevalence in M-BERT's pre-training data as reported by Wu \& Dredze.~\cite{wu-dredze-2020-languages} Typological similarity is defined using the syntactic feature-vectors (\texttt{syntax\_knn}) from the URIEL knowledge base.~\cite{littell-etal-2017-uriel} In particular, each language is represented as a feature-vector, and similarity between languages is taken to be the cosine similarity between their respective vectors.
+
+	German was selected as one of the most prominent languages in M-BERT's pre-training data. Moreover, Turc et al.~\cite{turc-etal-2021-revisiting} found German (alongside Russian) to be the most effective language for cross-lingual transfer. The auxiliary languages all have a roughly similar amount of data in M-BERT's pre-training data. Their selection is motivated phylogenetically, as they each represent a different level of relatedness to German (Hungarian is unrelated, Czech is in the same family, Swedish is in the same branch, Dutch is in the same subbranch). However, a hierarchical clustering analysis of the \texttt{syntax\_knn} vectors (Appendix~\ref{app:a}) found their selection to by typologically valid, too.
+
+
+% For the final set of languages, the most similar languages from a selection of low-resource languages included in UD were found for each of the intermediary languages. For Dutch and Swedish, these were found to be Swiss German and Faroese, respectively. However, the similarity between those pairs was found to be considerably higher than the similarity between Czech, Hungarian, and their respective most similar languages\,---\,Upper Sorbian and Veps. Since the cosine similarity between Dutch and Faroese was found to be more comparable, the decision was made to disregard Swedish in the final stage and to match Dutch with Faroese.
+
+% % \begin{table}
+% % \centering
+% % \label{tab:selection}
+% % 	\begin{tabular}{lll}
+% % 		\toprule
+% % 		\textbf{Language} & \textbf{WikiSize} & \textbf{Family}\\
+% % 		\midrule
+% % 		  German & 12 & IE, Germanic, West\\
+% % 		  \addlinespace
+% % 		  Dutch & 10 & IE, Germanic, West\\
+% % 		  Swedish & 10 & IE, Germanic, North\\
+% % 		  Czech & 10 & IE, Slavic, West\\
+% % 		  Hungarian & 10 & Uralic, Ugric\\
+% % 		  \addlinespace
+% % 		  Faroese & --- & IE, Germanic, North\\
+% % 		  Upper Sorbian & --- & IE, Slavic, West\\
+% % 		  Veps & --- & Uralic, Finnic\\
+% % 		\bottomrule
+% % 	\end{tabular}
+% % 	\caption{Languages used for experimentation. WikiSize is $\log_2$ of the size (in MB) of the portion of mBERT's pre-training data for that specific language, rounded to the nearest integer, as reported by~\cite{wu-dredze-2020-languages}.}
+% % \end{table}

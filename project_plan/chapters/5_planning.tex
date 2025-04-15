@@ -1,0 +1,37 @@
+% Specify the different stages of your research, and their intended duration. You are free to choose how you want to display the planning. A gantt chart is a popular way to do so, as it can represent overlap between stages. Make sure to book in writing throughout the trajectory, and it is advisable to count back from the intended end date of your thesis to know when you would like to finalize your concept version and when the experimentation should be finished to make this happen.
+
+\section{Planning}
+
+
+\rotatebox{90}{
+	\begin{ganttchart}[
+	    hgrid,
+	    vgrid,
+	    x unit=0.2cm,
+	    time slot format=isodate-yearmonth,
+	    milestone/.append style={fill=yellow!70!brown},
+	    bar/.append style={fill=cyan!60!blue},
+	    group/.append style={fill=gray!30}
+	  ]{2025-04-14}{2025-07-04}
+
+	  \gantttitlecalendar{month=shortname} \\
+
+	  % UDify setup group
+	  \ganttgroup{Coding + Experiments}{2025-04-14}{2025-06-04} \\
+	  \ganttbar{Understand existing code}{2025-04-14}{2025-04-17} \\
+	  \ganttbar{Adapt code}{2025-04-22}{2025-04-30} \\
+	  \ganttbar{Set up SLURM scripts}{2025-05-01}{2025-05-02} \\
+	  \ganttbar{Run experiments}{2025-05-02}{2025-06-04} \\
+
+	  % Writing tasks
+	  \ganttgroup{Writing}{2025-05-06}{2025-07-04} \\
+	  \ganttbar[bar/.append style={fill=orange!60!brown}]{Background}{2025-05-06}{2025-05-16} \\
+	  \ganttbar[bar/.append style={fill=orange!60!brown}]{Methodology}{2025-05-19}{2025-05-23} \\
+	  \ganttbar[bar/.append style={fill=orange!60!brown}]{Results + Discussion}{2025-05-26}{2025-06-04} \\
+	  \ganttbar[bar/.append style={fill=orange!60!brown}]{Introduction + Conclusion}{2025-06-05}{2025-06-13}\\
+	  \ganttbar[bar/.append style={fill=orange!60!brown}]{Incorporate feedback}{2025-06-23}{2025-07-04}\\
+
+	  \ganttbar[bar/.append style={fill=yellow!70!brown}]{Buffer}{2025-06-16}{2025-06-20}
+
+	\end{ganttchart}
+}

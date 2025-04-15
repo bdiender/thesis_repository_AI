@@ -1,0 +1,26 @@
+% % Describe what the experiment(s) will look like. Depending on your study, it can include information like:
+% %%% Research design
+% %%% Dataset (including information on source, size, labelling, etc., to the extent available)
+% %%% The different variations of the approach that you will compare, as well as details on how they will be applied (library, parameter tuning, etc.) 
+% %%% Participants (numbers, intended characteristics)
+% %%% Experimental procedure
+% %%% Evaluation procedure / metrics
+
+\section{Experimental Setup}
+The goal of the project is twofold: Firstly, it aims to show how typology relates to model parameter updates in the fine-tuning stage; secondly, it aims to investigate the effect of typological distance on the success of cross-lingual transfer. Section~\ref{sub:analyses} shows how the setup outlined in Section~\ref{sub:training_setup} serves to achieve these goals. Section~\ref{sub:parameters} lists the parameters used, Table~\ref{tab:data} in Appendix~\ref{app:b} lists the specific datasets used in the experiments.
+
+	\subsection{Analyses}
+	\label{sub:analyses}
+		\subsubsection{Q1}
+		In the second stage, four model instances optimized for dependency parsing in German is fine-tuned to do dependency parsing in languages with varying levels of similarity to German. Intuitively, the German-language data in the preceding stage would have prepared it for dependency parsing in the closely related Dutch more than in the unrelated Hungarian. H1 would suggest that the model instance that fine-tunes to Dutch sees less extensive parameter udpates than the one that fine-tunes to Hungarian. In addition, H2 suggests that the updates should primarily be to the earlier layers of the model for Dutch, whereas for Hungarian, they would be across all layers.
+
+		The fine-tuning setup includes learned scalar weights $\mathbf{w}_i$ that indicate the importance of each layer $i$. Following Tenney et al.~\cite{tenney-etal-2019-bert}, these can be used to detect where model updates took place for each $\ell$. With $\Delta\mathbf{w}^\ell = \mathbf{w}^\ell - \mathbf{w}^{\textit{deu}}$ being the shift in layer importance after fine-tuning on $\ell$, the expectation is that $\Delta\mathbf{w}^{\textit{nld}}_i$ is greater for layers $i$ that deal with lexical information (i.e., the earlier ones~\cite{tenney-etal-2019-bert}), but lower for layers $i$ that deal with higher-level typological features, since those are generally shared between Dutch and German. On the other hand, the values of $\Delta\mathbf{w}^{\textit{hun}}$ are expected to be more uniform, since Hungarian differs significantly from German both lexically and syntactically.
+
+		\subsubsection{Q2}
+		In the third stage, the model instances for languages $\ell$ are fine-tuned further to each the low-resource languages $\lambda$. Each \m{\ell}{\lambda} is then evaluated on the test set for $\lambda$, with performance measured as the Labeled Attachment Score (LAS). H3 suggests that greater cosine similarity $s(\ell, \lambda)$ should correspond to higher performance on $\lambda$'s test set.
+
+	\subsection{Parameters}
+	\label{sub:parameters}
+		The model is first fine-tuned to Part A\footnote{The HDT treebank training data is split into various parts. With Part A being larger than the entire English-language treebank used by Choenni et al.~\cite{choenni-etal-2023-cross}, the decision was made to use just that part for training.} of the German training set. Choenni et al.~\cite{choenni-etal-2023-cross} use the English EWT treebank with \~12.5k samples in this stage and train for 60 epochs. To match the number of examples in this setup, training on the German treebank spans 11 epochs. In the second stage, the model instances are fine-tuned over 1\,000 iterations with a batch size of 20 for all languages $\ell$. In the third stage, the models are fine-tuned on 20 examples sampled randomly from each treebank of language $\lambda$. For the Upper Sorbian treebank, these are sampled from the train set. The other three treebanks do not split their data into separate sets; therefore, the sampled examples are removed from the dataset so as to prevent evaluating on them. 
+
+		Following Choenni et al.~\cite{choenni-etal-2023-cross}, a cosine-based learning rate scheduler with 10\,\% warm-up and the Adam optimizer are used. For the language model, a learning rate of $1e-04$ is used, and for the classifier, a learning rate of $1e-03$ is used.

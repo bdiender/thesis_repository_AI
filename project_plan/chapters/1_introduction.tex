@@ -1,0 +1,27 @@
+% Start with a brief introduction into the problem that your research will address, or the novel insights it is intended to yield, convincing the reader of the societal and scientific relevance of the task. If you do an external internship, also give the context of the internship provider. The intro may end with one or more research questions and/or a problem statement.
+
+\section{Introduction}
+\label{sec:introduction}
+	Language models like BERT~\cite{devlin-etal-2019-bert} have become a cornerstone technology in NLP research. In short, they are trained for next-word prediction in large datasets of text and, in doing so, pick up on linguistic properties that can be leveraged in a wide variety of downstream language-related tasks. Multilingual language models (MLMs) are trained on texts in many different languages. In the process, they pick up on both linguistic properties that are shared across all languages, as well as language-specific properties shared by only a subset of all languages. As a consequence, an MLM can bootstrap knowledge obtained from one language when dealing with another language in a process called \textbf{cross-lingual transfer}. This is particularly advantageous for low-resource languages. Such languages may not have enough data for a language model to adequately pick up on the language's patterns; however, in a multilingual setting, the model can use the patterns it picks up from more well-resourced languages in its training data.
+
+	Some linguistic patterns are language-universal, such as the presence of a subject-predicate structure to express who is doing what; whereas others are present only in a subset of the world's languages, such as strictly positioning a subject in front of its predicate. The study of which languages exhibit which patterns is called \textbf{linguistic typology}.~\cite{croft-2002-typology} It is intuitive that an MLM's ability to leverage properties of one language to improve its understanding of another depends on the typological similarity between the two languages. Given the importance of cross-lingual transfer for improving performance on low-resource languages, it is important to subject this intuition to scrutiny. Hence, the goal of this project is to investigate the role of typology in an MLM's adaptability to other languages. In particular, it aims to assess the following hypotheses:
+
+	\begin{list}{}{\leftmargin=1em \rightmargin=1em}
+		\item
+		\begin{enumerate}[label=\textbf{H\arabic*:}, leftmargin=*, align=left]
+		    \item When adapting to a typologically similar language, changes to the model parameters are less extensive than when the model adapts to a more distant language;
+		    \item When adapting to a typologically similar language, changes to the model parameters are minimal in the layers responsible for handling syntactic features;
+		    \item The performance of an MLM in a few-shot setting is positively correlated with the typological similarity to the languages it has already adapted to.
+		\end{enumerate}
+	\end{list}
+
+
+	\noindent The corresponding research questions are as follows:
+
+	\begin{list}{}{\leftmargin=1em \rightmargin=1em}
+		\item
+		\begin{enumerate}[label=\textbf{Q\arabic*:}, leftmargin=*, align=left]
+			\item How is typological distance reflected in the model parameters? (H1, H2)
+			\item How does typological distance affect cross-lingual transfer, as reflected by downstream performance? (H3)
+		\end{enumerate}
+	\end{list}
