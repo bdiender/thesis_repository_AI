@@ -3,11 +3,69 @@
 \usepackage{newtxtext,newtxmath}
 \usepackage{amsmath,amssymb}
 \usepackage{mathtools}
+\usepackage{parskip}
 \usepackage[utf8]{inputenc}
 \usepackage{geometry}
 
 \geometry{margin=2.5cm}
 
 \begin{document}
+	\section*{Forward pass through model}
+		Take the example sentence \textit{``The dog fetched the stick.''}, tokenize into [\texttt{[\textsc{cls}]}, ``The'', ``dog'', ``fetch'', ``\#\#ed'', ``the'', ``stick'', ``.'', \texttt{[\textsc{sep}]}]. Input vector $\mathbf{X} = \mathbf{E}_{\text{token}} + \mathbf{E}_{\text{segment}} + \mathbf{E}_{\text{position}} \in \mathbb{R}^{10 \times 768}$.
+
+		Output of layer $1$ is $U_1 = U_1(\mathbf{X}) \in \mathbb{R}^{10 \times 768}$, output of layer $k$ with $k \in [2...12]$ is $U_k = U_k(U_{k-1})$.
+
+		Calculate a weighted sum $r_{\!j}$ for token $j$ across all layers $i \in [1...12]$ as follows:
+
+		\begin{equation}
+			r_{\!j} = \eta \sum_{i=1}^{12}U_{i,j} \cdot \text{softmax}(\mathbf{\lambda})_i
+		\end{equation}
+
+		with $\eta$ a trainable scalar and $\lambda$ a vector of trainable scalar mixing weights. Tokens $[\textsc{cls}]$ and $[\text{sep}]$ are not used. In case of subword tokenization, only the first subtoken of a word is used.
+
+		Next, $r_{\!j}$ is passed through separate MLPs with 768 hidden dimensions and ELU non-linear activation:
+
+		\begin{equation}
+			\begin{aligned}
+				H_{\text{arc-head},j} &= \text{ELU}(W_{\text{arc-head }} r_{\!j} + b_{\text{arc-head}}) \\
+				H_{\text{arc-dep}.j} &= \text{ELU}(W_{\text{arc-dep }} r_{\!j} + b_{\text{arc-dep}})\\
+				H_{\text{tag-head},j} &= \text{ELU}(W_{\text{tag-head }} r_{\!j} + b_{\text{tag-head}}) \\
+				H_{\text{tag-dep},j} &= \text{ELU}(W_{\text{tag-dep }} r_{\!j} + b_{\text{tag-dep}})\\
+			\end{aligned}
+		\end{equation}
+
+		These are then used to score all possible dependency arcs:
+
+		\begin{equation}
+			\begin{aligned}
+				\mathcal{S}_\text{arc} &= H_\text{arc-head} \mathbf{W}_\text{arc}H_\text{arc-dep}^\top + \textbf{b}_\text{arc}\\
+				\mathcal{S}_\text{dep} &= H_\text{dep-head} \mathbf{W}_\text{dep}H_\text{dep-dep}^\top + \textbf{b}_\text{dep}
+			\end{aligned}
+		\end{equation}
+
+
+		Then the Chu-Liu/Egmonds algorithm is used to obtain a valid dependency tree:
+
+		\begin{enumerate}
+		    \item For each node $j \in \{1, \dots, n-1\}$, select the head:
+		    \[
+		        h_j = \arg\max_{i \in \{0, \dots, n-1\} \setminus \{j\}} \mathcal{S}_\text{arc}[i,j]
+		    \]
+		    \item Let $\mathcal{T} = \{(h_j, j) \mid j = 1, \dots, n-1\}$ be the set of selected arcs.
+		    \item If $\mathcal{T}$ forms a valid tree (i.e., no cycles), return $\mathcal{T}$.
+		    \item Otherwise, for each cycle $C \subseteq \mathcal{T}$:
+		    \begin{enumerate}
+		        \item Contract the cycle $C$ into a single supernode $v_C$.
+		        \item For each edge $(i, j)$ where $i \notin C$ and $j \in C$, define adjusted score:
+		        \[
+		            \tilde{\mathcal{S}}_\text{arc}[i, v_C] = \mathcal{S}_\text{arc}[i, j] - \mathcal{S}_\text{arc}[h_j, j] + \max_{k \in C} \mathcal{S}_\text{arc}[h_k, k]
+		        \]
+		        \item Re-run the algorithm recursively on the contracted graph.
+		        \item Expand the cycle $C$, replacing $v_C$ with the original nodes and recovering the incoming arc to the cycle that preserves the maximal score.
+		    \end{enumerate}
+		    \item Return the resulting tree $\mathcal{T}$ with maximum total arc score.
+		\end{enumerate}
+
+
 
 \end{document}
