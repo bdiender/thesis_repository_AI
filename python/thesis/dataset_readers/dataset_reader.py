@@ -4,16 +4,17 @@ Adapted from: https://github.com/Hyperparticle/udify/blob/master/udify/dataset_r
 
 from allennlp.data.dataset_readers.dataset_reader import DatasetReader, Instance
 from allennlp.data.fields import Field, TextField, SequenceLabelField, MetadataField
-from allennlp.data.token_indexers import TokenIndexer, SingleIdTokenIndexer
+from allennlp.data.token_indexers import TokenIndexer
+from allennlp.data.token_indexers.pretrained_transformer_indexer import PretrainedTransformerIndexer
 from allennlp.data.tokenizers import Token
 from allennlp.data.tokenizers.tokenizer import Tokenizer
-from allennlp.data.tokenizers.whitespace_tokenizer import WhitespaceTokenizer
+from allennlp.data.tokenizers.pretrained_transformer_tokenizer import PretrainedTransformerTokenizer
 
 from datasets import load_dataset
 from overrides import overrides
 from typing import Any, Callable, Dict, Iterable, List, Tuple
 
-from utils import process_multiword_tokens, gen_lemma_rule
+from dataset_readers.utils import process_multiword_tokens, gen_lemma_rule
 
 import ast
 
@@ -25,8 +26,8 @@ class UniversalDependenciesReader(DatasetReader):
                  split: str = 'train'):
         super().__init__()
         self.split = split
-        self.tokenizer = tokenizer or WhitespaceTokenizer()
-        self._token_indexers = token_indexers or {'tokens': SingleIdTokenIndexer()}
+        self.tokenizer = tokenizer or PretrainedTransformerTokenizer(model_name='bert-base-multilingual-cased')  # TODO: Check
+        self._token_indexers = token_indexers or {'tokens': PretrainedTransformerIndexer(model_name='bert-base-multilingual-cased')}
     
     @overrides
     def _read(self, file_path: str) -> Iterable[Instance]:            
