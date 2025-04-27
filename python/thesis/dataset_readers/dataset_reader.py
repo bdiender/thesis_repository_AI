@@ -18,18 +18,27 @@ from dataset_readers.utils import process_multiword_tokens, gen_lemma_rule
 
 import ast
 
-@DatasetReader.register('ud_reader')
+@DatasetReader.register("ud_reader")
 class UniversalDependenciesReader(DatasetReader):
-    def __init__(self,
-                 tokenizer: Tokenizer = None,
-                 token_indexers: Dict[str, TokenIndexer] = None,
-                 split: str = 'train'):
+    def __init__(
+        self,
+        tokenizer: Tokenizer = None,
+        token_indexers: Dict[str, TokenIndexer] = None,
+        split: str = "train",
+    ):
         super().__init__()
         self.split = split
-        self.tokenizer = tokenizer or PretrainedTransformerTokenizer(model_name='bert-base-multilingual-cased')  # TODO: Check
-        self._token_indexers = token_indexers or {'tokens': PretrainedTransformerIndexer(model_name='bert-base-multilingual-cased')}
+        self.tokenizer = tokenizer or PretrainedTransformerTokenizer(
+            model_name="bert-base-multilingual-cased",
+        )
+        # now refer to the indexer you imported up above
+        self._token_indexers = token_indexers or {
+            "tokens": PretrainedTransformerIndexer(
+                model_name="bert-base-multilingual-cased"
+            )
+        }
     
-    @overrides
+    @overrides(check_signature=False)
     def _read(self, file_path: str) -> Iterable[Instance]:            
         tb = load_dataset('universal_dependencies', file_path, split=self.split)
 

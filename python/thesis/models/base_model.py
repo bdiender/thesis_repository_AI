@@ -33,7 +33,7 @@ class BaseModel(Model):
         super(BaseModel, self).__init__(vocab, regularizer)
 
         self.vocab = vocab
-        self.bert_vocab = BertTokenizer.from_pretrained()
+        self.bert_vocab = BertTokenizer.from_pretrained('bert-base-multilingual-cased')
         self.text_field_embedder = text_field_embedder
         self.post_encoder_embedder = post_encoder_embedder
         self.shared_encoder = encoder
@@ -48,48 +48,63 @@ class BaseModel(Model):
                                "text field embedding dim", "encoder input dim")
         initializer(self)
     
-    @overrides
+    @overrides(check_signature=False)
     def forward(
         self,
-        tokens: Dict[str, torch.Tensor],
-        head_tags: Optional[torch.Tensor]    = None,
+        tokens: Dict[str, Dict[str, torch.Tensor]],
+        head_tags: Optional[torch.Tensor] = None,
         head_indices: Optional[torch.Tensor] = None,
-        metadata: Optional[List[Dict[str, Any]]] = None
+        metadata: Optional[List[Dict[str, Any]]] = None,
     ) -> Dict[str, torch.Tensor]:
         mask = get_text_field_mask(tokens)
 
-        embedded_text_input = self.text_field_embedder(tokens)
-        encoded_text = self.shared_encoder(embedded_text_input, mask)
+        transformer_inputs = tokens["tokens"]
+        input_ids = transformer_inputs["token_ids"]
+        attention_mask = transformer_inputs["mask"]
+        token_type_ids = transformer_inputs.get("type_ids", None)
 
-        decoder_input = self.scalar_mix(encoded_text, mask)
+        embedder = self.text_field_embedder._token_embedders["tokens"]
+        outputs = embedder.transformer_model(
+            input_ids=input_ids,
+            attention_mask=attention_mask,
+            token_type_ids=token_type_ids,
+            output_hidden_states=True,
+            return_dict=True,
+        )
+
+        hidden_states = outputs.hidden_states
+        bert_layers = list(hidden_states[1:])
+
+        decoder_input = self.scalar_mix(bert_layers, mask)
+
+        encoded_text = self.shared_encoder(decoder_input, mask)
 
         if self.post_encoder_embedder:
-            post_embeddings = self.post_encoder_embedder(tokens)
-            decoder_input = decoder_input + post_embeddings
+            post_emb = self.post_encoder_embedder(tokens)
+            encoded_text = encoded_text + post_emb
 
         pred_output = self.decoder(
-            decoder_input,
+            encoded_text,
             mask,
             head_tags,
             head_indices,
-            metadata
+            metadata,
         )
 
         output_dict = {
-            'heads': pred_output['heads'],
-            'head_tags': pred_output['head_tags'],
-            'arc_loss': pred_output.get('arc_loss', 0.0),
-            'tag_loss': pred_output.get('tag_loss', 0.0),
-            'mask': pred_output['mask'],
+            "heads": pred_output["heads"],
+            "head_tags": pred_output["head_tags"],
+            "arc_loss": pred_output.get("arc_loss", 0.0),
+            "tag_loss": pred_output.get("tag_loss", 0.0),
+            "mask": pred_output["mask"],
         }
-
-        if 'loss' in pred_output:
-            output_dict['loss'] = pred_output['loss']
+        if "loss" in pred_output:
+            output_dict["loss"] = pred_output["loss"]
 
         if metadata is not None:
-            output_dict['words'] = [x['words'] for x in metadata]
-            output_dict['ids'] = [x['ids'] for x in metadata if "ids" in x]
-            output_dict['multiword_ids'] = [x['multiword_ids'] for x in metadata if 'multiword_ids' in x]
-            output_dict['multiword_forms'] = [x['multiword_forms'] for x in metadata if 'multiword_forms' in x]
+            output_dict["words"] = [x["words"] for x in metadata]
+            output_dict["ids"] = [x["ids"] for x in metadata if "ids" in x]
+            output_dict["multiword_ids"] = [x["multiword_ids"] for x in metadata if "multiword_ids" in x]
+            output_dict["multiword_forms"] = [x["multiword_forms"] for x in metadata if "multiword_forms" in x]
 
         return output_dict

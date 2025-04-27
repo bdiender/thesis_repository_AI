@@ -32,8 +32,8 @@ class DependencyDecoder(Model):
                 encoder: Seq2SeqEncoder,
                 tag_representation_dim: int,
                 arc_representation_dim: int,
-                tag_feedforward: FeedForward = None,
-                arc_feedforward: FeedForward = None,
+                tag_mlp: FeedForward = None,
+                arc_mlp: FeedForward = None,
                 dropout: float = 0.0,
                 initializer: InitializerApplicator = InitializerApplicator(),
                 regularizer: Optional[RegularizerApplicator] = None) -> None:
@@ -43,17 +43,17 @@ class DependencyDecoder(Model):
         self.encoder = encoder
         encoder_output_dim = encoder.get_output_dim()
 
-        self.head_arc_feedforward = arc_feedforward or FeedForward(
+        self.head_arc_mlp = arc_mlp or FeedForward(
             encoder_output_dim, 1, arc_representation_dim, Activation.by_name('elu')())
-        self.child_arc_feedforward = copy.deepcopy(self.head_arc_feedforward)
+        self.child_arc_mlp = copy.deepcopy(self.head_arc_mlp)
 
         self.arc_attention = BilinearMatrixAttention(arc_representation_dim, arc_representation_dim, use_input_biases=True)
 
         num_labels = self.vocab.get_vocab_size('head_tags')
 
-        self.head_tag_feedforward = tag_feedforward or FeedForward(
+        self.head_tag_mlp = tag_mlp or FeedForward(
             encoder_output_dim, 1, tag_representation_dim, Activation.by_name('elu')())
-        self.child_tag_feedforward = copy.deepcopy(self.head_tag_feedforward)
+        self.child_tag_mlp = copy.deepcopy(self.head_tag_mlp)
 
         self.tag_bilinear = torch.nn.Bilinear(tag_representation_dim, tag_representation_dim, num_labels)
 
@@ -62,14 +62,14 @@ class DependencyDecoder(Model):
 
         initializer(self)
 
-    @overrides
+    @overrides(check_signature=False)
     def forward(
         self,
         encoded_text: torch.Tensor,
-        mask:         torch.Tensor,
-        head_tags:    Optional[torch.Tensor],
+        mask: torch.Tensor,
+        head_tags: Optional[torch.Tensor],
         head_indices: Optional[torch.Tensor],
-        metadata:     Optional[List[Dict[str, Any]]]
+        metadata: Optional[List[Dict[str, Any]]]
     ) -> Dict[str, torch.Tensor]:
         batch_size, _, _ = encoded_text.size()
         encoded_text = self.encoder(encoded_text, mask)
@@ -85,11 +85,11 @@ class DependencyDecoder(Model):
         float_mask = mask.float()
         encoded_text = self._dropout(encoded_text)
 
-        head_arc_representation = self._dropout(self.head_arc_feedforward(encoded_text))
-        child_arc_representation = self._dropout(self.child_arc_feedforward(encoded_text))
+        head_arc_representation = self._dropout(self.head_arc_mlp(encoded_text))
+        child_arc_representation = self._dropout(self.child_arc_mlp(encoded_text))
 
-        head_tag_representation = self._dropout(self.head_tag_feedforward(encoded_text))
-        child_tag_representation = self._dropout(self.child_tag_feedforward(encoded_text))
+        head_tag_representation = self._dropout(self.head_tag_mlp(encoded_text))
+        child_tag_representation = self._dropout(self.child_tag_mlp(encoded_text))
 
         attended_arcs = self.arc_attention(head_arc_representation, child_arc_representation)
 
