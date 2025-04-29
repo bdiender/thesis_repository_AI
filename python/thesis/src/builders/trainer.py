@@ -11,7 +11,8 @@ def build_trainer(
         model: Model,
         train_loader: SimpleDataLoader,
         dev_loader:SimpleDataLoader,
-        cfg: Dict[str, Any]
+        cfg: Dict[str, Any],
+        cuda_device: int
     ):
 
     training_cfg = cfg['training']
@@ -31,5 +32,5 @@ def build_trainer(
         learning_rate_scheduler=scheduler,
         num_epochs=training_cfg['epochs'],
         serialization_dir=training_cfg['output_dir'],
-        cuda_device=cfg['cuda_device']
+        cuda_device=cuda_device
     )

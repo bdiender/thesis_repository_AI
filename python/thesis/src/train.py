@@ -37,7 +37,7 @@ def main():
     train_loader, dev_loader = make_data_loaders(train_ds, dev_ds, vocab, cfg)
 
     model = build_model(cfg, vocab, cuda_device=cuda_device)
-    trainer = build_trainer(model, train_loader, dev_loader, cfg)
+    trainer = build_trainer(model, train_loader, dev_loader, cfg, cuda_device)
     trainer.train()
 
 if __name__ == "__main__":
