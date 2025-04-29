@@ -1,8 +1,10 @@
 from allennlp.data import Vocabulary
 from allennlp.data.dataset_readers.dataset_reader import Instance
 from allennlp.data.data_loaders import SimpleDataLoader
+
 from dataset_readers.dataset_reader import UniversalDependenciesReader
 from typing import Any, Dict, List, Tuple
+import random
 
 
 def make_datasets(cfg: Dict[str, Any]) -> Tuple[List[Instance], List[Instance]]:
@@ -19,8 +21,8 @@ def build_vocab(train: List[Instance], dev: List[Instance]) -> Vocabulary:
 
 def make_data_loaders(train: List[Instance], dev: List[Instance],
                       vocab: Vocabulary, cfg: Dict[str, Any]) -> Tuple[SimpleDataLoader, SimpleDataLoader]:
-    batch_size = cfg['data_loading']['batch_size']
-    train_loader = SimpleDataLoader(train, batch_size=batch_size, shuffle=cfg['data_loading']['shuffle'])
+    batch_size = cfg['dataset']['load_batch_size']
+    train_loader = SimpleDataLoader(train, batch_size=batch_size, shuffle=True)
     dev_loader = SimpleDataLoader(dev, batch_size=batch_size, shuffle=False)
 
     for loader in (train_loader, dev_loader):

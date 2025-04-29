@@ -1,0 +1,32 @@
+defaults: &defaults
+  cuda_device: -1
+  seed: 1
+  training: &training_defaults
+    lr: 0.0001
+    warmup_rate: 0.1
+  model: &model_defaults
+    encoder: &encoder_defaults
+      hidden_size: 384
+      num_layers: 2
+      bidirectional: True
+      batch_first: True
+    decoder: &decoder_defaults
+      tag_repr_dim: 256
+      arc_repr_dim: 256
+      dropout: 0.2
+    layer_dropout: 0.1
+
+nl_lassysmall_test:
+  <<: *defaults
+  training:
+    <<: *training_defaults
+    epochs: 6
+    output_dir: outputs/nld_test/
+    num_steps_per_epoch: 643
+  dataset:
+    name: nl_lassysmall
+    splits:
+      train: train
+      dev: validation
+      test: test
+    load_batch_size: 9
