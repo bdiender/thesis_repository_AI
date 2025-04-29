@@ -26,8 +26,7 @@ def main():
     train_loader, dev_loader = make_data_loaders(train_ds, dev_ds, vocab, cfg)
 
     model = build_model(vocab, cfg, cuda_device=cuda_device)
-    optimizer = build_optimizer(model, cfg)
-    trainer = build_trainer(model, optimizer, train_loader, dev_loader, cfg)
+    trainer = build_trainer(model, train_loader, dev_loader, cfg)
     trainer.train()
 
 if __name__ == "__main__":
