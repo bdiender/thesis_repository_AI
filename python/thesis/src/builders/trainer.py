@@ -3,7 +3,7 @@ from allennlp.models.model import Model
 from allennlp.training.gradient_descent_trainer import GradientDescentTrainer
 from allennlp.training.learning_rate_schedulers import CombinedLearningRateScheduler, LearningRateScheduler
 
-from torch.optim import Adam, Optimizer
+from torch.optim import Adam
 from typing import Any, Dict
 
 

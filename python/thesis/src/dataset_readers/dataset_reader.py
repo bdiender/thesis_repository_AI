@@ -14,7 +14,7 @@ from datasets import load_dataset
 from overrides import overrides
 from typing import Any, Callable, Dict, Iterable, List, Tuple
 
-from thesis.src.dataset_readers.reader_utils import process_multiword_tokens, gen_lemma_rule
+from dataset_readers.reader_utils import process_multiword_tokens, gen_lemma_rule
 
 import ast
 
@@ -25,13 +25,14 @@ class UniversalDependenciesReader(DatasetReader):
         tokenizer: Tokenizer = None,
         token_indexers: Dict[str, TokenIndexer] = None,
         split: str = "train",
+        data_dir: str = None,
     ):
         super().__init__()
         self.split = split
         self.tokenizer = tokenizer or PretrainedTransformerTokenizer(
             model_name="bert-base-multilingual-cased",
         )
-        # now refer to the indexer you imported up above
+
         self._token_indexers = token_indexers or {
             "tokens": PretrainedTransformerIndexer(
                 model_name="bert-base-multilingual-cased"
@@ -40,7 +41,7 @@ class UniversalDependenciesReader(DatasetReader):
     
     @overrides(check_signature=False)
     def _read(self, file_path: str) -> Iterable[Instance]:            
-        tb = load_dataset('universal_dependencies', file_path, split=self.split)
+        tb = load_dataset('universal_dependencies', file_path, split=self.split, data_dir=self.data_dir)
 
         def restructure_example(example: Dict) -> List[Dict]:
             tokens = example['tokens']
