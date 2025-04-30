@@ -41,8 +41,9 @@ class UniversalDependenciesReader(DatasetReader):
     
     @overrides(check_signature=False)
     def _read(self, file_path: str) -> Iterable[Instance]:
-        if os.path.isfile(file_path) and file_path.endswith(".conllu"):
-            tb = parse_incr(open(file_path, encoding="utf-8"))
+        local_path = f'{file_path}-{self.split}.conllu'
+        if os.path.isfile(local_path):
+            tb = parse_incr(open(local_path, encoding="utf-8"))
             local = True
         else:
             tb = load_dataset("universal_dependencies", file_path, split=self.split)
