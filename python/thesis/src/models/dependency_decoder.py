@@ -99,6 +99,10 @@ class DependencyDecoder(Model):
 
         predicted_heads, predicted_head_tags = self._mst_decode(
             head_tag_representation, child_tag_representation, attended_arcs, mask)
+        device = encoded_text.device ##
+        predicted_heads = predicted_heads.to(device)
+        predicted_head_tags = predicted_head_tags.to(device)
+
 
         arc_nll, tag_nll = self._construct_loss(
             head_tag_representation, child_tag_representation, attended_arcs,
