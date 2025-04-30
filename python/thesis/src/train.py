@@ -1,8 +1,11 @@
 import argparse
 import numpy as np
+import os
 import random
 import torch
 import torch.backends
+
+from allennlp.common.params import Params
 
 from builders.data import make_datasets, build_vocab, make_data_loaders
 from builders.model import build_model
@@ -42,6 +45,10 @@ def main():
 
     trainer = build_trainer(model, train_loader, dev_loader, cfg, cuda_device)
     trainer.train()
+
+    # torch.save(model.state_dict(), os.path.join(cfg['training']['output_dir'], 'weights.th'))
+    # vocab.save_to_files(os.path.join(cfg['training']['output_dir'], 'vocabulary'))
+    # Params.from_file(args.config)
 
 if __name__ == "__main__":
     main()
