@@ -113,5 +113,5 @@ class BaseModel(Model):
     def get_metrics(self, reset: bool=False) -> Dict[str, float]:
         metrics = super().get_metrics(reset)
         for i, smw in enumerate(self.scalar_mix.scalar_parameters):
-            metrics[f'scalar_mix_weight_{i}'] = w.item()
+            metrics[f'scalar_mix_weight_{i}'] = smw.item()
         return metrics

@@ -16,7 +16,14 @@ def build_trainer(
     ):
 
     training_cfg = cfg['training']
-    optimizer = Adam(model.parameters(), lr=training_cfg['lr'])
+
+    classifier_params = list(model.decoder.parameters())
+    model_params = [p for p in model.parameters() if p not in classifier_params]
+
+    optimizer = Adam(
+        {'params': model_params, 'lr': training_cfg['lr_model']},
+        {'params': classifier_params, 'lr': training_cfg['lr_classifier']}
+    )
     num_warmup_steps = int(training_cfg['warmup_rate'] * training_cfg['num_steps_per_epoch'])
     scheduler = CosineWithWarmupLearningRateScheduler(
         optimizer=optimizer,
