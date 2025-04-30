@@ -141,7 +141,7 @@ class UniversalDependenciesReader(DatasetReader):
                 for i in range(len(tokens))
             ]
 
-reader = UniversalDependenciesReader(split="train")
+# reader = UniversalDependenciesReader(split="train")
 
 # print(f"Faroese: {len(fo_data)} sentences")
 # first_fo = fo_data[0]

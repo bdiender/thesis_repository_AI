@@ -108,3 +108,10 @@ class BaseModel(Model):
             output_dict["multiword_forms"] = [x["multiword_forms"] for x in metadata if "multiword_forms" in x]
 
         return output_dict
+    
+    @overrides(check_signature=False)
+    def get_metrics(self, reset: bool=False) -> Dict[str, float]:
+        metrics = super().get_metrics(reset)
+        for i, smw in enumerate(self.scalar_mix.scalar_parameters):
+            metrics[f'scalar_mix_weight_{i}'] = w.item()
+        return metrics
