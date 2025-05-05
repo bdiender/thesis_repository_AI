@@ -31,3 +31,18 @@ nl_lassysmall_test:
       dev: validation
       test: test
     load_batch_size: 9
+
+hu_szeged_test:
+  <<: *defaults
+  training:
+    <<: *training_defaults
+    epochs: 3
+    output_dir: outputs/hun_test
+    num_steps_per_epoch: 91
+  dataset:
+    name: hu_szeged
+    splits:
+      train: train
+      dev: validation
+      test: test
+    load_batch_size: 10

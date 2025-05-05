@@ -47,6 +47,10 @@ class BaseModel(Model):
         check_dimensions_match(text_field_embedder.get_output_dim(), encoder.get_output_dim(),
                                "text field embedding dim", "encoder input dim")
         initializer(self)
+        print("Checking ScalarMix parameters:")
+        for name, param in self.named_parameters():
+            if 'scalar' in name or 'gamma' in name:
+                print(f"  {name}: requires_grad={param.requires_grad}, value={param.data}")
     
     @overrides(check_signature=False)
     def forward(

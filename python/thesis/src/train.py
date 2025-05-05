@@ -46,9 +46,8 @@ def main():
     trainer = build_trainer(model, train_loader, dev_loader, cfg, cuda_device)
     trainer.train()
 
-    # torch.save(model.state_dict(), os.path.join(cfg['training']['output_dir'], 'weights.th'))
-    # vocab.save_to_files(os.path.join(cfg['training']['output_dir'], 'vocabulary'))
-    # Params.from_file(args.config)
+    torch.save(model.state_dict(), os.path.join(cfg['training']['output_dir'], 'weights.th'))
+    vocab.save_to_files(os.path.join(cfg['training']['output_dir'], 'vocabulary'))
 
 if __name__ == "__main__":
     main()
