@@ -1,0 +1,529 @@
+# sent_id = s67
+# text = Und jò, tròtz dä liächtä Ghirnerschütterig wäg dä 2000 YB-Fans, hani mi nò seer guät chönä dra ärinnärä.
+1	Und	_	CCONJ	KON	_	20	advmod	_	_
+2	jò	_	ADV	ADV	_	20	advmod	_	SpaceAfter=No
+3	,	_	PUNCT	$,	_	20	punct	_	_
+4	tròtz	_	ADP	APPR	_	7	case	_	_
+5	dä	_	DET	ART	_	7	det	_	_
+6	liächtä	_	ADJ	ADJA	_	7	amod	_	_
+7	Ghirnerschütterig	_	NOUN	NN	_	20	obl	_	_
+8	wäg	_	ADP	APPR	_	11	case	_	_
+9	dä	_	DET	ART	_	11	det	_	_
+10	2000	_	NUM	CARD	_	11	nummod	_	_
+11	YB-Fans	_	NOUN	NN	_	7	nmod	_	SpaceAfter=No
+12	,	_	PUNCT	$,	_	20	punct	_	_
+13	hani	_	AUX	VAFIN+	_	20	aux	_	_
+14	mi	_	PRON	PRF	_	20	obj	_	_
+15	nò	_	ADV	ADV	_	20	advmod	_	_
+16	seer	_	ADV	ADV	_	17	advmod	_	_
+17	guät	_	ADJ	ADJD	_	20	advmod	_	_
+18	chönä	_	AUX	VMPP	_	20	aux	_	_
+19	dra	_	ADV	PAV	_	20	obj	_	_
+20	ärinnärä	_	VERB	VVINF	_	0	root	_	SpaceAfter=No
+21	.	_	PUNCT	$.	_	20	punct	_	_
+
+# sent_id = s10
+# text = bin mal gspannt wie das wird und hoffe dasi e gueti Klass han.
+1	bin	_	AUX	VAFIN	_	3	cop	_	_
+2	mal	_	ADV	ADV	_	3	advmod	_	_
+3	gspannt	_	ADJ	ADJD	_	0	root	_	_
+4	wie	_	SCONJ	KOUS	_	6	mark	_	_
+5	das	_	PRON	PDS	_	6	nsubj	_	_
+6	wird	_	AUX	VAFIN	_	3	advcl	_	_
+7	und	_	CCONJ	KON	_	8	cc	_	_
+8	hoffe	_	VERB	VVFIN	_	6	conj	_	_
+9	dasi	_	SCONJ	KOUS+	_	13	mark	_	_
+10	e	_	DET	ART	_	12	det	_	_
+11	gueti	_	ADJ	ADJA	_	12	amod	_	_
+12	Klass	_	NOUN	NN	_	13	obj	_	_
+13	han	_	AUX	VAFIN	_	8	ccomp	_	SpaceAfter=No
+14	.	_	PUNCT	$.	_	3	punct	_	_
+
+# sent_id = s92
+# text = Irgendeinisch het de d Denise äuä gmerkt, dass es zimlech sinnlos isch mit mir.
+1	Irgendeinisch	_	ADV	ADV	_	7	advmod	_	_
+2	het	_	AUX	VAFIN	_	7	aux	_	_
+3	de	_	ADV	ADV	_	7	advmod	_	_
+4	d	_	DET	ART	_	5	det	_	_
+5	Denise	_	PROPN	NE	_	7	nsubj	_	_
+6	äuä	_	ADV	ADV	_	7	advmod	_	_
+7	gmerkt	_	VERB	VVPP	_	0	root	_	SpaceAfter=No
+8	,	_	PUNCT	$,	_	7	punct	_	_
+9	dass	_	SCONJ	KOUS	_	12	mark	_	_
+10	es	_	PRON	PPER	_	12	expl	_	_
+11	zimlech	_	ADV	ADV	_	12	advmod	_	_
+12	sinnlos	_	ADJ	ADJD	_	7	ccomp	_	_
+13	isch	_	AUX	VAFIN	_	12	cop	_	_
+14	mit	_	ADP	APPR	_	15	case	_	_
+15	mir	_	PRON	PPER	_	12	obl	_	SpaceAfter=No
+16	.	_	PUNCT	$.	_	7	punct	_	_
+
+# sent_id = s100
+# text = Vore gwüsse Lohnklass aa chasch äbe nümm lauere.
+1	Vore	_	ADP	APPRART	_	3	case	_	_
+2	gwüsse	_	ADJ	ADJA	_	3	amod	_	_
+3	Lohnklass	_	NOUN	NN	_	8	obl	_	_
+4	aa	_	ADP	APZR	_	3	case	_	_
+5	chasch	_	AUX	VMFIN	_	8	aux	_	_
+6	äbe	_	ADV	ADV	_	8	advmod	_	_
+7	nümm	_	PART	PTKNEG	_	8	advmod	_	_
+8	lauere	_	VERB	VVINF	_	0	root	_	SpaceAfter=No
+9	.	_	PUNCT	$.	_	8	punct	_	_
+
+# sent_id = s43
+# text = d Region Möhli-basel isch die wärmscht Region nördlich vode Alpe und het bis zu 40 Sunnetäg mehr z verzeichne als s Mittelland.
+1	d	_	DET	ART	_	2	det	_	_
+2	Region	_	NOUN	NN	_	7	nsubj	_	_
+3	Möhli-basel	_	PROPN	NE	_	2	flat	_	_
+4	isch	_	AUX	VAFIN	_	7	cop	_	_
+5	die	_	DET	ART	_	7	det	_	_
+6	wärmscht	_	ADJ	ADJA	_	7	amod	_	_
+7	Region	_	NOUN	NN	_	0	root	_	_
+8	nördlich	_	ADP	APPR	_	10	case	_	_
+9	vode	_	ADP	APPRART	_	10	case	_	_
+10	Alpe	_	PROPN	NE	_	7	nmod	_	_
+11	und	_	CCONJ	KON	_	19	cc	_	_
+12	het	_	AUX	VAFIN	_	19	aux	_	_
+13	bis	_	ADP	APPR	_	16	case	_	_
+14	zu	_	ADP	APPR	_	13	fixed	_	_
+15	40	_	NUM	CARD	_	16	nummod	_	_
+16	Sunnetäg	_	NOUN	NN	_	19	obl	_	_
+17	mehr	_	ADV	ADV	_	16	amod	_	_
+18	z	_	PART	PTKZU	_	19	mark	_	_
+19	verzeichne	_	VERB	VVINF	_	7	conj	_	_
+20	als	_	CCONJ	KOKOM	_	22	case	_	_
+21	s	_	DET	ART	_	22	det	_	_
+22	Mittelland	_	NOUN	NN	_	16	nmod	_	SpaceAfter=No
+23	.	_	PUNCT	$.	_	7	punct	_	_
+
+# sent_id = s31
+# text = ich wär am liebste wider is Bett go schlofe.
+1	ich	_	PRON	PPER	_	9	nsubj	_	_
+2	wär	_	AUX	VAFIN	_	9	aux	_	_
+3	am	_	PART	PTKA	_	4	mark	_	_
+4	liebste	_	ADJ	ADJD	_	9	advmod	_	_
+5	wider	_	ADV	ADV	_	9	advmod	_	_
+6	is	_	ADP	APPRART	_	7	case	_	_
+7	Bett	_	NOUN	NN	_	9	obl	_	_
+8	go	_	PART	PTKINF	_	9	mark	_	_
+9	schlofe	_	VERB	VVINF	_	0	root	_	SpaceAfter=No
+10	.	_	PUNCT	$.	_	9	punct	_	_
+
+# sent_id = s79
+# text = Es söu doch bitte öpper derfür luege, dass d Wäut ougeblicklech ufhört drääje!
+1	Es	_	PRON	PPER	_	7	expl	_	_
+2	söu	_	AUX	VMFIN	_	7	aux	_	_
+3	doch	_	ADV	ADV	_	7	amod	_	_
+4	bitte	_	ADV	ADV	_	7	amod	_	_
+5	öpper	_	PRON	PIS	_	7	nsubj	_	_
+6	derfür	_	ADV	PAV	_	7	advmod	_	_
+7	luege	_	VERB	VVINF	_	0	root	_	SpaceAfter=No
+8	,	_	PUNCT	$,	_	7	punct	_	_
+9	dass	_	SCONJ	KOUS	_	13	mark	_	_
+10	d	_	DET	ART	_	11	det	_	_
+11	Wäut	_	NOUN	NN	_	13	nsubj	_	_
+12	ougeblicklech	_	ADV	ADV	_	13	amod	_	_
+13	ufhört	_	VERB	VVFIN	_	7	ccomp	_	_
+14	drääje	_	VERB	VVINF	_	13	xcomp	_	SpaceAfter=No
+15	!	_	PUNCT	$.	_	7	punct	_	_
+
+# sent_id = s68
+# text = Und denn simmer inä, und dä Reto Brüelmaa isch scho parat gsi mit sim Referat inklusive PowerPoint-Präsentation.
+1	Und	_	CCONJ	KON	_	3	advmod	_	_
+2	denn	_	ADV	ADV	_	3	advmod	_	_
+3	simmer	_	AUX	VAFIN+	_	0	root	_	_
+4	inä	_	ADV	ADV	_	3	advmod	_	SpaceAfter=No
+5	,	_	PUNCT	$,	_	12	punct	_	_
+6	und	_	CCONJ	KON	_	12	cc	_	_
+7	dä	_	DET	ART	_	8	det	_	_
+8	Reto	_	PROPN	NE	_	12	nsubj	_	_
+9	Brüelmaa	_	PROPN	NE	_	8	flat	_	_
+10	isch	_	AUX	VAFIN	_	12	aux	_	_
+11	scho	_	ADV	ADV	_	12	advmod	_	_
+12	parat	_	ADJ	ADJD	_	3	conj	_	_
+13	gsi	_	AUX	VAPP	_	12	cop	_	_
+14	mit	_	ADP	APPR	_	16	case	_	_
+15	sim	_	DET	PPOSAT	_	16	nmod:poss	_	_
+16	Referat	_	NOUN	NN	_	12	obl	_	_
+17	inklusive	_	ADP	APPR	_	18	case	_	_
+18	PowerPoint-Präsentation	_	NOUN	NN	_	16	nmod	_	SpaceAfter=No
+19	.	_	PUNCT	$.	_	12	punct	_	_
+
+# sent_id = s27
+# text = De Spanier hed de Kontakt vermettlet, d Rumäne sölled d Holländer ombrocht ha.
+1	De	_	DET	ART	_	2	det	_	_
+2	Spanier	_	NOUN	NN	_	6	nsubj	_	_
+3	hed	_	AUX	VAFIN	_	6	aux	_	_
+4	de	_	DET	ART	_	5	det	_	_
+5	Kontakt	_	NOUN	NN	_	6	obj	_	_
+6	vermettlet	_	VERB	VVPP	_	0	root	_	SpaceAfter=No
+7	,	_	PUNCT	$,	_	13	punct	_	_
+8	d	_	DET	ART	_	9	det	_	_
+9	Rumäne	_	NOUN	NN	_	13	nsubj	_	_
+10	sölled	_	AUX	VMFIN	_	13	aux	_	_
+11	d	_	DET	ART	_	12	det	_	_
+12	Holländer	_	NOUN	NN	_	13	obj	_	_
+13	ombrocht	_	VERB	VVPP	_	6	conj	_	_
+14	ha	_	AUX	VAINF	_	13	aux	_	SpaceAfter=No
+15	.	_	PUNCT	$.	_	6	punct	_	_
+
+# sent_id = s39
+# text = Uf der andere Siite isch ja nöd èèr Tschuld am Freischpruch.
+1	Uf	_	ADP	APPR	_	4	case	_	_
+2	der	_	DET	ART	_	4	det	_	_
+3	andere	_	ADJ	ADJA	_	4	amod	_	_
+4	Siite	_	NOUN	NN	_	9	obl	_	_
+5	isch	_	AUX	VAFIN	_	9	cop	_	_
+6	ja	_	ADV	ADV	_	9	advmod	_	_
+7	nöd	_	PART	PTKNEG	_	9	advmod	_	_
+8	èèr	_	PRON	PPER	_	9	nsubj	_	_
+9	Tschuld	_	ADJ	ADJD	_	0	root	_	_
+10	am	_	ADP	APPRART	_	11	case	_	_
+11	Freischpruch	_	NOUN	NN	_	9	obl	_	SpaceAfter=No
+12	.	_	PUNCT	$.	_	9	punct	_	_
+
+# sent_id = s78
+# text = Aui hei glachet über di knappi Geografiilektion, numen ig nid.
+1	Aui	_	PRON	PIS	_	3	nsubj	_	_
+2	hei	_	AUX	VAFIN	_	3	aux	_	_
+3	glachet	_	VERB	VVPP	_	0	root	_	_
+4	über	_	ADP	APPR	_	7	case	_	_
+5	di	_	DET	ART	_	7	det	_	_
+6	knappi	_	ADJ	ADJA	_	7	amod	_	_
+7	Geografiilektion	_	NOUN	NN	_	3	obl	_	SpaceAfter=No
+8	,	_	PUNCT	$,	_	3	punct	_	_
+9	numen	_	ADV	ADV	_	10	advmod	_	_
+10	ig	_	PRON	PPER	_	3	conj	_	_
+11	nid	_	PART	PTKNEG	_	10	advmod	_	SpaceAfter=No
+12	.	_	PUNCT	$.	_	3	punct	_	_
+
+# sent_id = s36
+# text = Di beede halbe Sätz sind nöd diräkt ggloge gsii, aber hèrt a de Waret verbii.
+1	Di	_	DET	ART	_	4	det	_	_
+2	beede	_	DET	PIAT	_	4	det	_	_
+3	halbe	_	ADJ	ADJA	_	4	amod	_	_
+4	Sätz	_	NOUN	NN	_	8	nsubj	_	_
+5	sind	_	AUX	VAFIN	_	8	aux	_	_
+6	nöd	_	PART	PTKNEG	_	7	advmod	_	_
+7	diräkt	_	ADJ	ADJD	_	8	advmod	_	_
+8	ggloge	_	VERB	VVPP	_	0	root	_	_
+9	gsii	_	AUX	VAPP	_	8	aux	_	SpaceAfter=No
+10	,	_	PUNCT	$,	_	16	punct	_	_
+11	aber	_	CCONJ	KON	_	16	cc	_	_
+12	hèrt	_	ADJ	ADJD	_	16	advmod	_	_
+13	a	_	ADP	APPR	_	15	case	_	_
+14	de	_	DET	ART	_	15	det	_	_
+15	Waret	_	NOUN	NN	_	16	obl	_	_
+16	verbii	_	ADJ	ADJD	_	8	conj	_	SpaceAfter=No
+17	.	_	PUNCT	$.	_	8	punct	_	_
+
+# sent_id = s82
+# text = Isch das e Sach gsi, bis mer se gfunge hei gha.
+1	Isch	_	AUX	VAFIN	_	4	aux	_	_
+2	das	_	PRON	PDS	_	4	nsubj	_	_
+3	e	_	DET	ART	_	4	det	_	_
+4	Sach	_	NOUN	NN	_	0	root	_	_
+5	gsi	_	AUX	VAPP	_	4	cop	_	SpaceAfter=No
+6	,	_	PUNCT	$,	_	4	punct	_	_
+7	bis	_	SCONJ	KOUS	_	10	mark	_	_
+8	mer	_	PRON	PPER	_	10	nsubj	_	_
+9	se	_	PRON	PPER	_	10	obj	_	_
+10	gfunge	_	VERB	VVPP	_	4	acl	_	_
+11	hei	_	AUX	VAFIN	_	10	aux	_	_
+12	gha	_	AUX	VAPP	_	10	aux	_	SpaceAfter=No
+13	.	_	PUNCT	$.	_	4	punct	_	_
+
+# sent_id = s52
+# text = I main, das Ganze letscht Wuchä isch mier scho ächli iigfaarä.
+1	I	_	PRON	PPER	_	2	nsubj	_	_
+2	main	_	VERB	VVFIN	_	0	root	_	SpaceAfter=No
+3	,	_	PUNCT	$,	_	2	punct	_	_
+4	das	_	DET	ART	_	5	det	_	_
+5	Ganze	_	NOUN	NN	_	12	nsubj	_	_
+6	letscht	_	ADJ	ADJA	_	7	amod	_	_
+7	Wuchä	_	NOUN	NN	_	5	nmod	_	_
+8	isch	_	AUX	VAFIN	_	12	aux	_	_
+9	mier	_	PRON	PRF	_	12	iobj	_	_
+10	scho	_	ADV	ADV	_	12	advmod	_	_
+11	ächli	_	ADV	ADV	_	12	advmod	_	_
+12	iigfaarä	_	VERB	VVPP	_	2	ccomp	_	SpaceAfter=No
+13	.	_	PUNCT	$.	_	2	punct	_	_
+
+# sent_id = s12
+# text = Er lèènet use, mag aber kän Schtock gsee.
+1	Er	_	PRON	PPER	_	2	nsubj	_	_
+2	lèènet	_	VERB	VVFIN	_	0	root	_	_
+3	use	_	PART	PTKVZ	_	2	compound:prt	_	SpaceAfter=No
+4	,	_	PUNCT	$,	_	9	punct	_	_
+5	mag	_	AUX	VMFIN	_	9	aux	_	_
+6	aber	_	CCONJ	KON	_	9	cc	_	_
+7	kän	_	DET	PIAT	_	8	det	_	_
+8	Schtock	_	NOUN	NN	_	9	obj	_	_
+9	gsee	_	VERB	VVPP	_	2	conj	_	SpaceAfter=No
+10	.	_	PUNCT	$.	_	2	punct	_	_
+
+# sent_id = s21
+# text = De Vorsteher vom schwiizerische Departemänt för Wirtschaft, Beldig ond Forschig het s' Hotel im Juli bsuecht.
+1	De	_	DET	ART	_	2	det	_	_
+2	Vorsteher	_	NOUN	NN	_	18	nsubj	_	_
+3	vom	_	ADP	APPRART	_	5	case	_	_
+4	schwiizerische	_	ADJ	ADJA	_	5	amod	_	_
+5	Departemänt	_	NOUN	NN	_	2	nmod	_	_
+6	för	_	ADP	APPR	_	7	case	_	_
+7	Wirtschaft	_	NOUN	NN	_	5	nmod	_	SpaceAfter=No
+8	,	_	PUNCT	$,	_	9	punct	_	_
+9	Beldig	_	NOUN	NN	_	7	conj	_	_
+10	ond	_	CCONJ	KON	_	11	cc	_	_
+11	Forschig	_	NOUN	NN	_	7	conj	_	_
+12	het	_	AUX	VAFIN	_	18	aux	_	_
+13	s	_	DET	ART	_	15	det	_	SpaceAfter=No
+14	'	_	PUNCT	$(	_	13	punct	_	_
+15	Hotel	_	NOUN	NN	_	18	obj	_	_
+16	im	_	ADP	APPRART	_	17	case	_	_
+17	Juli	_	NOUN	NN	_	18	obl	_	_
+18	bsuecht	_	VERB	VVPP	_	0	root	_	SpaceAfter=No
+19	.	_	PUNCT	$.	_	18	punct	_	_
+
+# sent_id = s65
+# text = Und aigentli hätts nöd schlächt aagfangä.
+1	Und	_	CCONJ	KON	_	6	advmod	_	_
+2	aigentli	_	ADV	ADV	_	6	advmod	_	_
+3	hätts	_	AUX	VAFIN+	_	6	aux	_	_
+4	nöd	_	PART	PTKNEG	_	5	advmod	_	_
+5	schlächt	_	ADJ	ADJD	_	6	advmod	_	_
+6	aagfangä	_	VERB	VVPP	_	0	root	_	SpaceAfter=No
+7	.	_	PUNCT	$.	_	6	punct	_	_
+
+# sent_id = s22
+# text = Äs enthaltät usserdäm än Informations- und ä Transparäzpflicht für d' Verwändig vo beschtimmtä Chemikaliä.
+1	Äs	_	PRON	PPER	_	2	expl	_	_
+2	enthaltät	_	VERB	VVFIN	_	0	root	_	_
+3	usserdäm	_	ADV	PAV	_	2	advmod	_	_
+4	än	_	DET	ART	_	5	det	_	_
+5	Informations-	_	X	TRUNC	_	2	obj	_	_
+6	und	_	CCONJ	KON	_	8	cc	_	_
+7	ä	_	DET	ART	_	8	det	_	_
+8	Transparäzpflicht	_	NOUN	NN	_	5	conj	_	_
+9	für	_	ADP	APPR	_	12	case	_	_
+10	d	_	DET	ART	_	12	det	_	SpaceAfter=No
+11	'	_	PUNCT	$(	_	10	punct	_	_
+12	Verwändig	_	NOUN	NN	_	8	nmod	_	_
+13	vo	_	ADP	APPR	_	15	case	_	_
+14	beschtimmtä	_	ADJ	ADJA	_	15	amod	_	_
+15	Chemikaliä	_	NOUN	NN	_	12	nmod	_	SpaceAfter=No
+16	.	_	PUNCT	$.	_	2	punct	_	_
+
+# sent_id = s3
+# text = Und drum bin i ou froh, wenn d Lüt bi mir es Oug zuedrücke.
+1	Und	_	CCONJ	KON	_	6	advmod	_	_
+2	drum	_	ADV	PAV	_	6	obl	_	_
+3	bin	_	AUX	VAFIN	_	6	cop	_	_
+4	i	_	PRON	PPER	_	6	nsubj	_	_
+5	ou	_	ADV	ADV	_	6	advmod	_	_
+6	froh	_	ADJ	ADJD	_	0	root	_	SpaceAfter=No
+7	,	_	PUNCT	$,	_	6	punct	_	_
+8	wenn	_	SCONJ	KOUS	_	15	mark	_	_
+9	d	_	DET	ART	_	10	det	_	_
+10	Lüt	_	NOUN	NN	_	15	nsubj	_	_
+11	bi	_	ADP	APPR	_	12	case	_	_
+12	mir	_	PRON	PPER	_	15	obl	_	_
+13	es	_	DET	ART	_	14	det	_	_
+14	Oug	_	NOUN	NN	_	15	obj	_	_
+15	zuedrücke	_	VERB	VVFIN	_	6	ccomp	_	SpaceAfter=No
+16	.	_	PUNCT	$.	_	6	punct	_	_
+
+# sent_id = s57
+# text = Irgendwiä hätt mi das a sonän Chòg ärinnärät, sonän Tschutter ...
+1	Irgendwiä	_	ADV	ADV	_	8	advmod	_	_
+2	hätt	_	AUX	VAFIN	_	8	aux	_	_
+3	mi	_	PRON	PPER	_	8	obj	_	_
+4	das	_	PRON	PDS	_	8	nsubj	_	_
+5	a	_	ADP	APPR	_	7	case	_	_
+6	sonän	_	DET	PDAT	_	7	det	_	_
+7	Chòg	_	NOUN	NN	_	8	obl	_	_
+8	ärinnärät	_	VERB	VVPP	_	0	root	_	SpaceAfter=No
+9	,	_	PUNCT	$,	_	8	punct	_	_
+10	sonän	_	DET	PDAT	_	11	det	_	_
+11	Tschutter	_	NOUN	NN	_	7	appos	_	_
+12	...	_	PUNCT	$.	_	8	punct	_	_
+
+# sent_id = s85
+# text = Am Louis hets offesichtlech leid to, dass er i nes Wäschpinäscht het gstoche.
+1	Am	_	ADP	APPRART	_	2	case	_	_
+2	Louis	_	PROPN	NE	_	6	obl	_	_
+3	hets	_	AUX	VAFIN+	_	6	aux	_	_
+4	offesichtlech	_	ADV	ADV	_	6	advmod	_	_
+5	leid	_	NOUN	NN	_	6	obj	_	_
+6	to	_	VERB	VVPP	_	0	root	_	SpaceAfter=No
+7	,	_	PUNCT	$,	_	6	punct	_	_
+8	dass	_	SCONJ	KOUS	_	14	mark	_	_
+9	er	_	PRON	PPER	_	14	nsubj	_	_
+10	i	_	ADP	APPR	_	12	case	_	_
+11	nes	_	DET	ART	_	12	det	_	_
+12	Wäschpinäscht	_	NOUN	NN	_	14	obl	_	_
+13	het	_	AUX	VAFIN	_	14	aux	_	_
+14	gstoche	_	VERB	VVPP	_	6	ccomp	_	SpaceAfter=No
+15	.	_	PUNCT	$.	_	14	punct	_	_
+
+# sent_id = s94
+# text = I ha d Charten aagluegt, wo am Chüeuschrank mit Magnet si befeschtiget gsi.
+1	I	_	PRON	PPER	_	5	nsubj	_	_
+2	ha	_	AUX	VAFIN	_	5	aux	_	_
+3	d	_	DET	ART	_	4	det	_	_
+4	Charten	_	NOUN	NN	_	5	obj	_	_
+5	aagluegt	_	VERB	VVPP	_	0	root	_	SpaceAfter=No
+6	,	_	PUNCT	$,	_	5	punct	_	_
+7	wo	_	PRON	PRELS	_	13	nsubj:pass	_	_
+8	am	_	ADP	APPRART	_	9	case	_	_
+9	Chüeuschrank	_	NOUN	NN	_	13	obl	_	_
+10	mit	_	ADP	APPR	_	11	case	_	_
+11	Magnet	_	NOUN	NN	_	13	obl	_	_
+12	si	_	AUX	VAFIN	_	13	aux	_	_
+13	befeschtiget	_	VERB	VVPP	_	4	acl:relcl	_	_
+14	gsi	_	AUX	VAPP	_	13	aux	_	SpaceAfter=No
+15	.	_	PUNCT	$.	_	5	punct	_	_
+
+# sent_id = s46
+# text = Die füüf beslang bestehende Schtandort send om zwöi wiiteri – Schanghäi ond Dresde – ergänzt worde.
+1	Die	_	DET	ART	_	5	det	_	_
+2	füüf	_	NUM	CARD	_	5	nummod	_	_
+3	beslang	_	ADV	ADV	_	4	advmod	_	_
+4	bestehende	_	ADJ	ADJA	_	5	amod	_	_
+5	Schtandort	_	NOUN	NN	_	15	nsubj:pass	_	_
+6	send	_	AUX	VAFIN	_	15	aux	_	_
+7	om	_	ADP	APPR	_	9	case	_	_
+8	zwöi	_	NUM	CARD	_	9	nmod	_	_
+9	wiiteri	_	ADJ	ADJA	_	15	obl	_	_
+10	–	_	PUNCT	$(	_	11	punct	_	_
+11	Schanghäi	_	PROPN	NE	_	9	appos	_	_
+12	ond	_	CCONJ	KON	_	13	cc	_	_
+13	Dresde	_	PROPN	NE	_	11	conj	_	_
+14	–	_	PUNCT	$(	_	11	punct	_	_
+15	ergänzt	_	VERB	VVPP	_	0	root	_	_
+16	worde	_	AUX	VAPP	_	15	aux:pass	_	SpaceAfter=No
+17	.	_	PUNCT	$.	_	15	punct	_	_
+
+# sent_id = s9
+# text = chani vollends demit lebe.
+1	chani	_	AUX	VMFIN+	_	4	aux	_	_
+2	vollends	_	ADV	ADV	_	4	advmod	_	_
+3	demit	_	ADV	PAV	_	4	advmod	_	_
+4	lebe	_	VERB	VVFIN	_	0	root	_	SpaceAfter=No
+5	.	_	PUNCT	$.	_	4	punct	_	_
+
+# sent_id = s55
+# text = D' Lüt um mi umä hend nöd ämòl reagiert, für diä Berliner schiint das ganz nòrmal gsi z' si.
+1	D	_	DET	ART	_	3	det	_	SpaceAfter=No
+2	'	_	PUNCT	$(	_	1	punct	_	_
+3	Lüt	_	NOUN	NN	_	10	nsubj	_	_
+4	um	_	ADP	APPR	_	5	case	_	_
+5	mi	_	PRON	PPER	_	3	nmod	_	_
+6	umä	_	ADP	APZR	_	5	case	_	_
+7	hend	_	AUX	VAFIN	_	10	aux	_	_
+8	nöd	_	PART	PTKNEG	_	10	advmod	_	_
+9	ämòl	_	ADV	ADV	_	8	advmod	_	_
+10	reagiert	_	VERB	VVPP	_	0	root	_	SpaceAfter=No
+11	,	_	PUNCT	$,	_	10	punct	_	_
+12	für	_	ADP	APPR	_	14	case	_	_
+13	diä	_	DET	PDAT	_	14	det	_	_
+14	Berliner	_	NOUN	NN	_	15	obl	_	_
+15	schiint	_	VERB	VVFIN	_	10	parataxis	_	_
+16	das	_	PRON	PDS	_	15	nsubj	_	_
+17	ganz	_	ADV	ADV	_	18	advmod	_	_
+18	nòrmal	_	ADJ	ADJD	_	15	ccomp	_	_
+19	gsi	_	AUX	VAPP	_	18	aux	_	_
+20	z	_	PART	PTKZU	_	18	mark	_	SpaceAfter=No
+21	'	_	PUNCT	$(	_	20	punct	_	_
+22	si	_	AUX	VAINF	_	18	cop	_	SpaceAfter=No
+23	.	_	PUNCT	$.	_	10	punct	_	_
+
+# sent_id = s76
+# text = Bis mi Vatter di Stöu bim Sigfrid z Zofige het übercho.
+1	Bis	_	SCONJ	KOUS	_	11	mark	_	_
+2	mi	_	DET	PPOSAT	_	3	nmod:poss	_	_
+3	Vatter	_	NOUN	NN	_	11	nsubj	_	_
+4	di	_	DET	PDAT	_	5	det	_	_
+5	Stöu	_	NOUN	NN	_	11	obj	_	_
+6	bim	_	ADP	APPRART	_	7	case	_	_
+7	Sigfrid	_	PROPN	NE	_	5	nmod	_	_
+8	z	_	ADP	APPR	_	9	case	_	_
+9	Zofige	_	PROPN	NE	_	7	nmod	_	_
+10	het	_	AUX	VAFIN	_	11	aux	_	_
+11	übercho	_	VERB	VVPP	_	0	root	_	SpaceAfter=No
+12	.	_	PUNCT	$.	_	11	punct	_	_
+
+# sent_id = s96
+# text = Du gsehsch uus, wi wenn de nöime no hättisch z trinken übercho.
+1	Du	_	PRON	PPER	_	2	nsubj	_	_
+2	gsehsch	_	VERB	VVFIN	_	0	root	_	_
+3	uus	_	PART	PTKVZ	_	2	compound:prt	_	SpaceAfter=No
+4	,	_	PUNCT	$,	_	2	punct	_	_
+5	wi	_	CCONJ	KOKOM	_	13	mark	_	_
+6	wenn	_	SCONJ	KOUS	_	5	fixed	_	_
+7	de	_	PRON	PPER	_	13	nsubj	_	_
+8	nöime	_	ADV	ADV	_	13	advmod	_	_
+9	no	_	ADV	ADV	_	13	advmod	_	_
+10	hättisch	_	AUX	VAFIN	_	13	aux	_	_
+11	z	_	DET	ART	_	12	det	_	_
+12	trinken	_	NOUN	NN	_	13	obj	_	_
+13	übercho	_	VERB	VVPP	_	2	advcl	_	SpaceAfter=No
+14	.	_	PUNCT	$.	_	2	punct	_	_
+
+# sent_id = s13
+# text = Öb s en richtige Mord seg, wüss er nanig.
+1	Öb	_	SCONJ	KOUS	_	6	mark	_	_
+2	s	_	PRON	PPER	_	6	expl	_	_
+3	en	_	DET	ART	_	5	det	_	_
+4	richtige	_	ADJ	ADJA	_	5	amod	_	_
+5	Mord	_	NOUN	NN	_	6	nsubj	_	_
+6	seg	_	AUX	VAFIN	_	8	ccomp	_	SpaceAfter=No
+7	,	_	PUNCT	$,	_	8	punct	_	_
+8	wüss	_	VERB	VVFIN	_	0	root	_	_
+9	er	_	PRON	PPER	_	8	nsubj	_	_
+10	nanig	_	ADV	ADV	_	8	amod	_	SpaceAfter=No
+11	.	_	PUNCT	$.	_	8	punct	_	_
+
+# sent_id = s66
+# text = Im Werbeschpott hätts än Bärner Sennähund namens Barry mit dä Schtimm vom Endo Anaconda gee und ä Gans namens Hans.
+1	Im	_	ADP	APPRART	_	2	case	_	_
+2	Werbeschpott	_	NOUN	NN	_	15	obl	_	_
+3	hätts	_	AUX	VAFIN+	_	15	aux	_	_
+4	än	_	DET	ART	_	6	det	_	_
+5	Bärner	_	ADJ	ADJA	_	6	amod	_	_
+6	Sennähund	_	NOUN	NN	_	15	obj	_	_
+7	namens	_	ADP	APPR	_	8	case	_	_
+8	Barry	_	PROPN	NE	_	6	nmod	_	_
+9	mit	_	ADP	APPR	_	11	case	_	_
+10	dä	_	DET	ART	_	11	det	_	_
+11	Schtimm	_	NOUN	NN	_	6	nmod	_	_
+12	vom	_	ADP	APPRART	_	13	case	_	_
+13	Endo	_	PROPN	NE	_	11	nmod	_	_
+14	Anaconda	_	PROPN	NE	_	13	flat	_	_
+15	gee	_	VERB	VVPP	_	0	root	_	_
+16	und	_	CCONJ	KON	_	18	cc	_	_
+17	ä	_	DET	ART	_	18	det	_	_
+18	Gans	_	NOUN	NN	_	6	conj	_	_
+19	namens	_	ADP	APPR	_	20	case	_	_
+20	Hans	_	PROPN	NE	_	18	nmod	_	SpaceAfter=No
+21	.	_	PUNCT	$.	_	15	punct	_	_
+
+# sent_id = s35
+# text = ;) Am Obig simer den no e Wassershow vo dem riesige Brunne vom Bellagio go luege.
+1	;)	_	X	XY	_	4	dep	_	_
+2	Am	_	ADP	APPRART	_	3	case	_	_
+3	Obig	_	NOUN	NN	_	4	obl	_	_
+4	simer	_	AUX	VAFIN+	_	0	root	_	_
+5	den	_	ADV	ADV	_	4	advmod	_	_
+6	no	_	ADV	ADV	_	4	advmod	_	_
+7	e	_	DET	ART	_	8	det	_	_
+8	Wassershow	_	NOUN	NN	_	4	obj	_	_
+9	vo	_	ADP	APPR	_	12	case	_	_
+10	dem	_	DET	ART	_	12	det	_	_
+11	riesige	_	ADJ	ADJA	_	12	amod	_	_
+12	Brunne	_	NOUN	NN	_	8	nmod	_	_
+13	vom	_	ADP	APPRART	_	14	case	_	_
+14	Bellagio	_	PROPN	NE	_	12	nmod	_	_
+15	go	_	PART	PTKINF	_	16	mark	_	_
+16	luege	_	VERB	VVINF	_	4	xcomp	_	SpaceAfter=No
+17	.	_	PUNCT	$.	_	4	punct	_	_
+

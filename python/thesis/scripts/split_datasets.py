@@ -2,7 +2,7 @@ import argparse
 import os
 import random
 
-from conllu import parse_incr, serialize
+from conllu import parse_incr
 
 
 def load_sentences(path):
@@ -12,7 +12,8 @@ def load_sentences(path):
 
 def write_split(sents, path):
     with open(path, 'w', encoding='utf-8') as f:
-        f.write(serialize(sents))
+        for sent in sents:
+            f.write(sent.serialize().strip() + '\n\n')
 
 
 def main():
@@ -56,7 +57,7 @@ def main():
         
         splits = {
             'train': sentences[:n_train],
-            'dev': sentences[n_train:n_dev],
+            'dev': sentences[n_train:n_train + n_dev],
             'test': sentences[n_train + n_dev:]
         }
 
@@ -64,3 +65,7 @@ def main():
         for split, sents in splits.items():
             out = os.path.join(lang_dir, f'{data_name}-{split}.conllu')
             write_split(sents, out)
+
+
+if __name__ == '__main__':
+    main()

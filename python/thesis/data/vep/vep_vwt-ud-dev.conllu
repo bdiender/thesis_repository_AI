@@ -1,0 +1,378 @@
+# sent_id = s81
+# text = Dir weit mer doch nid verzöue, di Wäutsche heige vo eim Tag uf en anger ufghört Chuttlen ässe.
+1	Dir	_	PRON	PPER	_	6	nsubj	_	_
+2	weit	_	AUX	VMFIN	_	6	aux	_	_
+3	mer	_	PRON	PPER	_	6	iobj	_	_
+4	doch	_	ADV	ADV	_	6	advmod	_	_
+5	nid	_	PART	PTKNEG	_	6	advmod	_	_
+6	verzöue	_	VERB	VVINF	_	0	root	_	SpaceAfter=No
+7	,	_	PUNCT	$,	_	6	punct	_	_
+8	di	_	DET	ART	_	9	det	_	_
+9	Wäutsche	_	NOUN	NN	_	17	nsubj	_	_
+10	heige	_	AUX	VAFIN	_	17	aux	_	_
+11	vo	_	ADP	APPR	_	13	case	_	_
+12	eim	_	DET	ART	_	13	det	_	_
+13	Tag	_	NOUN	NN	_	17	obl	_	_
+14	uf	_	ADP	APPR	_	16	case	_	_
+15	en	_	DET	ART	_	16	det	_	_
+16	anger	_	ADJ	ADJA	_	13	conj	_	_
+17	ufghört	_	VERB	VVPP	_	6	ccomp	_	_
+18	Chuttlen	_	NOUN	NN	_	19	obj	_	_
+19	ässe	_	VERB	VVINF	_	17	xcomp	_	SpaceAfter=No
+20	.	_	PUNCT	$.	_	6	punct	_	_
+
+# sent_id = s62
+# text = Per Zuäfall hätt genau a dem Taag z' Bärn im Musigbistro än Poetry Slam schtattgfundä.
+1	Per	_	ADP	APPR	_	2	case	_	_
+2	Zuäfall	_	NOUN	NN	_	16	obl	_	_
+3	hätt	_	AUX	VAFIN	_	16	aux	_	_
+4	genau	_	ADV	ADV	_	7	advmod	_	_
+5	a	_	ADP	APPR	_	7	case	_	_
+6	dem	_	DET	ART	_	7	det	_	_
+7	Taag	_	NOUN	NN	_	16	obl	_	_
+8	z	_	ADP	APPR	_	10	case	_	SpaceAfter=No
+9	'	_	PUNCT	$(	_	8	punct	_	_
+10	Bärn	_	PROPN	NE	_	16	obl	_	_
+11	im	_	ADP	APPRART	_	12	case	_	_
+12	Musigbistro	_	NOUN	NN	_	10	nmod	_	_
+13	än	_	DET	ART	_	14	det	_	_
+14	Poetry	_	NOUN	NN	_	16	nsubj	_	_
+15	Slam	_	NOUN	NN	_	14	compound	_	_
+16	schtattgfundä	_	VERB	VVPP	_	0	root	_	SpaceAfter=No
+17	.	_	PUNCT	$.	_	16	punct	_	_
+
+# sent_id = s17
+# text = so beschribt d Vita vom hailige Columban e Bieropfer an Gott Wodan, wo i de Nöchi vo Bregenz abghalte woren isch.
+1	so	_	ADV	ADV	_	2	advmod	_	_
+2	beschribt	_	VERB	VVFIN	_	0	root	_	_
+3	d	_	DET	ART	_	4	det	_	_
+4	Vita	_	PROPN	NE	_	2	nsubj	_	_
+5	vom	_	ADP	APPRART	_	7	case	_	_
+6	hailige	_	ADJ	ADJA	_	7	amod	_	_
+7	Columban	_	PROPN	NE	_	4	nmod	_	_
+8	e	_	DET	ART	_	9	det	_	_
+9	Bieropfer	_	NOUN	NN	_	2	obj	_	_
+10	an	_	ADP	APPR	_	11	case	_	_
+11	Gott	_	NOUN	NN	_	9	nmod	_	_
+12	Wodan	_	PROPN	NE	_	11	flat	_	SpaceAfter=No
+13	,	_	PUNCT	$,	_	20	punct	_	_
+14	wo	_	PRON	PRELS	_	20	nsubj:pass	_	_
+15	i	_	ADP	APPR	_	17	case	_	_
+16	de	_	DET	ART	_	17	det	_	_
+17	Nöchi	_	NOUN	NN	_	20	obl	_	_
+18	vo	_	ADP	APPR	_	19	case	_	_
+19	Bregenz	_	PROPN	NE	_	17	nmod	_	_
+20	abghalte	_	VERB	VVPP	_	9	acl:relcl	_	_
+21	woren	_	AUX	VAPP	_	20	aux:pass	_	_
+22	isch	_	AUX	VAFIN	_	20	aux	_	SpaceAfter=No
+23	.	_	PUNCT	$.	_	2	punct	_	_
+
+# sent_id = s51
+# text = Jò, diä Wuchä hani laider nöd chönä bim Träffä vo dä AO Bärn däbi sii, weli z' Berlin gsi bi.
+1	Jò	_	ADV	ADV	_	16	advmod	_	SpaceAfter=No
+2	,	_	PUNCT	$,	_	16	punct	_	_
+3	diä	_	DET	PDAT	_	4	det	_	_
+4	Wuchä	_	NOUN	NN	_	16	obl	_	_
+5	hani	_	AUX	VAFIN+	_	16	aux	_	_
+6	laider	_	ADV	ADV	_	7	advmod	_	_
+7	nöd	_	PART	PTKNEG	_	16	advmod	_	_
+8	chönä	_	AUX	VMINF	_	16	aux	_	_
+9	bim	_	ADP	APPRART	_	10	case	_	_
+10	Träffä	_	NOUN	NN	_	16	obl	_	_
+11	vo	_	ADP	APPR	_	13	case	_	_
+12	dä	_	DET	ART	_	13	det	_	_
+13	AO	_	PROPN	NE	_	10	nmod	_	_
+14	Bärn	_	PROPN	NE	_	13	flat	_	_
+15	däbi	_	ADV	PAV	_	16	advmod	_	_
+16	sii	_	AUX	VAINF	_	0	root	_	SpaceAfter=No
+17	,	_	PUNCT	$,	_	16	punct	_	_
+18	weli	_	SCONJ	KOUS+	_	22	mark	_	_
+19	z	_	ADP	APPR	_	21	case	_	SpaceAfter=No
+20	'	_	PUNCT	$(	_	19	punct	_	_
+21	Berlin	_	PROPN	NE	_	22	obl	_	_
+22	gsi	_	AUX	VAPP	_	16	advcl	_	_
+23	bi	_	AUX	VAFIN	_	22	aux	_	SpaceAfter=No
+24	.	_	PUNCT	$.	_	16	punct	_	_
+
+# sent_id = s97
+# text = Ds Gueten isch immerhin gsi, dass i ungerdesse söfu müed bi gsi, dass i ändlech ha chönne go schlofe.
+1	Ds	_	DET	ART	_	2	det	_	_
+2	Gueten	_	NOUN	NN	_	5	nsubj	_	_
+3	isch	_	AUX	VAFIN	_	5	aux	_	_
+4	immerhin	_	ADV	ADV	_	5	advmod	_	_
+5	gsi	_	AUX	VAPP	_	0	root	_	SpaceAfter=No
+6	,	_	PUNCT	$,	_	5	punct	_	_
+7	dass	_	SCONJ	KOUS	_	11	mark	_	_
+8	i	_	PRON	PPER	_	11	nsubj	_	_
+9	ungerdesse	_	ADV	ADV	_	11	advmod	_	_
+10	söfu	_	ADV	ADV	_	11	advmod	_	_
+11	müed	_	ADJ	ADJD	_	5	ccomp	_	_
+12	bi	_	AUX	VAFIN	_	11	aux	_	_
+13	gsi	_	AUX	VAPP	_	11	cop	_	SpaceAfter=No
+14	,	_	PUNCT	$,	_	11	punct	_	_
+15	dass	_	SCONJ	KOUS	_	21	mark	_	_
+16	i	_	PRON	PPER	_	21	nsubj	_	_
+17	ändlech	_	ADV	ADV	_	21	advmod	_	_
+18	ha	_	AUX	VAFIN	_	21	aux	_	_
+19	chönne	_	AUX	VMPP	_	21	aux	_	_
+20	go	_	PART	PTKINF	_	21	mark	_	_
+21	schlofe	_	VERB	VVINF	_	11	ccomp	_	SpaceAfter=No
+22	.	_	PUNCT	$.	_	5	punct	_	_
+
+# sent_id = s91
+# text = Nach em Gig si mer mit em Veraastauter und de Techniker no go Znacht näh.
+1	Nach	_	ADP	APPR	_	3	case	_	_
+2	em	_	DET	ART	_	3	det	_	_
+3	Gig	_	NOUN	NN	_	4	obl	_	_
+4	si	_	AUX	VAFIN	_	0	root	_	_
+5	mer	_	PRON	PPER	_	4	nsubj	_	_
+6	mit	_	ADP	APPR	_	8	case	_	_
+7	em	_	DET	ART	_	8	det	_	_
+8	Veraastauter	_	NOUN	NN	_	4	obl	_	_
+9	und	_	CCONJ	KON	_	11	cc	_	_
+10	de	_	DET	ART	_	11	det	_	_
+11	Techniker	_	NOUN	NN	_	8	conj	_	_
+12	no	_	ADV	ADV	_	4	advmod	_	_
+13	go	_	PART	PTKINF	_	15	mark	_	_
+14	Znacht	_	NOUN	NN	_	15	obj	_	_
+15	näh	_	VERB	VVINF	_	4	xcomp	_	SpaceAfter=No
+16	.	_	PUNCT	$.	_	4	punct	_	_
+
+# sent_id = s59
+# text = Dä Hakan, wiithin als Schpròòchtalent bekannt, hätt das sòfòrt begriffä.
+1	Dä	_	DET	ART	_	2	det	_	_
+2	Hakan	_	PROPN	NE	_	12	nsubj	_	SpaceAfter=No
+3	,	_	PUNCT	$,	_	7	punct	_	_
+4	wiithin	_	ADV	ADV	_	7	advmod	_	_
+5	als	_	ADP	APPR	_	6	case	_	_
+6	Schpròòchtalent	_	NOUN	NN	_	7	obl	_	_
+7	bekannt	_	ADJ	ADJD	_	2	acl	_	SpaceAfter=No
+8	,	_	PUNCT	$,	_	12	punct	_	_
+9	hätt	_	AUX	VAFIN	_	12	aux	_	_
+10	das	_	PRON	PDS	_	12	obj	_	_
+11	sòfòrt	_	ADV	ADV	_	12	advmod	_	_
+12	begriffä	_	VERB	VVPP	_	0	root	_	SpaceAfter=No
+13	.	_	PUNCT	$.	_	12	punct	_	_
+
+# sent_id = s83
+# text = I ha so fescht mit der flache Hang uf dä Beizetisch ghoue, dass grad d Gleser hei aafo waggele.
+1	I	_	PRON	PPER	_	12	nsubj	_	_
+2	ha	_	AUX	VAFIN	_	12	aux	_	_
+3	so	_	ADV	ADV	_	4	advmod	_	_
+4	fescht	_	ADJ	ADJD	_	12	advmod	_	_
+5	mit	_	ADP	APPR	_	8	case	_	_
+6	der	_	DET	ART	_	8	det	_	_
+7	flache	_	ADJ	ADJA	_	8	amod	_	_
+8	Hang	_	NOUN	NN	_	12	obl	_	_
+9	uf	_	ADP	APPR	_	11	case	_	_
+10	dä	_	DET	ART	_	11	det	_	_
+11	Beizetisch	_	NOUN	NN	_	12	obl	_	_
+12	ghoue	_	VERB	VVPP	_	0	root	_	SpaceAfter=No
+13	,	_	PUNCT	$,	_	12	punct	_	_
+14	dass	_	SCONJ	KOUS	_	19	mark	_	_
+15	grad	_	ADV	ADV	_	19	advmod	_	_
+16	d	_	DET	ART	_	17	det	_	_
+17	Gleser	_	NOUN	NN	_	19	nsubj	_	_
+18	hei	_	AUX	VAFIN	_	19	aux	_	_
+19	aafo	_	VERB	VVPP	_	12	acl	_	_
+20	waggele	_	VERB	VVINF	_	19	xcomp	_	SpaceAfter=No
+21	.	_	PUNCT	$.	_	12	punct	_	_
+
+# sent_id = s26
+# text = Si isch euses Kulturerb und isch starch mit eusem Läbe und eusere Gschicht verbunde.
+1	Si	_	PRON	PPER	_	4	nsubj	_	_
+2	isch	_	AUX	VAFIN	_	4	cop	_	_
+3	euses	_	DET	PPOSAT	_	4	nmod:poss	_	_
+4	Kulturerb	_	NOUN	NN	_	0	root	_	_
+5	und	_	CCONJ	KON	_	14	cc	_	_
+6	isch	_	AUX	VAFIN	_	14	aux	_	_
+7	starch	_	ADJ	ADJD	_	14	advmod	_	_
+8	mit	_	ADP	APPR	_	10	case	_	_
+9	eusem	_	DET	PPOSAT	_	10	nmod:poss	_	_
+10	Läbe	_	NOUN	NN	_	14	obl	_	_
+11	und	_	CCONJ	KON	_	13	cc	_	_
+12	eusere	_	DET	PPOSAT	_	13	nmod:poss	_	_
+13	Gschicht	_	NOUN	NN	_	10	conj	_	_
+14	verbunde	_	VERB	VVPP	_	4	conj	_	SpaceAfter=No
+15	.	_	PUNCT	$.	_	4	punct	_	_
+
+# sent_id = s15
+# text = De Haueschild mäint, er wüssi s besser, d Scheffin mäint, si wüssi s na besser.
+1	De	_	DET	ART	_	2	det	_	_
+2	Haueschild	_	PROPN	NE	_	3	nsubj	_	_
+3	mäint	_	VERB	VVFIN	_	0	root	_	SpaceAfter=No
+4	,	_	PUNCT	$,	_	3	punct	_	_
+5	er	_	PRON	PPER	_	6	nsubj	_	_
+6	wüssi	_	VERB	VVFIN	_	3	ccomp	_	_
+7	s	_	PRON	PPER	_	6	obj	_	_
+8	besser	_	ADJ	ADJD	_	6	advmod	_	SpaceAfter=No
+9	,	_	PUNCT	$,	_	12	punct	_	_
+10	d	_	DET	ART	_	11	det	_	_
+11	Scheffin	_	NOUN	NN	_	12	nsubj	_	_
+12	mäint	_	VERB	VVFIN	_	3	conj	_	SpaceAfter=No
+13	,	_	PUNCT	$,	_	12	punct	_	_
+14	si	_	PRON	PPER	_	15	nsubj	_	_
+15	wüssi	_	VERB	VVFIN	_	12	ccomp	_	_
+16	s	_	PRON	PPER	_	15	obj	_	_
+17	na	_	ADV	ADV	_	18	advmod	_	_
+18	besser	_	ADJ	ADJD	_	15	advmod	_	SpaceAfter=No
+19	.	_	PUNCT	$.	_	12	punct	_	_
+
+# sent_id = s70
+# text = Zerscht hends am Dani gsait, är söli dòch Hoochdütsch redä, das gängi denn grad gaar nöd, wenn är so redi, wiäner redi.
+1	Zerscht	_	ADV	ADV	_	5	advmod	_	_
+2	hends	_	AUX	VAFIN+	_	5	aux	_	_
+3	am	_	ADP	APPRART	_	4	case	_	_
+4	Dani	_	PROPN	NE	_	5	obl	_	_
+5	gsait	_	VERB	VVPP	_	0	root	_	SpaceAfter=No
+6	,	_	PUNCT	$,	_	5	punct	_	_
+7	är	_	PRON	PPER	_	11	nsubj	_	_
+8	söli	_	AUX	VMFIN	_	11	aux	_	_
+9	dòch	_	ADV	ADV	_	11	advmod	_	_
+10	Hoochdütsch	_	ADJ	ADJD	_	11	advmod	_	_
+11	redä	_	VERB	VVINF	_	5	ccomp	_	SpaceAfter=No
+12	,	_	PUNCT	$,	_	14	punct	_	_
+13	das	_	PRON	PDS	_	14	expl	_	_
+14	gängi	_	VERB	VVFIN	_	11	conj	_	_
+15	denn	_	ADV	ADV	_	14	advmod	_	_
+16	grad	_	ADV	ADV	_	17	advmod	_	_
+17	gaar	_	ADV	ADV	_	18	advmod	_	_
+18	nöd	_	PART	PTKNEG	_	14	advmod	_	SpaceAfter=No
+19	,	_	PUNCT	$,	_	14	punct	_	_
+20	wenn	_	SCONJ	KOUS	_	23	mark	_	_
+21	är	_	PRON	PPER	_	23	nsubj	_	_
+22	so	_	ADV	ADV	_	23	advmod	_	_
+23	redi	_	VERB	VVFIN	_	14	csubj	_	SpaceAfter=No
+24	,	_	PUNCT	$,	_	23	punct	_	_
+25	wiäner	_	SCONJ	KOUS	_	26	mark	_	_
+26	redi	_	VERB	VVFIN	_	23	advcl	_	SpaceAfter=No
+27	.	_	PUNCT	$.	_	5	punct	_	_
+
+# sent_id = s40
+# text = Daas häd er doch scho maal ghaa!
+1	Daas	_	PRON	PDS	_	7	obj	_	_
+2	häd	_	AUX	VAFIN	_	7	aux	_	_
+3	er	_	PRON	PPER	_	7	nsubj	_	_
+4	doch	_	ADV	ADV	_	7	advmod	_	_
+5	scho	_	ADV	ADV	_	6	advmod	_	_
+6	maal	_	ADV	ADV	_	7	advmod	_	_
+7	ghaa	_	AUX	VAPP	_	0	root	_	SpaceAfter=No
+8	!	_	PUNCT	$.	_	7	punct	_	_
+
+# sent_id = s23
+# text = De Wally Schirra hät si 1962 während siim Mercury-atlas-8-flug treit.
+1	De	_	DET	ART	_	2	det	_	_
+2	Wally	_	PROPN	NE	_	10	nsubj	_	_
+3	Schirra	_	PROPN	NE	_	2	flat	_	_
+4	hät	_	AUX	VAFIN	_	10	aux	_	_
+5	si	_	PRON	PPER	_	10	obj	_	_
+6	1962	_	NUM	CARD	_	10	obl	_	_
+7	während	_	ADP	APPR	_	9	case	_	_
+8	siim	_	DET	PPOSAT	_	9	nmod:poss	_	_
+9	Mercury-atlas-8-flug	_	NOUN	NN	_	10	obl	_	_
+10	treit	_	VERB	VVPP	_	0	root	_	SpaceAfter=No
+11	.	_	PUNCT	$.	_	10	punct	_	_
+
+# sent_id = s74
+# text = Aso bini rächt uufgschmissä gsi und dem entschprächend fascht verzwiiflät.
+1	Aso	_	ADV	ADV	_	4	advmod	_	_
+2	bini	_	AUX	VAFIN+	_	4	aux	_	_
+3	rächt	_	ADV	ADV	_	4	advmod	_	_
+4	uufgschmissä	_	ADJ	ADJD	_	0	root	_	_
+5	gsi	_	AUX	VAPP	_	4	cop	_	_
+6	und	_	CCONJ	KON	_	10	cc	_	_
+7	dem	_	PRON	PDS	_	8	iobj	_	_
+8	entschprächend	_	ADJ	ADJD	_	10	advmod	_	_
+9	fascht	_	ADV	ADV	_	10	advmod	_	_
+10	verzwiiflät	_	VERB	VVPP	_	4	conj	_	SpaceAfter=No
+11	.	_	PUNCT	$.	_	4	punct	_	_
+
+# sent_id = s80
+# text = Mir hei gseit, mir gönge jetz go Chuttle sueche!
+1	Mir	_	PRON	PPER	_	3	nsubj	_	_
+2	hei	_	AUX	VAFIN	_	3	aux	_	_
+3	gseit	_	VERB	VVPP	_	0	root	_	SpaceAfter=No
+4	,	_	PUNCT	$,	_	3	punct	_	_
+5	mir	_	PRON	PPER	_	6	nsubj	_	_
+6	gönge	_	VERB	VVPP	_	3	ccomp	_	_
+7	jetz	_	ADV	ADV	_	6	advmod	_	_
+8	go	_	PART	PTKINF	_	10	mark	_	_
+9	Chuttle	_	NOUN	NN	_	10	obj	_	_
+10	sueche	_	VERB	VVINF	_	6	xcomp	_	SpaceAfter=No
+11	!	_	PUNCT	$.	_	3	punct	_	_
+
+# sent_id = s88
+# text = Es Wunger, dass i nid grad ha aafo gränne.
+1	Es	_	DET	ART	_	2	det	_	_
+2	Wunger	_	NOUN	NN	_	0	root	_	SpaceAfter=No
+3	,	_	PUNCT	$,	_	2	punct	_	_
+4	dass	_	SCONJ	KOUS	_	9	mark	_	_
+5	i	_	PRON	PPER	_	9	nsubj	_	_
+6	nid	_	PART	PTKNEG	_	9	advmod	_	_
+7	grad	_	ADV	ADV	_	9	advmod	_	_
+8	ha	_	AUX	VAFIN	_	9	aux	_	_
+9	aafo	_	VERB	VVPP	_	2	csubj	_	_
+10	gränne	_	VERB	VVINF	_	9	xcomp	_	SpaceAfter=No
+11	.	_	PUNCT	$.	_	2	punct	_	_
+
+# sent_id = s7
+# text = da isch echt beidruckend gsi.
+1	da	_	PRON	PDS	_	4	nsubj	_	_
+2	isch	_	AUX	VAFIN	_	4	aux	_	_
+3	echt	_	ADV	ADV	_	4	advmod	_	_
+4	beidruckend	_	ADJ	ADJD	_	0	root	_	_
+5	gsi	_	AUX	VAPP	_	4	cop	_	SpaceAfter=No
+6	.	_	PUNCT	$.	_	4	punct	_	_
+
+# sent_id = s99
+# text = I weiss nid worum, aber i stoh eifach gärn i Bahnhöf ume.
+1	I	_	PRON	PPER	_	2	nsubj	_	_
+2	weiss	_	VERB	VVFIN	_	0	root	_	_
+3	nid	_	PART	PTKNEG	_	2	advmod	_	_
+4	worum	_	ADV	PWAV	_	2	advmod	_	SpaceAfter=No
+5	,	_	PUNCT	$,	_	8	punct	_	_
+6	aber	_	CCONJ	KON	_	8	cc	_	_
+7	i	_	PRON	PPER	_	8	nsubj	_	_
+8	stoh	_	VERB	VVFIN	_	2	conj	_	_
+9	eifach	_	ADV	ADV	_	8	advmod	_	_
+10	gärn	_	ADJ	ADJD	_	8	advmod	_	_
+11	i	_	ADP	APPR	_	12	case	_	_
+12	Bahnhöf	_	NOUN	NN	_	8	obl	_	_
+13	ume	_	PART	PTKVZ	_	8	compound:prt	_	SpaceAfter=No
+14	.	_	PUNCT	$.	_	2	punct	_	_
+
+# sent_id = s60
+# text = Und dä Hakan isch im Schtròòfruum vom Gägner ghògged und hätt sich d' Schuä gschnüert wiä wild!
+1	Und	_	CCONJ	KON	_	9	advmod	_	_
+2	dä	_	DET	ART	_	3	det	_	_
+3	Hakan	_	PROPN	NE	_	9	nsubj	_	_
+4	isch	_	AUX	VAFIN	_	9	aux	_	_
+5	im	_	ADP	APPRART	_	6	case	_	_
+6	Schtròòfruum	_	NOUN	NN	_	9	obl	_	_
+7	vom	_	ADP	APPRART	_	8	case	_	_
+8	Gägner	_	NOUN	NN	_	6	nmod	_	_
+9	ghògged	_	VERB	VVPP	_	0	root	_	_
+10	und	_	CCONJ	KON	_	16	cc	_	_
+11	hätt	_	AUX	VAFIN	_	16	aux	_	_
+12	sich	_	PRON	PRF	_	16	iobj	_	_
+13	d	_	DET	ART	_	15	det	_	SpaceAfter=No
+14	'	_	PUNCT	$(	_	13	punct	_	_
+15	Schuä	_	NOUN	NN	_	16	obj	_	_
+16	gschnüert	_	VERB	VVPP	_	9	conj	_	_
+17	wiä	_	CCONJ	KOKOM	_	18	mark	_	_
+18	wild	_	ADJ	ADJD	_	16	xcomp	_	SpaceAfter=No
+19	!	_	PUNCT	$.	_	9	punct	_	_
+
+# sent_id = s48
+# text = für si wird so ihres individuelle Schmuckstück zum Statement.
+1	für	_	ADP	APPR	_	2	case	_	_
+2	si	_	PRON	PPER	_	3	obl	_	_
+3	wird	_	AUX	VAFIN	_	0	root	_	_
+4	so	_	ADV	ADV	_	3	advmod	_	_
+5	ihres	_	DET	PPOSAT	_	7	nmod:poss	_	_
+6	individuelle	_	ADJ	ADJA	_	7	amod	_	_
+7	Schmuckstück	_	NOUN	NN	_	3	nsubj:pass	_	_
+8	zum	_	ADP	APPRART	_	9	case	_	_
+9	Statement	_	NOUN	NN	_	3	obl	_	SpaceAfter=No
+10	.	_	PUNCT	$.	_	3	punct	_	_
+

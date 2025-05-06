@@ -5,6 +5,8 @@ for downloader in "$SCRIPT_DIR/downloaders"/*.sh; do
   bash "$downloader"
 done
 
-source "$SCRIPT_DIR/../venv/bin/activate"
+source "$SCRIPT_DIR/../../venv/bin/activate"
 
-python3 "$SCRIPT_DIR/split_datasets.py"
+python3 "$SCRIPT_DIR/split_datasets.py" "$@"
+
+echo "Downloaded and split all datasets."
