@@ -1,6 +1,11 @@
 """
 Adapted from: https://github.com/Hyperparticle/udify/blob/master/udify/models/udify_model.py
 """
+from overrides import overrides
+from typing import Any, Dict, Optional, List
+
+import torch
+from transformers import BertTokenizer
 
 from allennlp.common.checks import check_dimensions_match
 from allennlp.data import Vocabulary
@@ -9,12 +14,7 @@ from allennlp.modules import Seq2SeqEncoder, TextFieldEmbedder
 from allennlp.nn import InitializerApplicator, RegularizerApplicator
 from allennlp.nn.util import get_text_field_mask
 
-from modules.scalar_mix import ScalarMixWithDropout
-from overrides import overrides
-from transformers import BertTokenizer
-from typing import Any, Dict, Optional, List
-
-import torch
+from modules import ScalarMixWithDropout
 
 @Model.register('base_model')
 class BaseModel(Model):
@@ -22,7 +22,7 @@ class BaseModel(Model):
                  vocab: Vocabulary,
                  text_field_embedder: TextFieldEmbedder,
                  encoder: Seq2SeqEncoder,
-                 decoder: Model,  # TODO: set default
+                 decoder: Model,
                  post_encoder_embedder: TextFieldEmbedder = None,
                  dropout: float = 0.0,
                  word_dropout: float = 0.0,

@@ -19,10 +19,10 @@ defaults: &defaults
 
 nl_lassysmall_test:
   <<: *defaults
+  output_dir: outputs/nld_test
   training:
     <<: *training_defaults
-    epochs: 50
-    output_dir: outputs/nld_test/
+    epochs: 1
     num_steps_per_epoch: 643
   dataset:
     name: nl_lassysmall
@@ -34,10 +34,10 @@ nl_lassysmall_test:
 
 hu_szeged_test:
   <<: *defaults
+  output_dir: outputs/hun_test
   training:
     <<: *training_defaults
     epochs: 1
-    output_dir: outputs/hun_test
     num_steps_per_epoch: 91
   dataset:
     name: hu_szeged
@@ -50,8 +50,7 @@ hu_szeged_test:
 
 hu_to_nl_finetune:
   <<: *defaults
-
-  # ← under the top‐level experiment key, nest it inside `model:`
+  output_dir: outputs/hu_to_nl_finetune
   model:
     <<: *model_defaults
     finetune_on: outputs/hun_test/model.pkl
@@ -59,7 +58,6 @@ hu_to_nl_finetune:
   training:
     <<: *training_defaults
     epochs: 1
-    output_dir: outputs/hu_to_nl_finetune/
     num_steps_per_epoch: 643
 
   dataset:

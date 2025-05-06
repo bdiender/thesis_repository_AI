@@ -1,26 +1,22 @@
 """
 Adapted from: https://github.com/Hyperparticle/udify/blob/master/udify/models/dependency_decoder.py
 """
-
-
-from typing import Dict, Optional, Tuple, Any, List
-import logging
 import copy
-
 from overrides import overrides
+from typing import Dict, Optional, Tuple, Any, List
+
+import numpy
 import torch
 import torch.nn.functional as F
-import numpy
 
-from allennlp.common.checks import check_dimensions_match
 from allennlp.data import Vocabulary
-from allennlp.modules import Embedding, InputVariationalDropout, Seq2SeqEncoder
+from allennlp.modules import InputVariationalDropout, Seq2SeqEncoder
 from allennlp.modules.matrix_attention.bilinear_matrix_attention import BilinearMatrixAttention
 from allennlp.modules import FeedForward
 from allennlp.models.model import Model
 from allennlp.nn import InitializerApplicator, RegularizerApplicator, Activation
 from allennlp.nn.util import get_range_vector
-from allennlp.nn.util import get_device_of, masked_log_softmax, get_lengths_from_binary_sequence_mask
+from allennlp.nn.util import get_device_of, masked_log_softmax
 from allennlp.nn.chu_liu_edmonds import decode_mst
 from allennlp.training.metrics import AttachmentScores
 

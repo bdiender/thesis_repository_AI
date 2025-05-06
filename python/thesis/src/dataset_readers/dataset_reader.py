@@ -1,6 +1,12 @@
 """
 Adapted from: https://github.com/Hyperparticle/udify/blob/master/udify/dataset_readers/universal_dependencies.py
 """
+import os
+from overrides import overrides
+from typing import Any, Callable, Dict, Iterable, List, Tuple
+
+from conllu import parse_incr
+from datasets import load_dataset
 
 from allennlp.data.dataset_readers.dataset_reader import DatasetReader, Instance
 from allennlp.data.fields import Field, TextField, SequenceLabelField, MetadataField
@@ -10,14 +16,7 @@ from allennlp.data.tokenizers import Token
 from allennlp.data.tokenizers.tokenizer import Tokenizer
 from allennlp.data.tokenizers.pretrained_transformer_tokenizer import PretrainedTransformerTokenizer
 
-from conllu import parse_incr
-from datasets import load_dataset
-from overrides import overrides
-from typing import Any, Callable, Dict, Iterable, List, Tuple
-
-from dataset_readers.reader_utils import process_multiword_tokens, gen_lemma_rule
-
-import os
+from ._reader_utils import process_multiword_tokens
 
 @DatasetReader.register("ud_reader")
 class UniversalDependenciesReader(DatasetReader):

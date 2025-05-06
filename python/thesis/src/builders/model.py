@@ -1,4 +1,6 @@
 import dill
+from typing import Any, Dict
+
 import torch
 
 from allennlp.data import Vocabulary
@@ -8,16 +10,12 @@ from allennlp.modules.text_field_embedders import BasicTextFieldEmbedder
 from allennlp.modules.token_embedders import PretrainedTransformerEmbedder
 from allennlp.modules.seq2seq_encoders import PytorchSeq2SeqWrapper
 
-from models.dependency_decoder import DependencyDecoder
-from models.base_model import BaseModel
+from models import BaseModel, DependencyDecoder
 
-from typing import Any, Dict
 
 def build_model(cfg: Dict[str, Any], vocab: Vocabulary, cuda_device: int = 0) -> Model:
-    model_cfg = cfg['model']
-
-    if model_cfg.get('finetune_on'):
-        with open(model_cfg['finetune_on'], 'rb') as f:
+    if cfg.model.get('finetune_on'):
+        with open(cfg.model.finetune_on, 'rb') as f:
             model = dill.load(f)
         model.vocab = vocab
 

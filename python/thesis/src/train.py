@@ -8,10 +8,14 @@ import numpy as np
 import torch
 import torch.backends
 
-from builders.data import make_datasets, build_vocab, make_data_loaders
-from builders.model import build_model
-from builders.trainer import build_trainer
-from config.loader import load_config
+from builders import (
+    build_datasets,
+    build_vocab,
+    build_data_loaders,
+    build_model,
+    build_trainer
+)
+from config import GLOBAL_CONFIG
 
 
 def main():
@@ -19,13 +23,13 @@ def main():
     parser.add_argument(
         '--config',
         required=True,
-        help='Path to YAML config file.'
+        help='Key of configuration settings for run.'
     )
     args = parser.parse_args()
 
-    cfg = load_config('configs/config.yaml', args.config)
-    # params = Params.from_file(cfg['json_config'])
+    cfg = GLOBAL_CONFIG.get(args.config)
 
+    # Set random seed
     s = cfg.get('seed', None)
     if s is not None:
         random.seed(s)
@@ -35,34 +39,35 @@ def main():
         torch.backends.cudnn.deterministic = True
         torch.backends.cudnn.benchmark = False
 
-    cuda_device = cfg['cuda_device'] if torch.cuda.is_available() else -1
+    cuda_device = cfg.cuda_device if torch.cuda.is_available() else -1
 
-    train_ds, dev_ds = make_datasets(cfg)
+    # Load data, vocab, data loaders
+    train_ds, dev_ds = build_datasets(cfg)
     vocab = build_vocab(train_ds, dev_ds)
-    train_loader, dev_loader = make_data_loaders(train_ds, dev_ds, vocab, cfg)
+    train_loader, dev_loader = build_data_loaders(train_ds, dev_ds, vocab, cfg)
 
+    # Build model
     model = build_model(cfg, vocab, cuda_device=cuda_device)
     if cuda_device >= 0:
         model = model.cuda(cuda_device)
 
-    serialization_dir = cfg['training']['output_dir']
-    os.makedirs(serialization_dir, exist_ok=True)
+    # Make output dir
+    os.makedirs(cfg.output_dir, exist_ok=True)
 
-    # params.to_file(os.path.join(serialization_dir, 'config.json'))
-
+    # Build and apply trainer
     trainer = build_trainer(model, train_loader, dev_loader, cfg, cuda_device)
     metrics = trainer.train()
 
-    torch.save(model.state_dict(), os.path.join(cfg['training']['output_dir'], 'weights.th'))
-    vocab.save_to_files(os.path.join(cfg['training']['output_dir'], 'vocabulary'))
+    # Save model weights, vocabulary, model, and metrics
+    torch.save(model.state_dict(), os.path.join(cfg.output_dir, 'weights.th'))
+    vocab.save_to_files(os.path.join(cfg.output_dir, 'vocabulary'))
 
-    with open(os.path.join(serialization_dir, "model.pkl"), "wb") as f:
+    with open(os.path.join(cfg.output_dir, 'model.pkl'), 'wb') as f:
         dill.dump(model, f)
 
-    with open(os.path.join(serialization_dir, 'metrics.json'), 'w') as f:
+    with open(os.path.join(cfg.output_dir, 'metrics.json'), 'w') as f:
         json.dump(metrics, f, indent=2)
 
     
-
 if __name__ == "__main__":
     main()
