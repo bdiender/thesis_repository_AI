@@ -1,4 +1,6 @@
+import dill
 import torch
+
 from allennlp.data import Vocabulary
 from allennlp.models.archival import load_archive
 from allennlp.models.model import Model
@@ -15,9 +17,12 @@ def build_model(cfg: Dict[str, Any], vocab: Vocabulary, cuda_device: int = 0) ->
     model_cfg = cfg['model']
 
     if model_cfg.get('finetune_on'):
-        archive = load_archive(model_cfg['finetune_on'], cuda_device=cuda_device)
-        model = archive.model
+        with open(model_cfg['finetune_on'], 'rb') as f:
+            model = dill.load(f)
         model.vocab = vocab
+
+        if cuda_device >= 0:
+            model = model.cuda(cuda_device)
 
         return model
     

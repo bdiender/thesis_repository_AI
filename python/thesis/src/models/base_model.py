@@ -27,7 +27,7 @@ class BaseModel(Model):
                  dropout: float = 0.0,
                  word_dropout: float = 0.0,
                  mix_embedding: int = None,
-                 layer_dropout: int = 0.0,
+                 layer_dropout: float = 0.0,
                  initializer: InitializerApplicator = InitializerApplicator(),
                  regularizer: Optional[RegularizerApplicator] = RegularizerApplicator()):
         super(BaseModel, self).__init__(vocab, regularizer)
@@ -116,6 +116,9 @@ class BaseModel(Model):
     @overrides(check_signature=False)
     def get_metrics(self, reset: bool=False) -> Dict[str, float]:
         metrics = super().get_metrics(reset)
+
+        decoder_metrics = self.decoder.get_metrics(reset)
+        metrics.update(decoder_metrics)
         for i, smw in enumerate(self.scalar_mix.scalar_parameters):
             metrics[f'scalar_mix_weight_{i}'] = smw.item()
         return metrics

@@ -59,6 +59,7 @@ class DependencyDecoder(Model):
 
         self._dropout = InputVariationalDropout(dropout)
         self._head_sentinel = torch.nn.Parameter(torch.randn([1, 1, encoder_output_dim]))
+        self._attachment_scores = AttachmentScores()
 
         initializer(self)
 
@@ -92,23 +93,32 @@ class DependencyDecoder(Model):
         child_tag_representation = self._dropout(self.child_tag_mlp(encoded_text))
 
         attended_arcs = self.arc_attention(head_arc_representation, child_arc_representation)
-
         minus_inf = -1e8
         minus_mask = (1 - float_mask) * minus_inf
         attended_arcs = attended_arcs + minus_mask.unsqueeze(2) + minus_mask.unsqueeze(1)
 
         predicted_heads, predicted_head_tags = self._mst_decode(
-            head_tag_representation, child_tag_representation, attended_arcs, mask)
+            head_tag_representation, child_tag_representation, attended_arcs, mask
+        )
         device = encoded_text.device ##
         predicted_heads = predicted_heads.to(device)
         predicted_head_tags = predicted_head_tags.to(device)
 
+        if head_indices is not None and head_tags is not None:
+            self._attachment_scores(
+                predicted_heads,
+                predicted_head_tags,
+                head_indices,
+                head_tags,
+                mask,
+            )
 
         arc_nll, tag_nll = self._construct_loss(
             head_tag_representation, child_tag_representation, attended_arcs,
             head_indices if head_indices is not None else predicted_heads.long(),
             head_tags if head_tags is not None else predicted_head_tags.long(),
-            mask)
+            mask
+        )
 
         output_dict = {
             'heads': predicted_heads,
@@ -334,5 +344,4 @@ class DependencyDecoder(Model):
 
     @overrides
     def get_metrics(self, reset: bool = False) -> Dict[str, float]:
-        return {f".run/deps/{metric_name}": metric  # TODO: Check for anything that makes folders
-                for metric_name, metric in self._attachment_scores.get_metric(reset).items()}
+        return self._attachment_scores.get_metric(reset)

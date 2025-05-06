@@ -1,11 +1,12 @@
 import argparse
-import numpy as np
+import json
 import os
 import random
+import dill
+
+import numpy as np
 import torch
 import torch.backends
-
-from allennlp.common.params import Params
 
 from builders.data import make_datasets, build_vocab, make_data_loaders
 from builders.model import build_model
@@ -23,8 +24,9 @@ def main():
     args = parser.parse_args()
 
     cfg = load_config('configs/config.yaml', args.config)
-    s = cfg.get('seed', None)
+    # params = Params.from_file(cfg['json_config'])
 
+    s = cfg.get('seed', None)
     if s is not None:
         random.seed(s)
         np.random.seed(s)
@@ -43,11 +45,24 @@ def main():
     if cuda_device >= 0:
         model = model.cuda(cuda_device)
 
+    serialization_dir = cfg['training']['output_dir']
+    os.makedirs(serialization_dir, exist_ok=True)
+
+    # params.to_file(os.path.join(serialization_dir, 'config.json'))
+
     trainer = build_trainer(model, train_loader, dev_loader, cfg, cuda_device)
-    trainer.train()
+    metrics = trainer.train()
 
     torch.save(model.state_dict(), os.path.join(cfg['training']['output_dir'], 'weights.th'))
     vocab.save_to_files(os.path.join(cfg['training']['output_dir'], 'vocabulary'))
+
+    with open(os.path.join(serialization_dir, "model.pkl"), "wb") as f:
+        dill.dump(model, f)
+
+    with open(os.path.join(serialization_dir, 'metrics.json'), 'w') as f:
+        json.dump(metrics, f, indent=2)
+
+    
 
 if __name__ == "__main__":
     main()

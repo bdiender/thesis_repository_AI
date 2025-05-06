@@ -21,7 +21,7 @@ nl_lassysmall_test:
   <<: *defaults
   training:
     <<: *training_defaults
-    epochs: 10
+    epochs: 50
     output_dir: outputs/nld_test/
     num_steps_per_epoch: 643
   dataset:
@@ -36,7 +36,7 @@ hu_szeged_test:
   <<: *defaults
   training:
     <<: *training_defaults
-    epochs: 3
+    epochs: 1
     output_dir: outputs/hun_test
     num_steps_per_epoch: 91
   dataset:
@@ -46,3 +46,26 @@ hu_szeged_test:
       dev: validation
       test: test
     load_batch_size: 10
+
+
+hu_to_nl_finetune:
+  <<: *defaults
+
+  # ← under the top‐level experiment key, nest it inside `model:`
+  model:
+    <<: *model_defaults
+    finetune_on: outputs/hun_test/model.pkl
+
+  training:
+    <<: *training_defaults
+    epochs: 1
+    output_dir: outputs/hu_to_nl_finetune/
+    num_steps_per_epoch: 643
+
+  dataset:
+    name: nl_lassysmall
+    splits:
+      train: train
+      dev: validation
+      test: test
+    load_batch_size: 9

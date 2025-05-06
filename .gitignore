@@ -1,8 +1,10 @@
 python/serialization*
 
-scripts/
+/scripts/
 administration/
 latex/latex_template/
+python/thesis/outputs/
+src/test.py
 
 ### LaTeX-related:
 ## Core latex/pdflatex auxiliary files:
