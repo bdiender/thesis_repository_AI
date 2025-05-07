@@ -39,7 +39,6 @@ def build_trainer(
 
     checkpointer = Checkpointer(
         serialization_dir=cfg.output_dir,
-        num_serialized_models_to_keep=0,
         keep_most_recent_by_count=0,
         save_completed_epochs=False,
         save_every_num_batches=None

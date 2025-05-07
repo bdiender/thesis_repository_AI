@@ -38,6 +38,126 @@ dataset_stage3_common: &dataset_stage3_common
   number_of_updates: &stage3_updates 100
 
 ### First stage argument (use this)
+hpt_far_m1c1:
+  <<: *defaults
+  output_dir: outputs/hpt_m1c1
+  training:
+    <<: *training_defaults
+    total_updates: 40900
+  dataset:
+    <<: *dataset_stage2_common
+    name: fa_perdt
+  model:
+    <<: *model_defaults
+
+hpt_far_m1c2:
+  <<: *defaults
+  output_dir: outputs/hpt_m1c2
+  training:
+    <<: *training_defaults
+    total_updates: 40900
+    lr_classifier: 0.005
+  dataset:
+    <<: *dataset_stage2_common
+    name: fa_perdt
+  model:
+    <<: *model_defaults
+
+hpt_far_m1c3:
+  <<: *defaults
+  output_dir: outputs/hpt_m1c3
+  training:
+    <<: *training_defaults
+    total_updates: 40900
+    lr_classifier: 0.0001
+  dataset:
+    <<: *dataset_stage2_common
+    name: fa_perdt
+  model:
+    <<: *model_defaults
+
+hpt_far_m2c1:
+  <<: *defaults
+  output_dir: outputs/hpt_m2c1
+  training:
+    <<: *training_defaults
+    total_updates: 40900
+    lr_model: 0.0005
+  dataset:
+    <<: *dataset_stage2_common
+    name: fa_perdt
+  model:
+    <<: *model_defaults
+
+hpt_far_m2c2:
+  <<: *defaults
+  output_dir: outputs/hpt_m2c2
+  training:
+    <<: *training_defaults
+    total_updates: 40900
+    lr_model: 0.0005
+    lr_classifier: 0.005
+  dataset:
+    <<: *dataset_stage2_common
+    name: fa_perdt
+  model:
+    <<: *model_defaults
+
+hpt_far_m2c3:
+  <<: *defaults
+  output_dir: outputs/hpt_m2c3
+  training:
+    <<: *training_defaults
+    total_updates: 40900
+    lr_model: 0.0005
+    lr_classifier: 0.0001
+  dataset:
+    <<: *dataset_stage2_common
+    name: fa_perdt
+  model:
+    <<: *model_defaults
+
+hpt_far_m3c1:
+  <<: *defaults
+  output_dir: outputs/hpt_m3c1
+  training:
+    <<: *training_defaults
+    total_updates: 40900
+    lr_model: 0.0001
+  dataset:
+    <<: *dataset_stage2_common
+    name: fa_perdt
+  model:
+    <<: *model_defaults
+
+hpt_far_m3c2:
+  <<: *defaults
+  output_dir: outputs/hpt_m3c2
+  training:
+    <<: *training_defaults
+    total_updates: 40900
+    lr_model: 0.0001
+    lr_classifier: 0.005
+  dataset:
+    <<: *dataset_stage2_common
+    name: fa_perdt
+  model:
+    <<: *model_defaults
+
+hpt_far_m3c3:
+  <<: *defaults
+  output_dir: outputs/hpt_m3c3
+  training:
+    <<: *training_defaults
+    total_updates: 40900
+    lr_model: 0.0001
+    lr_classifier: 0.0001
+  dataset:
+    <<: *dataset_stage2_common
+    name: fa_perdt
+  model:
+    <<: *model_defaults
+
 first_stage_deu:
   <<: *defaults
   output_dir: outputs/1_deu
