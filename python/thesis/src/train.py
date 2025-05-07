@@ -28,7 +28,6 @@ def main():
     args = parser.parse_args()
 
     cfg = GLOBAL_CONFIG.get(args.config)
-    print(cfg)
 
     # Set random seed
     s = cfg.get('seed', None)

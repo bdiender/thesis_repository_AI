@@ -1,6 +1,6 @@
 ### Basic anchors
 defaults: &defaults
-  cuda_device: -1
+  cuda_device: 0
   seed: 1
 
 training_defaults: &training_defaults
@@ -55,8 +55,8 @@ veps_test:
   output_dir: outputs/vep_test
   training:
     <<: *training_defaults
-    total_updates: 100
-    batch_size: 10
+    total_updates: 50
+    batch_size: 16
   dataset:
     splits:
       train: train
