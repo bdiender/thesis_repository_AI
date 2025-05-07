@@ -1,529 +1,520 @@
-# sent_id = s67
-# text = Und jò, tròtz dä liächtä Ghirnerschütterig wäg dä 2000 YB-Fans, hani mi nò seer guät chönä dra ärinnärä.
-1	Und	_	CCONJ	KON	_	20	advmod	_	_
-2	jò	_	ADV	ADV	_	20	advmod	_	SpaceAfter=No
-3	,	_	PUNCT	$,	_	20	punct	_	_
-4	tròtz	_	ADP	APPR	_	7	case	_	_
-5	dä	_	DET	ART	_	7	det	_	_
-6	liächtä	_	ADJ	ADJA	_	7	amod	_	_
-7	Ghirnerschütterig	_	NOUN	NN	_	20	obl	_	_
-8	wäg	_	ADP	APPR	_	11	case	_	_
-9	dä	_	DET	ART	_	11	det	_	_
-10	2000	_	NUM	CARD	_	11	nummod	_	_
-11	YB-Fans	_	NOUN	NN	_	7	nmod	_	SpaceAfter=No
-12	,	_	PUNCT	$,	_	20	punct	_	_
-13	hani	_	AUX	VAFIN+	_	20	aux	_	_
-14	mi	_	PRON	PRF	_	20	obj	_	_
-15	nò	_	ADV	ADV	_	20	advmod	_	_
-16	seer	_	ADV	ADV	_	17	advmod	_	_
-17	guät	_	ADJ	ADJD	_	20	advmod	_	_
-18	chönä	_	AUX	VMPP	_	20	aux	_	_
-19	dra	_	ADV	PAV	_	20	obj	_	_
-20	ärinnärä	_	VERB	VVINF	_	0	root	_	SpaceAfter=No
-21	.	_	PUNCT	$.	_	20	punct	_	_
+# sent_id = vepkar_60
+# text = Hüvä , miše minun elos oliba ristitud , kudambad abutiba minei da kaiken tugeziba .
+1	Hüvä	hüvä	ADJ	_	Case=Nom|Degree=Pos|Number=Sing	0	root	_	_
+2	,	,	PUNCT	_	_	5	punct	_	_
+3	miše	miše	SCONJ	_	_	5	mark	_	_
+4	minun	minä	PRON	_	Case=Gen|Number=Sing|Person=1|PronType=Prs	5	nmod	_	_
+5	elos	elo	NOUN	_	Case=Ine|Number=Sing	1	csubj	_	_
+6	oliba	olda	AUX	_	Mood=Ind|Number=Plur|Person=3|Tense=Past|VerbForm=Fin|Voice=Act	5	cop	_	_
+7	ristitud	ristit	NOUN	_	Case=Nom|Number=Plur	5	nsubj	_	_
+8	,	,	PUNCT	_	_	10	punct	_	_
+9	kudambad	kudamb	PRON	_	Case=Nom|Number=Plur|PronType=Int	10	nsubj	_	_
+10	abutiba	abutada	VERB	_	Mood=Ind|Number=Plur|Person=3|Tense=Past|VerbForm=Fin|Voice=Act	7	acl:relcl	_	_
+11	minei	minä	PRON	_	Case=All|Number=Sing|Person=1|PronType=Prs	10	obl	_	_
+12	da	da	CCONJ	_	_	14	cc	_	_
+13	kaiken	kaik	PRON	_	Case=Gen|Number=Sing|PronType=Tot	14	obj	_	_
+14	tugeziba	tugeta	VERB	_	Mood=Ind|Number=Plur|Person=3|Tense=Past|VerbForm=Fin|Voice=Act	10	conj	_	_
+15	.	.	PUNCT	_	_	1	punct	_	_
 
-# sent_id = s10
-# text = bin mal gspannt wie das wird und hoffe dasi e gueti Klass han.
-1	bin	_	AUX	VAFIN	_	3	cop	_	_
-2	mal	_	ADV	ADV	_	3	advmod	_	_
-3	gspannt	_	ADJ	ADJD	_	0	root	_	_
-4	wie	_	SCONJ	KOUS	_	6	mark	_	_
-5	das	_	PRON	PDS	_	6	nsubj	_	_
-6	wird	_	AUX	VAFIN	_	3	advcl	_	_
-7	und	_	CCONJ	KON	_	8	cc	_	_
-8	hoffe	_	VERB	VVFIN	_	6	conj	_	_
-9	dasi	_	SCONJ	KOUS+	_	13	mark	_	_
-10	e	_	DET	ART	_	12	det	_	_
-11	gueti	_	ADJ	ADJA	_	12	amod	_	_
-12	Klass	_	NOUN	NN	_	13	obj	_	_
-13	han	_	AUX	VAFIN	_	8	ccomp	_	SpaceAfter=No
-14	.	_	PUNCT	$.	_	3	punct	_	_
+# sent_id = vepkar_48
+# text = Minä lopin kooperativižen tehnikuman , sid' radoin magupaštatesiden paštajan da sen jäl'ghe radoin pähižiden omblijan .
+1	Minä	minä	PRON	_	Case=Nom|Number=Sing|Person=1|PronType=Prs	2	nmod	_	_
+2	lopin	lopta	VERB	_	Mood=Ind|Number=Sing|Person=1|Tense=Past|VerbForm=Fin|Voice=Act	0	root	_	_
+3	kooperativižen	kooperativinen	NOUN	_	Case=Gen|Number=Sing	4	nmod	_	_
+4	tehnikuman	tehnikum	NOUN	_	Case=Gen|Number=Sing	2	obl	_	_
+5	,	,	PUNCT	_	_	7	punct	_	_
+6	sid'	sid'	ADV	_	_	7	advmod	_	_
+7	radoin	rata	VERB	_	Mood=Ind|Number=Sing|Person=1|Tense=Past|VerbForm=Fin|Voice=Act	2	conj	_	_
+8	magupaštatesiden	magupaštatesed	NOUN	_	Case=Gen|Number=Plur	9	obl	_	_
+9	paštajan	paštai	NOUN	_	Case=Ess|Number=Sing	7	obl	_	_
+10	da	da	CCONJ	_	_	13	cc	_	_
+11	sen	se	PRON	_	Case=Gen|Number=Sing|PronType=Dem	13	obl	_	_
+12	jäl'ghe	jäl'ghe	ADP	_	_	13	case	_	_
+13	radoin	rata	VERB	_	Mood=Ind|Number=Sing|Person=1|Tense=Past|VerbForm=Fin|Voice=Act	7	conj	_	_
+14	pähižiden	pähine	NOUN	_	Case=Gen|Number=Plur	15	obl	_	_
+15	omblijan	omblii	NOUN	_	Case=Ess|Number=Sing	13	obl	_	_
+16	.	.	PUNCT	_	_	2	punct	_	_
 
-# sent_id = s92
-# text = Irgendeinisch het de d Denise äuä gmerkt, dass es zimlech sinnlos isch mit mir.
-1	Irgendeinisch	_	ADV	ADV	_	7	advmod	_	_
-2	het	_	AUX	VAFIN	_	7	aux	_	_
-3	de	_	ADV	ADV	_	7	advmod	_	_
-4	d	_	DET	ART	_	5	det	_	_
-5	Denise	_	PROPN	NE	_	7	nsubj	_	_
-6	äuä	_	ADV	ADV	_	7	advmod	_	_
-7	gmerkt	_	VERB	VVPP	_	0	root	_	SpaceAfter=No
-8	,	_	PUNCT	$,	_	7	punct	_	_
-9	dass	_	SCONJ	KOUS	_	12	mark	_	_
-10	es	_	PRON	PPER	_	12	expl	_	_
-11	zimlech	_	ADV	ADV	_	12	advmod	_	_
-12	sinnlos	_	ADJ	ADJD	_	7	ccomp	_	_
-13	isch	_	AUX	VAFIN	_	12	cop	_	_
-14	mit	_	ADP	APPR	_	15	case	_	_
-15	mir	_	PRON	PPER	_	12	obl	_	SpaceAfter=No
-16	.	_	PUNCT	$.	_	7	punct	_	_
+# sent_id = vepkar_67
+# text = No oli aig , konz minä zavodin rata vepsläižidenke enamba i el'genzin , miše minei pidab völ enamba abutada heile , i oigeta kaik ičein väged neche radho .
+1	No	no	CCONJ	_	_	2	cc	_	_
+2	oli	olda	AUX	_	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin|Voice=Act	0	root	_	_
+3	aig	aig	NOUN	_	Case=Nom|Number=Sing	2	nsubj	_	_
+4	,	,	PUNCT	_	_	7	punct	_	_
+5	konz	konz	ADV	_	_	7	cc	_	_
+6	minä	minä	PRON	_	Case=Nom|Number=Sing|Person=1|PronType=Prs	7	nsubj	_	_
+7	zavodin	zavodida	VERB	_	Mood=Ind|Number=Sing|Person=1|Tense=Past|VerbForm=Fin|Voice=Act	3	acl:relcl	_	_
+8	rata	rata	VERB	_	VerbForm=Inf	7	xcomp	_	_
+9	vepsläižidenke	vepsläine	NOUN	_	Case=Com|Number=Plur	8	obl	_	_
+10	enamba	enamba	ADV	_	_	8	advmod	_	_
+11	i	i	CCONJ	_	_	12	cc	_	_
+12	el'genzin	el'geta	VERB	_	Mood=Ind|Number=Sing|Person=1|Tense=Past|VerbForm=Fin|Voice=Act	7	conj	_	_
+13	,	,	PUNCT	_	_	19	punct	_	_
+14	miše	miše	SCONJ	_	_	19	mark	_	_
+15	minei	minä	PRON	_	Case=All|Number=Sing|Person=1|PronType=Prs	19	obl	_	_
+16	pidab	pidada	AUX	_	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin|Voice=Act	19	aux	_	_
+17	völ	völ	ADV	_	_	18	advmod	_	_
+18	enamba	enamba	ADV	_	_	19	advmod	_	_
+19	abutada	abutada	VERB	_	VerbForm=Inf	12	ccomp	_	_
+20	heile	hö	PRON	_	Case=All|Number=Plur|Person=3|PronType=Prs	19	obl	_	_
+21	,	,	PUNCT	_	_	23	punct	_	_
+22	i	i	CCONJ	_	_	23	cc	_	_
+23	oigeta	oigeta	VERB	_	VerbForm=Inf	19	conj	_	_
+24	kaik	kaik	PRON	_	Case=Nom|Number=Sing|PronType=Tot	26	nmod	_	_
+25	ičein	iče	PRON	_	Case=Gen|Number=Sing|Person=1|PronType=Prs|Reflex=Yes	26	nmod	_	_
+26	väged	vägi	NOUN	_	Case=Nom|Number=Plur	23	obj	_	_
+27	neche	nece	PRON	_	Case=Ill|Number=Sing|PronType=Dem	28	nmod	_	_
+28	radho	rad	NOUN	_	Case=Ill|Number=Sing	23	obl	_	_
+29	.	.	PUNCT	_	_	2	punct	_	_
 
-# sent_id = s100
-# text = Vore gwüsse Lohnklass aa chasch äbe nümm lauere.
-1	Vore	_	ADP	APPRART	_	3	case	_	_
-2	gwüsse	_	ADJ	ADJA	_	3	amod	_	_
-3	Lohnklass	_	NOUN	NN	_	8	obl	_	_
-4	aa	_	ADP	APZR	_	3	case	_	_
-5	chasch	_	AUX	VMFIN	_	8	aux	_	_
-6	äbe	_	ADV	ADV	_	8	advmod	_	_
-7	nümm	_	PART	PTKNEG	_	8	advmod	_	_
-8	lauere	_	VERB	VVINF	_	0	root	_	SpaceAfter=No
-9	.	_	PUNCT	$.	_	8	punct	_	_
+# sent_id = vepkar_10
+# text = Konz minä olen sündnu , vanhembad da mö vellenke ajoim elämaha Kaskez - posadaha .
+1	Konz	konz	ADV	_	_	4	mark	_	_
+2	minä	minä	PRON	_	Case=Nom|Number=Sing|Person=1|PronType=Prs	4	nsubj	_	_
+3	olen	olda	AUX	_	Mood=Ind|Number=Sing|Person=1|Tense=Pres|VerbForm=Fin|Voice=Act	4	aux	_	_
+4	sündnu	sünduda	VERB	_	Tense=Past|VerbForm=Part|Voice=Act	10	advcl	_	_
+5	,	,	PUNCT	_	_	6	punct	_	_
+6	vanhembad	vanhembad	NOUN	_	Case=Nom|Number=Plur	10	nsubj	_	_
+7	da	da	CCONJ	_	_	9	cc	_	_
+8	mö	mö	PRON	_	Case=Nom|Number=Plur|Person=1|PronType=Prs	9	nmod	_	_
+9	vellenke	vel'l'	NOUN	_	Case=Com|Number=Sing	6	conj	_	_
+10	ajoim	ajada	VERB	_	Mood=Ind|Number=Plur|Person=1|Tense=Past|VerbForm=Fin|Voice=Act	0	root	_	_
+11	elämaha	eläda	VERB	_	Case=Ill|VerbForm=Sup|Voice=Act	10	xcomp	_	_
+12	Kaskez	Kaskez	PROPN	_	Case=Nom|Number=Sing	14	nmod	_	_
+13	-	-	PUNCT	_	_	14	punct	_	_
+14	posadaha	posada	NOUN	_	Case=Ill|Number=Sing	10	obl	_	_
+15	.	.	PUNCT	_	_	10	punct	_	_
 
-# sent_id = s43
-# text = d Region Möhli-basel isch die wärmscht Region nördlich vode Alpe und het bis zu 40 Sunnetäg mehr z verzeichne als s Mittelland.
-1	d	_	DET	ART	_	2	det	_	_
-2	Region	_	NOUN	NN	_	7	nsubj	_	_
-3	Möhli-basel	_	PROPN	NE	_	2	flat	_	_
-4	isch	_	AUX	VAFIN	_	7	cop	_	_
-5	die	_	DET	ART	_	7	det	_	_
-6	wärmscht	_	ADJ	ADJA	_	7	amod	_	_
-7	Region	_	NOUN	NN	_	0	root	_	_
-8	nördlich	_	ADP	APPR	_	10	case	_	_
-9	vode	_	ADP	APPRART	_	10	case	_	_
-10	Alpe	_	PROPN	NE	_	7	nmod	_	_
-11	und	_	CCONJ	KON	_	19	cc	_	_
-12	het	_	AUX	VAFIN	_	19	aux	_	_
-13	bis	_	ADP	APPR	_	16	case	_	_
-14	zu	_	ADP	APPR	_	13	fixed	_	_
-15	40	_	NUM	CARD	_	16	nummod	_	_
-16	Sunnetäg	_	NOUN	NN	_	19	obl	_	_
-17	mehr	_	ADV	ADV	_	16	amod	_	_
-18	z	_	PART	PTKZU	_	19	mark	_	_
-19	verzeichne	_	VERB	VVINF	_	7	conj	_	_
-20	als	_	CCONJ	KOKOM	_	22	case	_	_
-21	s	_	DET	ART	_	22	det	_	_
-22	Mittelland	_	NOUN	NN	_	16	nmod	_	SpaceAfter=No
-23	.	_	PUNCT	$.	_	7	punct	_	_
+# sent_id = vepkar_95
+# text = Kezal Päžarves elo kehub – irdal vändaba lapsed , lehmäižed käveleba der'ounadme , linmaiš pertidenno radaba tägälaižed eläjad , a nituil nittas heinäd da pandas kegoid .
+1	Kezal	keza	NOUN	_	Case=Ade|Number=Sing	4	obl	_	_
+2	Päžarves	Päžar	PROPN	_	Case=Ine|Number=Sing	4	obl	_	_
+3	elo	elo	NOUN	_	Case=Nom|Number=Sing	4	nsubj	_	_
+4	kehub	kehuda	VERB	_	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin|Voice=Act	0	root	_	_
+5	–	–	PUNCT	_	_	7	punct	_	_
+6	irdal	irdal	ADV	_	_	7	advmod	_	_
+7	vändaba	väta	VERB	_	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin|Voice=Act	4	parataxis	_	_
+8	lapsed	laps'	NOUN	_	Case=Nom|Number=Plur	7	nsubj	_	_
+9	,	,	PUNCT	_	_	11	punct	_	_
+10	lehmäižed	lehmäine	NOUN	_	Case=Nom|Number=Plur	11	nsubj	_	_
+11	käveleba	kävelta	VERB	_	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin|Voice=Act	7	conj	_	_
+12	der'ounadme	deroun	NOUN	_	Case=Ade|Number=Sing	11	obl	_	CorrectCase=Pro
+13	,	,	PUNCT	_	_	16	punct	_	_
+14	linmaiš	linma	NOUN	_	Case=Ine|Number=Plur	16	obl	_	_
+15	pertidenno	pert'	NOUN	_	Case=Com|Number=Plur	16	obl	_	CorrectCase=Apr
+16	radaba	rata	VERB	_	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin|Voice=Act	11	conj	_	_
+17	tägälaižed	tägälaine	ADJ	_	Case=Nom|Degree=Pos|Number=Plur	18	amod	_	_
+18	eläjad	eläi	NOUN	_	Case=Nom|Number=Plur	16	nsubj	_	_
+19	,	,	PUNCT	_	_	22	punct	_	_
+20	a	a	CCONJ	_	_	22	cc	_	_
+21	nituil	nit	NOUN	_	Case=Ade|Number=Plur	22	obl	_	_
+22	nittas	nitta	VERB	_	Mood=Ind|Tense=Pres|VerbForm=Fin|Voice=Pass	16	conj	_	_
+23	heinäd	hein	NOUN	_	Case=Par|Number=Sing	22	obj	_	_
+24	da	da	CCONJ	_	_	25	cc	_	_
+25	pandas	panda	VERB	_	Mood=Ind|Tense=Pres|VerbForm=Fin|Voice=Pass	22	conj	_	_
+26	kegoid	kego	NOUN	_	Case=Par|Number=Plur	25	obj	_	_
+27	.	.	PUNCT	_	_	4	punct	_	_
 
-# sent_id = s31
-# text = ich wär am liebste wider is Bett go schlofe.
-1	ich	_	PRON	PPER	_	9	nsubj	_	_
-2	wär	_	AUX	VAFIN	_	9	aux	_	_
-3	am	_	PART	PTKA	_	4	mark	_	_
-4	liebste	_	ADJ	ADJD	_	9	advmod	_	_
-5	wider	_	ADV	ADV	_	9	advmod	_	_
-6	is	_	ADP	APPRART	_	7	case	_	_
-7	Bett	_	NOUN	NN	_	9	obl	_	_
-8	go	_	PART	PTKINF	_	9	mark	_	_
-9	schlofe	_	VERB	VVINF	_	0	root	_	SpaceAfter=No
-10	.	_	PUNCT	$.	_	9	punct	_	_
+# sent_id = vepkar_103
+# text = Oliži hüvä , miše elo der'onas ei kül'mäiži , a vepsän kel' eläiži tägä igän .
+1	Oliži	olda	AUX	_	Mood=Cnd|Tense=Pres|VerbForm=Fin|Voice=Act	2	cop	_	_
+2	hüvä	hüvä	ADJ	_	Case=Nom|Degree=Pos|Number=Sing	0	root	_	_
+3	,	,	PUNCT	_	_	8	punct	_	_
+4	miše	miše	SCONJ	_	_	8	case	_	_
+5	elo	elo	NOUN	_	Case=Nom|Number=Sing	8	nsubj	_	_
+6	der'onas	der'oun	NOUN	_	Case=Ine|Number=Sing	5	nmod	_	_
+7	ei	ei	AUX	_	Number=Sing|Person=3|Polarity=Neg	8	aux	_	_
+8	kül'mäiži	kül'mda	VERB	_	Connegative=Yes|Mood=Cnd|Tense=Pres|VerbForm=Fin|Voice=Act	2	csubj:cop	_	_
+9	,	,	PUNCT	_	_	13	punct	_	_
+10	a	a	CCONJ	_	_	13	cc	_	_
+11	vepsän	vepsän	ADJ	_	Case=Gen|Number=Sing	12	amod	_	_
+12	kel'	kel'	NOUN	_	Case=Nom|Number=Sing	13	nsubj	_	_
+13	eläiži	eläda	VERB	_	Mood=Cnd|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin|Voice=Act	8	conj	_	_
+14	tägä	tägä	ADV	_	_	13	advmod	_	_
+15	igän	igän	ADV	_	_	13	advmod	_	_
+16	.	.	PUNCT	_	_	2	punct	_	_
 
-# sent_id = s79
-# text = Es söu doch bitte öpper derfür luege, dass d Wäut ougeblicklech ufhört drääje!
-1	Es	_	PRON	PPER	_	7	expl	_	_
-2	söu	_	AUX	VMFIN	_	7	aux	_	_
-3	doch	_	ADV	ADV	_	7	amod	_	_
-4	bitte	_	ADV	ADV	_	7	amod	_	_
-5	öpper	_	PRON	PIS	_	7	nsubj	_	_
-6	derfür	_	ADV	PAV	_	7	advmod	_	_
-7	luege	_	VERB	VVINF	_	0	root	_	SpaceAfter=No
-8	,	_	PUNCT	$,	_	7	punct	_	_
-9	dass	_	SCONJ	KOUS	_	13	mark	_	_
-10	d	_	DET	ART	_	11	det	_	_
-11	Wäut	_	NOUN	NN	_	13	nsubj	_	_
-12	ougeblicklech	_	ADV	ADV	_	13	amod	_	_
-13	ufhört	_	VERB	VVFIN	_	7	ccomp	_	_
-14	drääje	_	VERB	VVINF	_	13	xcomp	_	SpaceAfter=No
-15	!	_	PUNCT	$.	_	7	punct	_	_
+# sent_id = vepkar_43
+# text = Lapsed da pajosebrad pajataba vepsän kelel , praznikan vedäjad terverhtoitaba adivoid vepsän kelel .
+1	Lapsed	laps'	NOUN	_	Case=Nom|Number=Plur	4	nsubj	_	_
+2	da	da	CCONJ	_	_	3	cc	_	_
+3	pajosebrad	pajosebr	NOUN	_	Case=Nom|Number=Plur	1	conj	_	_
+4	pajataba	pajatada	VERB	_	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin|Voice=Act	0	root	_	_
+5	vepsän	vepsän	ADJ	_	Case=Gen|Number=Sing	6	amod	_	_
+6	kelel	kel'	NOUN	_	Case=Ade|Number=Sing	4	obl	_	_
+7	,	,	PUNCT	_	_	10	punct	_	_
+8	praznikan	praznik	NOUN	_	Case=Gen|Number=Sing	9	nmod	_	_
+9	vedäjad	vedäi	NOUN	_	Case=Nom|Number=Plur	10	nsubj	_	_
+10	terverhtoitaba	tervehtoitta	VERB	_	Mood=Ind|Number=Plur|Person=3|Tense=Pres|Typo=Yes|VerbForm=Fin|Voice=Act	4	conj	_	_
+11	adivoid	adiv	NOUN	_	Case=Par|Number=Plur	10	obj	_	_
+12	vepsän	vepsän	ADJ	_	Case=Gen|Number=Sing	13	amod	_	_
+13	kelel	kel'	NOUN	_	Case=Ade|Number=Sing	10	obl	_	_
+14	.	.	PUNCT	_	_	4	punct	_	_
 
-# sent_id = s68
-# text = Und denn simmer inä, und dä Reto Brüelmaa isch scho parat gsi mit sim Referat inklusive PowerPoint-Präsentation.
-1	Und	_	CCONJ	KON	_	3	advmod	_	_
-2	denn	_	ADV	ADV	_	3	advmod	_	_
-3	simmer	_	AUX	VAFIN+	_	0	root	_	_
-4	inä	_	ADV	ADV	_	3	advmod	_	SpaceAfter=No
-5	,	_	PUNCT	$,	_	12	punct	_	_
-6	und	_	CCONJ	KON	_	12	cc	_	_
-7	dä	_	DET	ART	_	8	det	_	_
-8	Reto	_	PROPN	NE	_	12	nsubj	_	_
-9	Brüelmaa	_	PROPN	NE	_	8	flat	_	_
-10	isch	_	AUX	VAFIN	_	12	aux	_	_
-11	scho	_	ADV	ADV	_	12	advmod	_	_
-12	parat	_	ADJ	ADJD	_	3	conj	_	_
-13	gsi	_	AUX	VAPP	_	12	cop	_	_
-14	mit	_	ADP	APPR	_	16	case	_	_
-15	sim	_	DET	PPOSAT	_	16	nmod:poss	_	_
-16	Referat	_	NOUN	NN	_	12	obl	_	_
-17	inklusive	_	ADP	APPR	_	18	case	_	_
-18	PowerPoint-Präsentation	_	NOUN	NN	_	16	nmod	_	SpaceAfter=No
-19	.	_	PUNCT	$.	_	12	punct	_	_
+# sent_id = vepkar_31
+# text = No meile ei pida unohtada ičeze jurid da kodikel't .
+1	No	no	CCONJ	_	_	5	cc	_	_
+2	meile	mö	PRON	_	Case=All|Number=Plur|Person=1|PronType=Prs	5	obl	_	_
+3	ei	ei	AUX	_	Number=Sing|Person=3|Polarity=Neg	5	aux	_	_
+4	pida	pidada	AUX	_	Connegative=Yes|Mood=Ind|Tense=Pres|VerbForm=Fin|Voice=Act	5	aux	_	_
+5	unohtada	unohtada	VERB	_	VerbForm=Inf	0	root	_	_
+6	ičeze	iče	PRON	_	Case=Gen|Number=Sing|Person=3|PronType=Prs|Reflex=Yes	7	nmod	_	_
+7	jurid	jur'	NOUN	_	Case=Par|Number=Plur	5	obj	_	_
+8	da	da	CCONJ	_	_	9	cc	_	_
+9	kodikel't	kodikel'	NOUN	_	Case=Par|Number=Sing	7	conj	_	_
+10	.	.	PUNCT	_	_	5	punct	_	_
 
-# sent_id = s27
-# text = De Spanier hed de Kontakt vermettlet, d Rumäne sölled d Holländer ombrocht ha.
-1	De	_	DET	ART	_	2	det	_	_
-2	Spanier	_	NOUN	NN	_	6	nsubj	_	_
-3	hed	_	AUX	VAFIN	_	6	aux	_	_
-4	de	_	DET	ART	_	5	det	_	_
-5	Kontakt	_	NOUN	NN	_	6	obj	_	_
-6	vermettlet	_	VERB	VVPP	_	0	root	_	SpaceAfter=No
-7	,	_	PUNCT	$,	_	13	punct	_	_
-8	d	_	DET	ART	_	9	det	_	_
-9	Rumäne	_	NOUN	NN	_	13	nsubj	_	_
-10	sölled	_	AUX	VMFIN	_	13	aux	_	_
-11	d	_	DET	ART	_	12	det	_	_
-12	Holländer	_	NOUN	NN	_	13	obj	_	_
-13	ombrocht	_	VERB	VVPP	_	6	conj	_	_
-14	ha	_	AUX	VAINF	_	13	aux	_	SpaceAfter=No
-15	.	_	PUNCT	$.	_	6	punct	_	_
+# sent_id = vepkar_86
+# text = Om Vologdan agjas čoma vepsläine der'oun – Päžar' .
+1	Om	olda	VERB	_	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin|Voice=Act	0	root	_	_
+2	Vologdan	Vologda	PROPN	_	Case=Gen|Number=Sing	3	nmod	_	_
+3	agjas	agj	NOUN	_	Case=Ine|Number=Sing	1	obl	_	_
+4	čoma	čoma	ADJ	_	Case=Nom|Degree=Pos|Number=Sing	6	amod	_	_
+5	vepsläine	vepsläine	ADJ	_	Case=Nom|Number=Sing	6	amod	_	_
+6	der'oun	der'oun	NOUN	_	Case=Nom|Number=Sing	1	nsubj	_	_
+7	–	–	PUNCT	_	_	8	punct	_	_
+8	Päžar'	Päžar'	PROPN	_	Case=Nom|Number=Sing	6	appos	_	_
+9	.	.	PUNCT	_	_	1	punct	_	_
 
-# sent_id = s39
-# text = Uf der andere Siite isch ja nöd èèr Tschuld am Freischpruch.
-1	Uf	_	ADP	APPR	_	4	case	_	_
-2	der	_	DET	ART	_	4	det	_	_
-3	andere	_	ADJ	ADJA	_	4	amod	_	_
-4	Siite	_	NOUN	NN	_	9	obl	_	_
-5	isch	_	AUX	VAFIN	_	9	cop	_	_
-6	ja	_	ADV	ADV	_	9	advmod	_	_
-7	nöd	_	PART	PTKNEG	_	9	advmod	_	_
-8	èèr	_	PRON	PPER	_	9	nsubj	_	_
-9	Tschuld	_	ADJ	ADJD	_	0	root	_	_
-10	am	_	ADP	APPRART	_	11	case	_	_
-11	Freischpruch	_	NOUN	NN	_	9	obl	_	SpaceAfter=No
-12	.	_	PUNCT	$.	_	9	punct	_	_
+# sent_id = vepkar_68
+# text = Sil-žo aigal minun päha tuli meletuz – tehtas Kalag' - külän pämeheks .
+1	Sil-žo	sil-žo	ADV	_	_	2	advmod	_	_
+2	aigal	aig	NOUN	_	Case=Ade|Number=Sing	5	obl	_	_
+3	minun	minä	PRON	_	Case=Gen|Number=Sing|Person=1|PronType=Prs	4	nmod	_	_
+4	päha	pä	NOUN	_	Case=Ill|Number=Sing	5	obl	_	_
+5	tuli	tulda	VERB	_	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin|Voice=Act	0	root	_	_
+6	meletuz	meletuz	NOUN	_	Case=Nom|Number=Sing	5	nsubj	_	_
+7	–	–	PUNCT	_	_	8	punct	_	_
+8	tehtas	tehtas	VERB	_	Mood=Cnd|Tense=Pres|VerbForm=Fin|Voice=Act	6	acl:relcl	_	_
+9	Kalag'	Kalag'	PROPN	_	Case=Nom|Number=Sing	11	nmod	_	_
+10	-	-	PUNCT	_	_	11	punct	_	_
+11	külän	külä	NOUN	_	Case=Gen|Number=Sing	12	nmod	_	_
+12	pämeheks	pämez'	NOUN	_	Case=Tra|Number=Sing	8	xcomp	_	_
+13	.	.	PUNCT	_	_	5	punct	_	_
 
-# sent_id = s78
-# text = Aui hei glachet über di knappi Geografiilektion, numen ig nid.
-1	Aui	_	PRON	PIS	_	3	nsubj	_	_
-2	hei	_	AUX	VAFIN	_	3	aux	_	_
-3	glachet	_	VERB	VVPP	_	0	root	_	_
-4	über	_	ADP	APPR	_	7	case	_	_
-5	di	_	DET	ART	_	7	det	_	_
-6	knappi	_	ADJ	ADJA	_	7	amod	_	_
-7	Geografiilektion	_	NOUN	NN	_	3	obl	_	SpaceAfter=No
-8	,	_	PUNCT	$,	_	3	punct	_	_
-9	numen	_	ADV	ADV	_	10	advmod	_	_
-10	ig	_	PRON	PPER	_	3	conj	_	_
-11	nid	_	PART	PTKNEG	_	10	advmod	_	SpaceAfter=No
-12	.	_	PUNCT	$.	_	3	punct	_	_
+# sent_id = vepkar_27
+# text = Vaiše babad kodiš pagižiba vepsän kelel .
+1	Vaiše	vaiše	ADV	_	_	4	advmod	_	_
+2	babad	bab	NOUN	_	Case=Nom|Number=Plur	4	nsubj	_	_
+3	kodiš	kodi	NOUN	_	Case=Ine|Number=Sing	4	obl	_	_
+4	pagižiba	pagišta	VERB	_	Mood=Ind|Number=Plur|Person=3|Tense=Past|VerbForm=Fin|Voice=Act	0	root	_	_
+5	vepsän	vepsän	ADJ	_	Case=Gen|Number=Sing	6	amod	_	_
+6	kelel	kel'	NOUN	_	Case=Ade|Number=Sing	4	obl	_	_
+7	.	.	PUNCT	_	_	4	punct	_	_
 
-# sent_id = s36
-# text = Di beede halbe Sätz sind nöd diräkt ggloge gsii, aber hèrt a de Waret verbii.
-1	Di	_	DET	ART	_	4	det	_	_
-2	beede	_	DET	PIAT	_	4	det	_	_
-3	halbe	_	ADJ	ADJA	_	4	amod	_	_
-4	Sätz	_	NOUN	NN	_	8	nsubj	_	_
-5	sind	_	AUX	VAFIN	_	8	aux	_	_
-6	nöd	_	PART	PTKNEG	_	7	advmod	_	_
-7	diräkt	_	ADJ	ADJD	_	8	advmod	_	_
-8	ggloge	_	VERB	VVPP	_	0	root	_	_
-9	gsii	_	AUX	VAPP	_	8	aux	_	SpaceAfter=No
-10	,	_	PUNCT	$,	_	16	punct	_	_
-11	aber	_	CCONJ	KON	_	16	cc	_	_
-12	hèrt	_	ADJ	ADJD	_	16	advmod	_	_
-13	a	_	ADP	APPR	_	15	case	_	_
-14	de	_	DET	ART	_	15	det	_	_
-15	Waret	_	NOUN	NN	_	16	obl	_	_
-16	verbii	_	ADJ	ADJD	_	8	conj	_	SpaceAfter=No
-17	.	_	PUNCT	$.	_	8	punct	_	_
+# sent_id = vepkar_39
+# text = Nece praznik om kaks'keline .
+1	Nece	nece	PRON	_	Case=Nom|Number=Sing|PronType=Dem	2	nmod	_	_
+2	praznik	praznik	NOUN	_	Case=Nom|Number=Sing	4	nsubj:cop	_	_
+3	om	olda	AUX	_	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin|Voice=Act	4	cop	_	_
+4	kaks'keline	kaks'keline	ADJ	_	Case=Nom|Degree=Pos|Number=Sing	0	root	_	_
+5	.	.	PUNCT	_	_	4	punct	_	_
 
-# sent_id = s82
-# text = Isch das e Sach gsi, bis mer se gfunge hei gha.
-1	Isch	_	AUX	VAFIN	_	4	aux	_	_
-2	das	_	PRON	PDS	_	4	nsubj	_	_
-3	e	_	DET	ART	_	4	det	_	_
-4	Sach	_	NOUN	NN	_	0	root	_	_
-5	gsi	_	AUX	VAPP	_	4	cop	_	SpaceAfter=No
-6	,	_	PUNCT	$,	_	4	punct	_	_
-7	bis	_	SCONJ	KOUS	_	10	mark	_	_
-8	mer	_	PRON	PPER	_	10	nsubj	_	_
-9	se	_	PRON	PPER	_	10	obj	_	_
-10	gfunge	_	VERB	VVPP	_	4	acl	_	_
-11	hei	_	AUX	VAFIN	_	10	aux	_	_
-12	gha	_	AUX	VAPP	_	10	aux	_	SpaceAfter=No
-13	.	_	PUNCT	$.	_	4	punct	_	_
+# sent_id = vepkar_78
+# text = Niiš om sur' armastuz ičeze rahvahaze da kodimaha , a völ nece om toiv , miše meiden vepsän rahvaz eläškandeb paremba .
+1	Niiš	ne	PRON	_	Case=Ine|Number=Plur|PronType=Dem	0	root	_	_
+2	om	olda	AUX	_	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin|Voice=Act	1	cop	_	_
+3	sur'	sur'	ADJ	_	Case=Nom|Degree=Pos|Number=Sing	4	amod	_	_
+4	armastuz	armastuz	NOUN	_	Case=Nom|Number=Sing	1	nsubj:cop	_	_
+5	ičeze	iče	PRON	_	Case=Gen|Number=Plur|Person=3|PronType=Prs|Reflex=Yes	6	nmod	_	_
+6	rahvahaze	rahvaz	NOUN	_	Case=Ill|Number=Sing	1	obl	_	_
+7	da	da	CCONJ	_	_	8	cc	_	_
+8	kodimaha	kodima	NOUN	_	Case=Ill|Number=Sing	6	conj	_	_
+9	,	,	PUNCT	_	_	14	punct	_	_
+10	a	a	CCONJ	_	_	14	cc	_	_
+11	völ	völ	ADV	_	_	14	advmod	_	_
+12	nece	nece	PRON	_	Case=Nom|Number=Sing|PronType=Dem	14	nsubj:cop	_	_
+13	om	olda	AUX	_	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin|Voice=Act	14	cop	_	_
+14	toiv	toiv	NOUN	_	Case=Nom|Number=Sing	1	conj	_	_
+15	,	,	PUNCT	_	_	20	punct	_	_
+16	miše	miše	SCONJ	_	_	20	mark	_	_
+17	meiden	mö	PRON	_	Case=Gen|Number=Plur|Person=1|PronType=Prs	18	nmod	_	_
+18	vepsän	vepsän	ADJ	_	Case=Gen|Number=Sing	19	amod	_	_
+19	rahvaz	rahvaz	NOUN	_	Case=Nom|Number=Sing	20	nsubj	_	_
+20	eläškandeb	eläškata	VERB	_	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin|Voice=Act	14	acl:relcl	_	_
+21	paremba	paremba	ADV	_	_	20	advmod	_	_
+22	.	.	PUNCT	_	_	1	punct	_	_
 
-# sent_id = s52
-# text = I main, das Ganze letscht Wuchä isch mier scho ächli iigfaarä.
-1	I	_	PRON	PPER	_	2	nsubj	_	_
-2	main	_	VERB	VVFIN	_	0	root	_	SpaceAfter=No
-3	,	_	PUNCT	$,	_	2	punct	_	_
-4	das	_	DET	ART	_	5	det	_	_
-5	Ganze	_	NOUN	NN	_	12	nsubj	_	_
-6	letscht	_	ADJ	ADJA	_	7	amod	_	_
-7	Wuchä	_	NOUN	NN	_	5	nmod	_	_
-8	isch	_	AUX	VAFIN	_	12	aux	_	_
-9	mier	_	PRON	PRF	_	12	iobj	_	_
-10	scho	_	ADV	ADV	_	12	advmod	_	_
-11	ächli	_	ADV	ADV	_	12	advmod	_	_
-12	iigfaarä	_	VERB	VVPP	_	2	ccomp	_	SpaceAfter=No
-13	.	_	PUNCT	$.	_	2	punct	_	_
+# sent_id = vepkar_36
+# text = Mö opendam vepsän kel't školas , tegem melentartuižid projektoid , tegem čomid koncertoid da praznikad , kus ristitud voiba johtutada ičeze jurid , panda päle vepsläižid sädoid da pagišta kodikelel .
+1	Mö	mö	PRON	_	Case=Nom|Number=Plur|Person=1|PronType=Prs	2	nsubj	_	_
+2	opendam	opeta	VERB	_	Mood=Ind|Number=Plur|Person=1|Tense=Pres|VerbForm=Fin|Voice=Act	0	root	_	_
+3	vepsän	vepsän	ADJ	_	Case=Gen|Number=Sing	4	amod	_	_
+4	kel't	kel'	NOUN	_	Case=Par|Number=Sing	2	obj	_	_
+5	školas	škol	NOUN	_	Case=Ine|Number=Sing	2	obl	_	_
+6	,	,	PUNCT	_	_	7	punct	_	_
+7	tegem	tehta	VERB	_	Mood=Ind|Number=Plur|Person=1|Tense=Pres|VerbForm=Fin|Voice=Act	2	conj	_	_
+8	melentartuižid	melentartuine	ADJ	_	Case=Par|Degree=Pos|Number=Plur	9	amod	_	_
+9	projektoid	projekt	NOUN	_	Case=Par|Number=Plur	7	obj	_	_
+10	,	,	PUNCT	_	_	11	punct	_	_
+11	tegem	tehta	VERB	_	Mood=Ind|Number=Plur|Person=1|Tense=Pres|VerbForm=Fin|Voice=Act	2	conj	_	_
+12	čomid	čoma	ADJ	_	Case=Par|Degree=Pos|Number=Plur	13	amod	_	_
+13	koncertoid	koncert	NOUN	_	Case=Par|Number=Plur	11	obj	_	_
+14	da	da	CCONJ	_	_	15	cc	_	_
+15	praznikad	praznik	NOUN	_	Case=Nom|Number=Plur	13	conj	_	_
+16	,	,	PUNCT	_	_	20	punct	_	_
+17	kus	kus	ADV	_	_	20	advmod	_	_
+18	ristitud	ristit	NOUN	_	Case=Nom|Number=Plur	20	nsubj	_	_
+19	voiba	voida	AUX	_	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin|Voice=Act	20	aux	_	_
+20	johtutada	johtutada	VERB	_	VerbForm=Inf	13	acl:relcl	_	_
+21	ičeze	iče	PRON	_	Case=Gen|Number=Sing|Person=3|PronType=Prs|Reflex=Yes	22	nmod	_	_
+22	jurid	jur'	NOUN	_	Case=Nom|Number=Plur	20	obj	_	_
+23	,	,	PUNCT	_	_	24	punct	_	_
+24	panda	panda	VERB	_	VerbForm=Inf	20	conj	_	_
+25	päle	päle	ADP	_	AdpType=Post	24	case	_	_
+26	vepsläižid	vepsläine	ADJ	_	Case=Nom|Number=Plur	27	amod	_	_
+27	sädoid	sädo	NOUN	_	Case=Par|Number=Plur	24	obj	_	_
+28	da	da	CCONJ	_	_	29	cc	_	_
+29	pagišta	pagišta	VERB	_	VerbForm=Inf	20	conj	_	_
+30	kodikelel	kodikel'	NOUN	_	Case=Ade|Number=Sing	29	obj	_	_
+31	.	.	PUNCT	_	_	2	punct	_	_
 
-# sent_id = s12
-# text = Er lèènet use, mag aber kän Schtock gsee.
-1	Er	_	PRON	PPER	_	2	nsubj	_	_
-2	lèènet	_	VERB	VVFIN	_	0	root	_	_
-3	use	_	PART	PTKVZ	_	2	compound:prt	_	SpaceAfter=No
-4	,	_	PUNCT	$,	_	9	punct	_	_
-5	mag	_	AUX	VMFIN	_	9	aux	_	_
-6	aber	_	CCONJ	KON	_	9	cc	_	_
-7	kän	_	DET	PIAT	_	8	det	_	_
-8	Schtock	_	NOUN	NN	_	9	obj	_	_
-9	gsee	_	VERB	VVPP	_	2	conj	_	SpaceAfter=No
-10	.	_	PUNCT	$.	_	2	punct	_	_
+# sent_id = vepkar_82
+# text = Hän abutab udessündutada Kalag' - küläd da paremboita külän eläjiden elod .
+1	Hän	hän	PRON	_	Case=Nom|Number=Sing|Person=3|PronType=Prs	2	nsubj	_	_
+2	abutab	abutada	VERB	_	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin|Voice=Act	0	root	_	_
+3	udessündutada	udessündutada	VERB	_	VerbForm=Inf	2	xcomp	_	_
+4	Kalag'	Kalag'	PROPN	_	Case=Nom|Number=Sing	6	nmod	_	_
+5	-	-	PUNCT	_	_	6	punct	_	_
+6	küläd	külä	NOUN	_	Case=Par|Number=Sing	3	obj	_	_
+7	da	da	CCONJ	_	_	8	cc	_	_
+8	paremboita	paremboita	VERB	_	VerbForm=Inf	3	conj	_	_
+9	külän	külä	NOUN	_	Case=Gen|Number=Sing	10	nmod	_	_
+10	eläjiden	eläi	NOUN	_	Case=Gen|Number=Plur	11	nmod	_	_
+11	elod	elo	NOUN	_	Case=Par|Number=Sing	8	obj	_	_
+12	.	.	PUNCT	_	_	2	punct	_	_
 
-# sent_id = s21
-# text = De Vorsteher vom schwiizerische Departemänt för Wirtschaft, Beldig ond Forschig het s' Hotel im Juli bsuecht.
-1	De	_	DET	ART	_	2	det	_	_
-2	Vorsteher	_	NOUN	NN	_	18	nsubj	_	_
-3	vom	_	ADP	APPRART	_	5	case	_	_
-4	schwiizerische	_	ADJ	ADJA	_	5	amod	_	_
-5	Departemänt	_	NOUN	NN	_	2	nmod	_	_
-6	för	_	ADP	APPR	_	7	case	_	_
-7	Wirtschaft	_	NOUN	NN	_	5	nmod	_	SpaceAfter=No
-8	,	_	PUNCT	$,	_	9	punct	_	_
-9	Beldig	_	NOUN	NN	_	7	conj	_	_
-10	ond	_	CCONJ	KON	_	11	cc	_	_
-11	Forschig	_	NOUN	NN	_	7	conj	_	_
-12	het	_	AUX	VAFIN	_	18	aux	_	_
-13	s	_	DET	ART	_	15	det	_	SpaceAfter=No
-14	'	_	PUNCT	$(	_	13	punct	_	_
-15	Hotel	_	NOUN	NN	_	18	obj	_	_
-16	im	_	ADP	APPRART	_	17	case	_	_
-17	Juli	_	NOUN	NN	_	18	obl	_	_
-18	bsuecht	_	VERB	VVPP	_	0	root	_	SpaceAfter=No
-19	.	_	PUNCT	$.	_	18	punct	_	_
+# sent_id = vepkar_52
+# text = Oli-ik mugoine aig , konz Teile pidi vajehtada ičetoi elod ?
+1	Oli-ik	olda	VERB	_	Clitic=Ik|Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin|Voice=Act	0	root	_	_
+2	mugoine	mugoine	PRON	_	Case=Nom|Number=Sing|PronType=Int	3	nmod	_	_
+3	aig	aig	NOUN	_	Case=Nom|Number=Sing	1	nsubj	_	_
+4	,	,	PUNCT	_	_	8	punct	_	_
+5	konz	konz	ADV	_	_	8	advmod	_	_
+6	Teile	tö	PRON	_	Case=All|Number=Plur|Person=2|PronType=Prs	8	obl	_	_
+7	pidi	pidada	AUX	_	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin|Voice=Act	8	aux	_	_
+8	vajehtada	vajehtada	VERB	_	VerbForm=Inf	3	acl:relcl	_	_
+9	ičetoi	iče	PRON	_	Case=Gen|Number=Plur|Person=2|PronType=Prs|Reflex=Yes	10	nmod	_	_
+10	elod	elo	NOUN	_	Case=Nom|Number=Plur	8	obj	_	_
+11	?	?	PUNCT	_	_	1	punct	_	_
 
-# sent_id = s65
-# text = Und aigentli hätts nöd schlächt aagfangä.
-1	Und	_	CCONJ	KON	_	6	advmod	_	_
-2	aigentli	_	ADV	ADV	_	6	advmod	_	_
-3	hätts	_	AUX	VAFIN+	_	6	aux	_	_
-4	nöd	_	PART	PTKNEG	_	5	advmod	_	_
-5	schlächt	_	ADJ	ADJD	_	6	advmod	_	_
-6	aagfangä	_	VERB	VVPP	_	0	root	_	SpaceAfter=No
-7	.	_	PUNCT	$.	_	6	punct	_	_
+# sent_id = vepkar_12
+# text = Sigä seižub meiden kanzan pert' , necen sijan polhe minun südäimes eläba kaiked lämembad johtutesed .
+1	Sigä	sigä	ADV	_	_	2	advmod	_	_
+2	seižub	seišta	VERB	_	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin|Voice=Act	0	root	_	_
+3	meiden	mö	PRON	_	Case=Gen|Number=Plur|Person=1|PronType=Prs	4	nmod	_	_
+4	kanzan	kanz	NOUN	_	Case=Gen|Number=Sing	5	nmod	_	_
+5	pert'	pert'	NOUN	_	Case=Nom|Number=Sing	2	nsubj	_	_
+6	,	,	PUNCT	_	_	12	punct	_	_
+7	necen	nece	PRON	_	Case=Gen|Number=Sing|PronType=Dem	8	nmod	_	_
+8	sijan	sija	NOUN	_	Case=Gen|Number=Sing	12	obl	_	_
+9	polhe	pol'	ADP	_	AdpType=Post	8	case	_	_
+10	minun	minä	PRON	_	Case=Gen|Number=Sing|Person=1|PronType=Prs	11	nmod	_	_
+11	südäimes	südäin	NOUN	_	Case=Ine|Number=Sing	12	obl	_	_
+12	eläba	eläda	VERB	_	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin|Voice=Act	2	conj	_	_
+13	kaiked	kaik	PRON	_	Case=Nom|Number=Plur|PronType=Tot	14	det	_	_
+14	lämembad	läme	ADJ	_	Case=Nom|Degree=Cmp|Number=Plur	15	amod	_	_
+15	johtutesed	johtutez	NOUN	_	Case=Nom|Number=Plur	12	nsubj	_	_
+16	.	.	PUNCT	_	_	2	punct	_	_
 
-# sent_id = s22
-# text = Äs enthaltät usserdäm än Informations- und ä Transparäzpflicht für d' Verwändig vo beschtimmtä Chemikaliä.
-1	Äs	_	PRON	PPER	_	2	expl	_	_
-2	enthaltät	_	VERB	VVFIN	_	0	root	_	_
-3	usserdäm	_	ADV	PAV	_	2	advmod	_	_
-4	än	_	DET	ART	_	5	det	_	_
-5	Informations-	_	X	TRUNC	_	2	obj	_	_
-6	und	_	CCONJ	KON	_	8	cc	_	_
-7	ä	_	DET	ART	_	8	det	_	_
-8	Transparäzpflicht	_	NOUN	NN	_	5	conj	_	_
-9	für	_	ADP	APPR	_	12	case	_	_
-10	d	_	DET	ART	_	12	det	_	SpaceAfter=No
-11	'	_	PUNCT	$(	_	10	punct	_	_
-12	Verwändig	_	NOUN	NN	_	8	nmod	_	_
-13	vo	_	ADP	APPR	_	15	case	_	_
-14	beschtimmtä	_	ADJ	ADJA	_	15	amod	_	_
-15	Chemikaliä	_	NOUN	NN	_	12	nmod	_	SpaceAfter=No
-16	.	_	PUNCT	$.	_	2	punct	_	_
+# sent_id = vepkar_21
+# text = Vaiše lebupäivile lapsed voiba ajada kodihe , vastatas vanhembidenke .
+1	Vaiše	vaiše	ADV	_	_	5	advmod	_	_
+2	lebupäivile	lebupäiv	NOUN	_	Case=All|Number=Plur	5	obl	_	_
+3	lapsed	laps'	NOUN	_	Case=Nom|Number=Plur	5	nsubj	_	_
+4	voiba	voida	AUX	_	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin|Voice=Act	5	aux	_	_
+5	ajada	ajada	VERB	_	VerbForm=Inf	0	root	_	_
+6	kodihe	kodi	NOUN	_	Case=Ill|Number=Sing	5	obl	_	_
+7	,	,	PUNCT	_	_	8	punct	_	_
+8	vastatas	vastata	VERB	_	VerbForm=Inf	5	conj	_	_
+9	vanhembidenke	vanhembad	NOUN	_	Case=Com|Number=Plur	8	obl	_	_
+10	.	.	PUNCT	_	_	5	punct	_	_
 
-# sent_id = s3
-# text = Und drum bin i ou froh, wenn d Lüt bi mir es Oug zuedrücke.
-1	Und	_	CCONJ	KON	_	6	advmod	_	_
-2	drum	_	ADV	PAV	_	6	obl	_	_
-3	bin	_	AUX	VAFIN	_	6	cop	_	_
-4	i	_	PRON	PPER	_	6	nsubj	_	_
-5	ou	_	ADV	ADV	_	6	advmod	_	_
-6	froh	_	ADJ	ADJD	_	0	root	_	SpaceAfter=No
-7	,	_	PUNCT	$,	_	6	punct	_	_
-8	wenn	_	SCONJ	KOUS	_	15	mark	_	_
-9	d	_	DET	ART	_	10	det	_	_
-10	Lüt	_	NOUN	NN	_	15	nsubj	_	_
-11	bi	_	ADP	APPR	_	12	case	_	_
-12	mir	_	PRON	PPER	_	15	obl	_	_
-13	es	_	DET	ART	_	14	det	_	_
-14	Oug	_	NOUN	NN	_	15	obj	_	_
-15	zuedrücke	_	VERB	VVFIN	_	6	ccomp	_	SpaceAfter=No
-16	.	_	PUNCT	$.	_	6	punct	_	_
+# sent_id = vepkar_65
+# text = Minä kaiken aigan navedin ühtneda vepsläižiden eloho .
+1	Minä	minä	PRON	_	Case=Nom|Number=Sing|Person=1|PronType=Prs	4	nsubj	_	_
+2	kaiken	kaik	PRON	_	Case=Gen|Number=Sing|PronType=Tot	3	nmod	_	_
+3	aigan	aig	NOUN	_	Case=Gen|Number=Sing	4	obl	_	_
+4	navedin	navedida	VERB	_	Mood=Ind|Number=Sing|Person=1|Tense=Past|VerbForm=Fin|Voice=Act	0	root	_	_
+5	ühtneda	ühtneda	VERB	_	VerbForm=Inf	4	xcomp	_	_
+6	vepsläižiden	vepsläine	NOUN	_	Case=Gen|Number=Plur	7	nmod	_	_
+7	eloho	elo	NOUN	_	Case=Ill|Number=Sing	5	obl	_	_
+8	.	.	PUNCT	_	_	4	punct	_	_
 
-# sent_id = s57
-# text = Irgendwiä hätt mi das a sonän Chòg ärinnärät, sonän Tschutter ...
-1	Irgendwiä	_	ADV	ADV	_	8	advmod	_	_
-2	hätt	_	AUX	VAFIN	_	8	aux	_	_
-3	mi	_	PRON	PPER	_	8	obj	_	_
-4	das	_	PRON	PDS	_	8	nsubj	_	_
-5	a	_	ADP	APPR	_	7	case	_	_
-6	sonän	_	DET	PDAT	_	7	det	_	_
-7	Chòg	_	NOUN	NN	_	8	obl	_	_
-8	ärinnärät	_	VERB	VVPP	_	0	root	_	SpaceAfter=No
-9	,	_	PUNCT	$,	_	8	punct	_	_
-10	sonän	_	DET	PDAT	_	11	det	_	_
-11	Tschutter	_	NOUN	NN	_	7	appos	_	_
-12	...	_	PUNCT	$.	_	8	punct	_	_
+# sent_id = vepkar_22
+# text = Minä en navedind eläda internatas , en voind eläda edahan kanzaspäi .
+1	Minä	minä	PRON	_	Case=Nom|Number=Sing|Person=1|PronType=Prs	3	nsubj	_	_
+2	en	ei	AUX	_	Number=Sing|Person=1|Polarity=Neg	3	aux	_	_
+3	navedind	navedida	VERB	_	Connegative=Yes|Mood=Ind|Tense=Past|VerbForm=Fin|Voice=Act	0	root	_	_
+4	eläda	eläda	VERB	_	VerbForm=Inf	3	xcomp	_	_
+5	internatas	internat	NOUN	_	Case=Ine|Number=Sing	3	obl	_	_
+6	,	,	PUNCT	_	_	9	punct	_	_
+7	en	ei	AUX	_	Number=Sing|Person=1|Polarity=Neg	9	aux	_	_
+8	voind	voida	AUX	_	Connegative=Yes|Mood=Ind|Tense=Past|VerbForm=Fin|Voice=Act	9	aux	_	_
+9	eläda	eläda	VERB	_	VerbForm=Inf	3	conj	_	_
+10	edahan	edahan	ADV	_	_	9	advmod	_	_
+11	kanzaspäi	kanz	NOUN	_	Case=Ela|Number=Sing	9	obl	_	_
+12	.	.	PUNCT	_	_	3	punct	_	_
 
-# sent_id = s85
-# text = Am Louis hets offesichtlech leid to, dass er i nes Wäschpinäscht het gstoche.
-1	Am	_	ADP	APPRART	_	2	case	_	_
-2	Louis	_	PROPN	NE	_	6	obl	_	_
-3	hets	_	AUX	VAFIN+	_	6	aux	_	_
-4	offesichtlech	_	ADV	ADV	_	6	advmod	_	_
-5	leid	_	NOUN	NN	_	6	obj	_	_
-6	to	_	VERB	VVPP	_	0	root	_	SpaceAfter=No
-7	,	_	PUNCT	$,	_	6	punct	_	_
-8	dass	_	SCONJ	KOUS	_	14	mark	_	_
-9	er	_	PRON	PPER	_	14	nsubj	_	_
-10	i	_	ADP	APPR	_	12	case	_	_
-11	nes	_	DET	ART	_	12	det	_	_
-12	Wäschpinäscht	_	NOUN	NN	_	14	obl	_	_
-13	het	_	AUX	VAFIN	_	14	aux	_	_
-14	gstoche	_	VERB	VVPP	_	6	ccomp	_	SpaceAfter=No
-15	.	_	PUNCT	$.	_	14	punct	_	_
+# sent_id = vepkar_3
+# text = Hänen elo om omištadud korktale azjale – vedäda ristituid da tehta kaiken heiden hüvüden täht .
+1	Hänen	hän	PRON	_	Case=Gen|Number=Sing|Person=3|PronType=Prs	2	nmod	_	_
+2	elo	elo	NOUN	_	Case=Nom|Number=Sing	4	obj	_	_
+3	om	olda	AUX	_	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin|Voice=Act	4	aux	_	_
+4	omištadud	omištada	VERB	_	Tense=Past|VerbForm=Part|Voice=Pass	0	root	_	_
+5	korktale	korged	ADJ	_	Case=All|Degree=Pos|Number=Sing	6	amod	_	_
+6	azjale	azj	NOUN	_	Case=All|Number=Sing	4	obl	_	_
+7	–	–	PUNCT	_	_	8	punct	_	_
+8	vedäda	vedäda	VERB	_	VerbForm=Inf	4	ccomp	_	_
+9	ristituid	ristit	NOUN	_	Case=Par|Number=Plur	8	obj	_	_
+10	da	da	CCONJ	_	_	11	cc	_	_
+11	tehta	tehta	VERB	_	VerbForm=Inf	8	conj	_	_
+12	kaiken	kaik	PRON	_	Case=Gen|Number=Sing|PronType=Tot	11	obj	_	_
+13	heiden	hö	PRON	_	Case=Gen|Number=Plur|Person=3|PronType=Prs	14	nmod	_	_
+14	hüvüden	hüvüz'	NOUN	_	Case=Gen|Number=Plur	11	obl	_	_
+15	täht	täht	ADP	_	AdpType=Post	14	case	_	_
+16	.	.	PUNCT	_	_	4	punct	_	_
 
-# sent_id = s94
-# text = I ha d Charten aagluegt, wo am Chüeuschrank mit Magnet si befeschtiget gsi.
-1	I	_	PRON	PPER	_	5	nsubj	_	_
-2	ha	_	AUX	VAFIN	_	5	aux	_	_
-3	d	_	DET	ART	_	4	det	_	_
-4	Charten	_	NOUN	NN	_	5	obj	_	_
-5	aagluegt	_	VERB	VVPP	_	0	root	_	SpaceAfter=No
-6	,	_	PUNCT	$,	_	5	punct	_	_
-7	wo	_	PRON	PRELS	_	13	nsubj:pass	_	_
-8	am	_	ADP	APPRART	_	9	case	_	_
-9	Chüeuschrank	_	NOUN	NN	_	13	obl	_	_
-10	mit	_	ADP	APPR	_	11	case	_	_
-11	Magnet	_	NOUN	NN	_	13	obl	_	_
-12	si	_	AUX	VAFIN	_	13	aux	_	_
-13	befeschtiget	_	VERB	VVPP	_	4	acl:relcl	_	_
-14	gsi	_	AUX	VAPP	_	13	aux	_	SpaceAfter=No
-15	.	_	PUNCT	$.	_	5	punct	_	_
+# sent_id = vepkar_57
+# text = Sil aigal minä pätin udes išttas partan taga , i konz minei oli 40 vot , minä udes mänin opendamhas .
+1	Sil	sid'	ADV	_	_	2	advmod	_	_
+2	aigal	aig	NOUN	_	Case=Ade|Number=Sing	4	obl	_	_
+3	minä	minä	PRON	_	Case=Nom|Number=Sing|Person=1|PronType=Prs	4	nsubj	_	_
+4	pätin	pätta	VERB	_	Mood=Ind|Number=Sing|Person=1|Tense=Past|VerbForm=Fin|Voice=Act	0	root	_	_
+5	udes	udes	ADV	_	_	4	advmod	_	_
+6	išttas	ištta	VERB	_	VerbForm=Inf	4	xcomp	_	_
+7	partan	part	NOUN	_	Case=Gen|Number=Sing	6	obl	_	_
+8	taga	taga	ADP	_	AdpType=Post	7	case	_	_
+9	,	,	PUNCT	_	_	12	punct	_	_
+10	i	i	CCONJ	_	_	12	cc	_	_
+11	konz	konz	ADV	_	_	12	advmod	_	_
+12	minei	minä	PRON	_	Case=All|Number=Sing|Person=1|PronType=Prs	19	advcl	_	_
+13	oli	olda	AUX	_	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin|Voice=Act	12	cop	_	_
+14	40	40	NUM	_	Case=Nom|NumForm=Digit|NumType=Card	15	nummod	_	_
+15	vot	voz'	NOUN	_	Case=Par|Number=Sing	12	nsubj:cop	_	_
+16	,	,	PUNCT	_	_	19	punct	_	_
+17	minä	minä	PRON	_	Case=Nom|Number=Sing|Person=1|PronType=Prs	19	nsubj	_	_
+18	udes	udes	ADV	_	_	19	advmod	_	_
+19	mänin	mända	VERB	_	Mood=Ind|Number=Sing|Person=1|Tense=Past|VerbForm=Fin|Voice=Act	4	conj	_	_
+20	opendamhas	opetas	VERB	_	Case=Ill|VerbForm=Sup|Voice=Act	19	xcomp	_	_
+21	.	.	PUNCT	_	_	4	punct	_	_
 
-# sent_id = s46
-# text = Die füüf beslang bestehende Schtandort send om zwöi wiiteri – Schanghäi ond Dresde – ergänzt worde.
-1	Die	_	DET	ART	_	5	det	_	_
-2	füüf	_	NUM	CARD	_	5	nummod	_	_
-3	beslang	_	ADV	ADV	_	4	advmod	_	_
-4	bestehende	_	ADJ	ADJA	_	5	amod	_	_
-5	Schtandort	_	NOUN	NN	_	15	nsubj:pass	_	_
-6	send	_	AUX	VAFIN	_	15	aux	_	_
-7	om	_	ADP	APPR	_	9	case	_	_
-8	zwöi	_	NUM	CARD	_	9	nmod	_	_
-9	wiiteri	_	ADJ	ADJA	_	15	obl	_	_
-10	–	_	PUNCT	$(	_	11	punct	_	_
-11	Schanghäi	_	PROPN	NE	_	9	appos	_	_
-12	ond	_	CCONJ	KON	_	13	cc	_	_
-13	Dresde	_	PROPN	NE	_	11	conj	_	_
-14	–	_	PUNCT	$(	_	11	punct	_	_
-15	ergänzt	_	VERB	VVPP	_	0	root	_	_
-16	worde	_	AUX	VAPP	_	15	aux:pass	_	SpaceAfter=No
-17	.	_	PUNCT	$.	_	15	punct	_	_
+# sent_id = vepkar_85
+# text = Vaiše aldod da kajagad kuliba meiden paginad .
+1	Vaiše	vaiše	ADV	_	_	5	advmod	_	_
+2	aldod	ald	NOUN	_	Case=Nom|Number=Plur	5	nsubj	_	_
+3	da	da	CCONJ	_	_	4	cc	_	_
+4	kajagad	kajag	NOUN	_	Case=Nom|Number=Plur	2	conj	_	_
+5	kuliba	kulda	VERB	_	Mood=Ind|Number=Plur|Person=3|Tense=Past|VerbForm=Fin|Voice=Act	0	root	_	_
+6	meiden	mö	PRON	_	Case=Gen|Number=Plur|Person=1|PronType=Prs	7	nmod	_	_
+7	paginad	pagin	NOUN	_	Case=Par|Number=Sing	5	obj	_	_
+8	.	.	PUNCT	_	_	5	punct	_	_
 
-# sent_id = s9
-# text = chani vollends demit lebe.
-1	chani	_	AUX	VMFIN+	_	4	aux	_	_
-2	vollends	_	ADV	ADV	_	4	advmod	_	_
-3	demit	_	ADV	PAV	_	4	advmod	_	_
-4	lebe	_	VERB	VVFIN	_	0	root	_	SpaceAfter=No
-5	.	_	PUNCT	$.	_	4	punct	_	_
+# sent_id = vepkar_97
+# text = No kaikse elo tägä ei azotade .
+1	No	no	CCONJ	_	_	6	cc	_	_
+2	kaikse	kaik-se	PRON	_	Case=Nom|Clitic=Se|Number=Sing|PronType=Tot	3	nmod	_	_
+3	elo	elo	NOUN	_	Case=Nom|Number=Sing	6	nsubj	_	_
+4	tägä	tägä	ADV	_	_	6	advmod	_	_
+5	ei	ei	AUX	_	Number=Sing|Person=3|Polarity=Neg	6	aux	_	_
+6	azotade	azotadas	VERB	_	Connegative=Yes|Mood=Ind|Number=Sing|Tense=Pres|VerbForm=Fin|Voice=Act	0	root	_	_
+7	.	.	PUNCT	_	_	6	punct	_	_
 
-# sent_id = s55
-# text = D' Lüt um mi umä hend nöd ämòl reagiert, für diä Berliner schiint das ganz nòrmal gsi z' si.
-1	D	_	DET	ART	_	3	det	_	SpaceAfter=No
-2	'	_	PUNCT	$(	_	1	punct	_	_
-3	Lüt	_	NOUN	NN	_	10	nsubj	_	_
-4	um	_	ADP	APPR	_	5	case	_	_
-5	mi	_	PRON	PPER	_	3	nmod	_	_
-6	umä	_	ADP	APZR	_	5	case	_	_
-7	hend	_	AUX	VAFIN	_	10	aux	_	_
-8	nöd	_	PART	PTKNEG	_	10	advmod	_	_
-9	ämòl	_	ADV	ADV	_	8	advmod	_	_
-10	reagiert	_	VERB	VVPP	_	0	root	_	SpaceAfter=No
-11	,	_	PUNCT	$,	_	10	punct	_	_
-12	für	_	ADP	APPR	_	14	case	_	_
-13	diä	_	DET	PDAT	_	14	det	_	_
-14	Berliner	_	NOUN	NN	_	15	obl	_	_
-15	schiint	_	VERB	VVFIN	_	10	parataxis	_	_
-16	das	_	PRON	PDS	_	15	nsubj	_	_
-17	ganz	_	ADV	ADV	_	18	advmod	_	_
-18	nòrmal	_	ADJ	ADJD	_	15	ccomp	_	_
-19	gsi	_	AUX	VAPP	_	18	aux	_	_
-20	z	_	PART	PTKZU	_	18	mark	_	SpaceAfter=No
-21	'	_	PUNCT	$(	_	20	punct	_	_
-22	si	_	AUX	VAINF	_	18	cop	_	SpaceAfter=No
-23	.	_	PUNCT	$.	_	10	punct	_	_
+# sent_id = vepkar_46
+# text = Ka , minun elos oli äi professijoid da äi radod-ki .
+1	Ka	ka	ADV	_	_	4	advmod	_	_
+2	,	,	PUNCT	_	_	4	punct	_	_
+3	minun	minä	PRON	_	Case=Gen|Number=Sing|Person=1|PronType=Prs	4	nmod	_	_
+4	elos	elo	NOUN	_	Case=Ine|Number=Sing	0	root	_	_
+5	oli	olda	AUX	_	Mood=Ind|Number=Sing|Person=3|Tense=Past|VerbForm=Fin|Voice=Act	4	cop	_	_
+6	äi	äi	ADJ	_	Case=Nom|Degree=Pos|Number=Sing	7	amod	_	_
+7	professijoid	professija	NOUN	_	Case=Par|Number=Plur	4	nsubj:cop	_	_
+8	da	da	CCONJ	_	_	10	cc	_	_
+9	äi	äi	ADJ	_	Case=Nom|Degree=Pos|Number=Sing	10	amod	_	_
+10	radod-ki	rad	NOUN	_	Case=Nom|Number=Plur	7	conj	_	_
+11	.	.	PUNCT	_	_	4	punct	_	_
 
-# sent_id = s76
-# text = Bis mi Vatter di Stöu bim Sigfrid z Zofige het übercho.
-1	Bis	_	SCONJ	KOUS	_	11	mark	_	_
-2	mi	_	DET	PPOSAT	_	3	nmod:poss	_	_
-3	Vatter	_	NOUN	NN	_	11	nsubj	_	_
-4	di	_	DET	PDAT	_	5	det	_	_
-5	Stöu	_	NOUN	NN	_	11	obj	_	_
-6	bim	_	ADP	APPRART	_	7	case	_	_
-7	Sigfrid	_	PROPN	NE	_	5	nmod	_	_
-8	z	_	ADP	APPR	_	9	case	_	_
-9	Zofige	_	PROPN	NE	_	7	nmod	_	_
-10	het	_	AUX	VAFIN	_	11	aux	_	_
-11	übercho	_	VERB	VVPP	_	0	root	_	SpaceAfter=No
-12	.	_	PUNCT	$.	_	11	punct	_	_
+# sent_id = vepkar_9
+# text = Se seižub ei lujas edahan Kaskezaspäi , Piterin agjan da Karjalan valdkundan röunal .
+1	Se	se	PRON	_	Case=Nom|Number=Sing|PronType=Dem	2	nsubj	_	_
+2	seižub	seižta	VERB	_	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin|Voice=Act	0	root	_	_
+3	ei	ei	AUX	_	Number=Sing|Person=3|Polarity=Neg	5	aux	_	_
+4	lujas	lujas	ADV	_	_	5	advmod	_	_
+5	edahan	edahan	ADV	_	_	6	advmod	_	_
+6	Kaskezaspäi	Kaskez	PROPN	_	Case=Abl|Number=Sing	2	obl	_	_
+7	,	,	PUNCT	_	_	9	punct	_	_
+8	Piterin	Piter	PROPN	_	Case=Gen|Number=Sing	9	nmod	_	_
+9	agjan	agj	NOUN	_	Case=Gen|Number=Sing	2	obl	_	_
+10	da	da	CCONJ	_	_	12	cc	_	_
+11	Karjalan	Karjala	PROPN	_	Case=Gen|Number=Sing	12	nmod	_	_
+12	valdkundan	valdkund	NOUN	_	Case=Gen|Number=Sing	9	conj	_	_
+13	röunal	röun	NOUN	_	Case=Ade|Number=Sing	12	obl	_	_
+14	.	.	PUNCT	_	_	2	punct	_	_
 
-# sent_id = s96
-# text = Du gsehsch uus, wi wenn de nöime no hättisch z trinken übercho.
-1	Du	_	PRON	PPER	_	2	nsubj	_	_
-2	gsehsch	_	VERB	VVFIN	_	0	root	_	_
-3	uus	_	PART	PTKVZ	_	2	compound:prt	_	SpaceAfter=No
-4	,	_	PUNCT	$,	_	2	punct	_	_
-5	wi	_	CCONJ	KOKOM	_	13	mark	_	_
-6	wenn	_	SCONJ	KOUS	_	5	fixed	_	_
-7	de	_	PRON	PPER	_	13	nsubj	_	_
-8	nöime	_	ADV	ADV	_	13	advmod	_	_
-9	no	_	ADV	ADV	_	13	advmod	_	_
-10	hättisch	_	AUX	VAFIN	_	13	aux	_	_
-11	z	_	DET	ART	_	12	det	_	_
-12	trinken	_	NOUN	NN	_	13	obj	_	_
-13	übercho	_	VERB	VVPP	_	2	advcl	_	SpaceAfter=No
-14	.	_	PUNCT	$.	_	2	punct	_	_
+# sent_id = vepkar_55
+# text = Sigä om toine elo , toižed ristitud oma ümbri sinus .
+1	Sigä	sigä	ADV	_	_	0	root	_	_
+2	om	olda	AUX	_	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin|Voice=Act	1	cop	_	_
+3	toine	toine	PRON	_	Case=Nom|Number=Sing|PronType=Dem	4	nmod	_	_
+4	elo	elo	NOUN	_	Case=Nom|Number=Sing	1	nsubj:cop	_	_
+5	,	,	PUNCT	_	_	10	punct	_	_
+6	toižed	toine	PRON	_	Case=Nom|Number=Plur|PronType=Dem	7	nmod	_	_
+7	ristitud	ristit	NOUN	_	Case=Nom|Number=Plur	10	nsubj:cop	_	_
+8	oma	olda	AUX	_	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin|Voice=Act	10	cop	_	_
+9	ümbri	ümbri	ADP	_	AdpType=Prep	10	case	_	_
+10	sinus	sinä	PRON	_	Case=Ine|Number=Sing|Person=2|PronType=Prs	1	conj	_	_
+11	.	.	PUNCT	_	_	1	punct	_	_
 
-# sent_id = s13
-# text = Öb s en richtige Mord seg, wüss er nanig.
-1	Öb	_	SCONJ	KOUS	_	6	mark	_	_
-2	s	_	PRON	PPER	_	6	expl	_	_
-3	en	_	DET	ART	_	5	det	_	_
-4	richtige	_	ADJ	ADJA	_	5	amod	_	_
-5	Mord	_	NOUN	NN	_	6	nsubj	_	_
-6	seg	_	AUX	VAFIN	_	8	ccomp	_	SpaceAfter=No
-7	,	_	PUNCT	$,	_	8	punct	_	_
-8	wüss	_	VERB	VVFIN	_	0	root	_	_
-9	er	_	PRON	PPER	_	8	nsubj	_	_
-10	nanig	_	ADV	ADV	_	8	amod	_	SpaceAfter=No
-11	.	_	PUNCT	$.	_	8	punct	_	_
+# sent_id = vepkar_76
+# text = Se abutab kaita rahvast da noustatada ristituiš rahvahališt ičetundmust .
+1	Se	se	PRON	_	Case=Nom|Number=Sing|PronType=Dem	2	nsubj	_	_
+2	abutab	abutada	VERB	_	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin|Voice=Act	0	root	_	_
+3	kaita	kaita	VERB	_	VerbForm=Inf	2	xcomp	_	_
+4	rahvast	rahvaz	NOUN	_	Case=Par|Number=Sing	3	obj	_	_
+5	da	da	CCONJ	_	_	6	cc	_	_
+6	noustatada	noustatada	VERB	_	VerbForm=Inf	3	conj	_	_
+7	ristituiš	ristit	NOUN	_	Case=Ine|Number=Plur	6	obl	_	_
+8	rahvahališt	rahvahaline	ADJ	_	Case=Par|Degree=Pos|Number=Sing	9	amod	_	_
+9	ičetundmust	ičetundmus	NOUN	_	Case=Par|Number=Sing	6	obj	_	_
+10	.	.	PUNCT	_	_	2	punct	_	_
 
-# sent_id = s66
-# text = Im Werbeschpott hätts än Bärner Sennähund namens Barry mit dä Schtimm vom Endo Anaconda gee und ä Gans namens Hans.
-1	Im	_	ADP	APPRART	_	2	case	_	_
-2	Werbeschpott	_	NOUN	NN	_	15	obl	_	_
-3	hätts	_	AUX	VAFIN+	_	15	aux	_	_
-4	än	_	DET	ART	_	6	det	_	_
-5	Bärner	_	ADJ	ADJA	_	6	amod	_	_
-6	Sennähund	_	NOUN	NN	_	15	obj	_	_
-7	namens	_	ADP	APPR	_	8	case	_	_
-8	Barry	_	PROPN	NE	_	6	nmod	_	_
-9	mit	_	ADP	APPR	_	11	case	_	_
-10	dä	_	DET	ART	_	11	det	_	_
-11	Schtimm	_	NOUN	NN	_	6	nmod	_	_
-12	vom	_	ADP	APPRART	_	13	case	_	_
-13	Endo	_	PROPN	NE	_	11	nmod	_	_
-14	Anaconda	_	PROPN	NE	_	13	flat	_	_
-15	gee	_	VERB	VVPP	_	0	root	_	_
-16	und	_	CCONJ	KON	_	18	cc	_	_
-17	ä	_	DET	ART	_	18	det	_	_
-18	Gans	_	NOUN	NN	_	6	conj	_	_
-19	namens	_	ADP	APPR	_	20	case	_	_
-20	Hans	_	PROPN	NE	_	18	nmod	_	SpaceAfter=No
-21	.	_	PUNCT	$.	_	15	punct	_	_
+# sent_id = vepkar_96
+# text = Tal'vel Päžarvehe jäb läz 40 mest .
+1	Tal'vel	tal'v	NOUN	_	Case=Ade|Number=Sing	3	obl	_	_
+2	Päžarvehe	Päžar	PROPN	_	Case=Ill|Number=Sing	3	obl	_	_
+3	jäb	jäda	VERB	_	Mood=Ind|Number=Sing|Person=3|Tense=Pres|VerbForm=Fin|Voice=Act	0	root	_	_
+4	läz	läz	ADV	_	_	5	advmod	_	_
+5	40	40	NUM	_	Case=Nom|NumForm=Digit|NumType=Card	6	nummod	_	_
+6	mest	mez	NOUN	_	Case=Par|Number=Sing	3	nsubj	_	_
+7	.	.	PUNCT	_	_	3	punct	_	_
 
-# sent_id = s35
-# text = ;) Am Obig simer den no e Wassershow vo dem riesige Brunne vom Bellagio go luege.
-1	;)	_	X	XY	_	4	dep	_	_
-2	Am	_	ADP	APPRART	_	3	case	_	_
-3	Obig	_	NOUN	NN	_	4	obl	_	_
-4	simer	_	AUX	VAFIN+	_	0	root	_	_
-5	den	_	ADV	ADV	_	4	advmod	_	_
-6	no	_	ADV	ADV	_	4	advmod	_	_
-7	e	_	DET	ART	_	8	det	_	_
-8	Wassershow	_	NOUN	NN	_	4	obj	_	_
-9	vo	_	ADP	APPR	_	12	case	_	_
-10	dem	_	DET	ART	_	12	det	_	_
-11	riesige	_	ADJ	ADJA	_	12	amod	_	_
-12	Brunne	_	NOUN	NN	_	8	nmod	_	_
-13	vom	_	ADP	APPRART	_	14	case	_	_
-14	Bellagio	_	PROPN	NE	_	12	nmod	_	_
-15	go	_	PART	PTKINF	_	16	mark	_	_
-16	luege	_	VERB	VVINF	_	4	xcomp	_	SpaceAfter=No
-17	.	_	PUNCT	$.	_	4	punct	_	_
+# sent_id = vepkar_13
+# text = Pagištihe-ik Teiden kanzas vepsän kelel ?
+1	Pagištihe-ik	pagišta	VERB	_	Clitic=Ik|Mood=Ind|Tense=Past|VerbForm=Fin|Voice=Pass	0	root	_	_
+2	Teiden	tö	PRON	_	Case=Gen|Number=Plur|Person=2|PronType=Prs	3	nmod	_	_
+3	kanzas	kanz	NOUN	_	Case=Ine|Number=Sing	1	obl	_	_
+4	vepsän	vepsän	ADJ	_	Case=Gen|Number=Sing	5	amod	_	_
+5	kelel	kel'	NOUN	_	Case=Ade|Number=Sing	1	obl	_	_
+6	?	?	PUNCT	_	_	1	punct	_	_
+
+# sent_id = vepkar_66
+# text = Olin Vepsän kul'tursebran aktivižen ühtnikan .
+1	Olin	olda	AUX	_	Mood=Ind|Number=Sing|Person=1|Tense=Past|VerbForm=Fin|Voice=Act	5	cop	_	_
+2	Vepsän	vepsän	PROPN	_	Case=Gen|Number=Sing	3	nmod	_	_
+3	kul'tursebran	kul'tursebr	NOUN	_	Case=Gen|Number=Sing	5	nmod	_	_
+4	aktivižen	aktivine	ADJ	_	Case=Ess|Degree=Pos|Number=Sing	5	amod	_	_
+5	ühtnikan	ühtnik	NOUN	_	Case=Ess|Number=Sing	0	root	_	_
+6	.	.	PUNCT	_	_	5	punct	_	_
+
+# sent_id = vepkar_35
+# text = Meiden Kalag' - posadas mugažo tugedaba vepsän rahvast .
+1	Meiden	mö	PRON	_	Case=Gen|Number=Plur|Person=1|PronType=Prs	4	nmod	_	_
+2	Kalag'	Kalag'	PROPN	_	Case=Nom|Number=Sing	4	nmod	_	_
+3	-	-	PUNCT	_	_	4	punct	_	_
+4	posadas	posada	NOUN	_	Case=Ine|Number=Sing	6	obl	_	_
+5	mugažo	mugažo	ADV	_	_	6	advmod	_	_
+6	tugedaba	tugeta	VERB	_	Mood=Ind|Number=Plur|Person=3|Tense=Pres|VerbForm=Fin|Voice=Act	0	root	_	_
+7	vepsän	vepsän	ADJ	_	Case=Gen|Number=Sing	8	amod	_	_
+8	rahvast	rahvaz	NOUN	_	Case=Par|Number=Sing	6	obj	_	_
+9	.	.	PUNCT	_	_	6	punct	_	_
 

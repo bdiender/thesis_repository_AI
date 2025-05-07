@@ -1,10 +1,14 @@
-python/serialization*
-
+### Thesis-specific
+/administration/
+/papers/
 /scripts/
-administration/
+
 latex/latex_template/
+
+python/language_selection
+python/thesis/data/
 python/thesis/outputs/
-src/test.py
+python/thesis/src/test.py
 
 ### LaTeX-related:
 ## Core latex/pdflatex auxiliary files:

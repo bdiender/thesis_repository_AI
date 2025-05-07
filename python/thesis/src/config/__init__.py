@@ -1,5 +1,6 @@
 import os
 import yaml
+from pprint import pformat
 
 class Config:
     def __init__(self, path=None, _data=None):
@@ -17,11 +18,17 @@ class Config:
             self._data = yaml.safe_load(f)
 
     def __getattr__(self, key):
-        val = self._data[key]
+        try:
+            val = self._data[key]
+        except KeyError:
+            raise AttributeError(f"'Config' object has no attribute '{key}'")
 
         if isinstance(val, dict):
             return Config(_data=val)
         return val
+    
+    def __repr__(self):
+        return f'{self.__class__.__name__}({pformat(self._data)})'
 
     def get(self, *keys, default=None):
         if len(keys) >= 2 and not isinstance(keys[-1], str):

@@ -1,69 +1,275 @@
+### Basic anchors
 defaults: &defaults
   cuda_device: -1
   seed: 1
-  training: &training_defaults
-    lr_model: 0.0001
-    lr_classifier: 0.001
-    warmup_rate: 0.1
-  model: &model_defaults
-    encoder: &encoder_defaults
-      hidden_size: 384
-      num_layers: 2
-      bidirectional: True
-      batch_first: True
-    decoder: &decoder_defaults
-      tag_repr_dim: 256
-      arc_repr_dim: 256
-      dropout: 0.2
-    layer_dropout: 0.1
 
-nl_lassysmall_test:
+training_defaults: &training_defaults
+  lr_model: 0.0001
+  lr_classifier: 0.001
+  warmup_rate: 0.1
+  batch_size: 32
+
+model_defaults: &model_defaults
+  encoder:
+    hidden_size: 384
+    num_layers: 2
+    bidirectional: true
+    batch_first: true
+  decoder:
+    tag_repr_dim: 256
+    arc_repr_dim: 256
+    dropout: 0.2
+  layer_dropout: 0.1
+
+
+### Stage-specific defaults
+dataset_stage2_common: &dataset_stage2_common
+  splits:
+    train: train
+    dev: validation
+    test: test
+  number_of_updates: &stage2_updates 100000
+
+dataset_stage3_common: &dataset_stage3_common
+  splits:
+    train: train
+    dev: dev
+    test: test
+  number_of_updates: &stage3_updates 100
+
+### First stage argument (use this)
+first_stage_deu:
   <<: *defaults
-  output_dir: outputs/nld_test
+  output_dir: outputs/1_deu
   training:
     <<: *training_defaults
-    epochs: 1
-    num_steps_per_epoch: 643
+    total_updates: 750000
   dataset:
-    name: nl_lassysmall
-    splits:
-      train: train
-      dev: validation
-      test: test
-    load_batch_size: 9
-
-hu_szeged_test:
-  <<: *defaults
-  output_dir: outputs/hun_test
-  training:
-    <<: *training_defaults
-    epochs: 1
-    num_steps_per_epoch: 91
-  dataset:
-    name: hu_szeged
-    splits:
-      train: train
-      dev: validation
-      test: test
-    load_batch_size: 10
-
-
-hu_to_nl_finetune:
-  <<: *defaults
-  output_dir: outputs/hu_to_nl_finetune
+    <<: *dataset_stage2_common
+    name: de_hdt
   model:
     <<: *model_defaults
-    finetune_on: outputs/hun_test/model.pkl
 
+veps_test:
+  <<: *defaults
+  output_dir: outputs/vep_test
   training:
     <<: *training_defaults
-    epochs: 1
-    num_steps_per_epoch: 643
-
+    total_updates: 100
+    batch_size: 10
   dataset:
-    name: nl_lassysmall
     splits:
       train: train
-      dev: validation
+      dev: dev
       test: test
-    load_batch_size: 9
+    name: data/vep/vep_vwt-ud
+  model:
+    <<: *model_defaults
+
+### Stage/language-specific defaults
+stage2_nld_spec: &stage2_nld_spec
+  training:
+    <<: *training_defaults
+    total_updates: *stage2_updates
+  dataset:
+    <<: *dataset_stage2_common
+    name: nl_lassysmall
+
+stage2_swe_spec: &stage2_swe_spec
+  training:
+    <<: *training_defaults
+    total_updates: *stage2_updates  
+  dataset:
+    <<: *dataset_stage2_common
+    name: sv_talbanken
+
+stage2_ces_spec: &stage2_ces_spec
+  training:
+    <<: *training_defaults
+    total_updates: *stage2_updates  
+  dataset:
+    <<: *dataset_stage2_common
+    name: nl_lassysmall
+
+stage2_hun_spec: &stage2_hun_spec
+  training:
+    <<: *training_defaults
+    total_updates: *stage2_updates  
+  dataset:
+    <<: *dataset_stage2_common
+    name: sv_talbanken
+
+### Second stage arguments (use these)
+second_stage_nld:
+  <<: [*defaults, *stage2_nld_spec]
+  output_dir: outputs/2_nld
+  model:
+    <<: *model_defaults
+    finetune_on: outputs/1_deu/model.pkl
+
+second_stage_swe:
+  <<: [*defaults, *stage2_swe_spec]
+  output_dir: outputs/2_swe
+  model:
+    <<: *model_defaults
+    finetune_on: outputs/1_deu/model.pkl
+
+second_stage_ces:
+  <<: [*defaults, *stage2_ces_spec]
+  output_dir: outputs/2_ces
+  model:
+    <<: *model_defaults
+    finetune_on: outputs/1_deu/model.pkl
+
+second_stage_hun:
+  <<: [*defaults, *stage2_hun_spec]
+  output_dir: outputs/2_hun
+  model:
+    <<: *model_defaults
+    finetune_on: outputs/1_deu/model.pkl
+
+### Stage/language-specific defaults
+stage3_gsw_spec: &stage3_gsw_spec
+  training:
+    <<: *training_defaults
+    total_updates: *stage3_updates
+  dataset:
+    <<: *dataset_stage3_common
+    name: data/gsw/gsw_uzh-ud
+
+stage3_fao_spec: &stage3_fao_spec
+  training:
+    <<: *training_defaults
+    total_updates: *stage3_updates
+  dataset:
+    <<: *dataset_stage3_common
+    name: data/gsw/gsw_uzh-ud
+
+stage3_hsb_spec: &stage3_hsb_spec
+  training:
+    <<: *training_defaults
+    total_updates: *stage3_updates
+  dataset:
+    <<: *dataset_stage3_common
+    name: data/gsw/gsw_uzh-ud
+
+stage3_vep_spec: &stage3_vep_spec
+  training:
+    <<: *training_defaults
+    total_updates: *stage3_updates
+  dataset:
+    <<: *dataset_stage3_common
+    name: data/gsw/gsw_uzh-ud
+
+### Third stage arguments (use these)
+third_stage_nld_gsw:
+  <<: [*defaults, *stage3_gsw_spec]
+  output_dir: outputs/3_nld_gsw
+  model:
+    <<: *model_defaults
+    finetune_on: outputs/2_nld/model.pkl
+
+third_stage_nld_fao:
+  <<: [*defaults, *stage3_fao_spec]
+  output_dir: outputs/3_nld_fao
+  model:
+    <<: *model_defaults
+    finetune_on: outputs/2_nld/model.pkl
+
+third_stage_nld_hsb:
+  <<: [*defaults, *stage3_hsb_spec]
+  output_dir: outputs/3_nld_hsb
+  model:
+    <<: *model_defaults
+    finetune_on: outputs/2_nld/model.pkl
+
+third_stage_nld_vep:
+  <<: [*defaults, *stage3_vep_spec]
+  output_dir: outputs/3_nld_vep
+  model:
+    <<: *model_defaults
+    finetune_on: outputs/2_nld/model.pkl
+
+third_stage_swe_gsw:
+  <<: [*defaults, *stage3_gsw_spec]
+  output_dir: outputs/3_swe_gsw
+  model:
+    <<: *model_defaults
+    finetune_on: outputs/2_swe/model.pkl
+
+third_stage_swe_fao:
+  <<: [*defaults, *stage3_fao_spec]
+  output_dir: outputs/3_swe_fao
+  model:
+    <<: *model_defaults
+    finetune_on: outputs/2_swe/model.pkl
+
+third_stage_swe_hsb:
+  <<: [*defaults, *stage3_hsb_spec]
+  output_dir: outputs/3_swe_hsb
+  model:
+    <<: *model_defaults
+    finetune_on: outputs/2_swe/model.pkl
+
+third_stage_swe_vep:
+  <<: [*defaults, *stage3_vep_spec]
+  output_dir: outputs/3_swe_vep
+  model:
+    <<: *model_defaults
+    finetune_on: outputs/2_swe/model.pkl
+
+third_stage_ces_gsw:
+  <<: [*defaults, *stage3_gsw_spec]
+  output_dir: outputs/3_ces_gsw
+  model:
+    <<: *model_defaults
+    finetune_on: outputs/2_ces/model.pkl
+
+third_stage_ces_fao:
+  <<: [*defaults, *stage3_fao_spec]
+  output_dir: outputs/3_ces_fao
+  model:
+    <<: *model_defaults
+    finetune_on: outputs/2_ces/model.pkl
+
+third_stage_ces_hsb:
+  <<: [*defaults, *stage3_hsb_spec]
+  output_dir: outputs/3_ces_hsb
+  model:
+    <<: *model_defaults
+    finetune_on: outputs/2_ces/model.pkl
+
+third_stage_ces_vep:
+  <<: [*defaults, *stage3_vep_spec]
+  output_dir: outputs/3_ces_vep
+  model:
+    <<: *model_defaults
+    finetune_on: outputs/2_ces/model.pkl
+
+third_stage_hun_gsw:
+  <<: [*defaults, *stage3_gsw_spec]
+  output_dir: outputs/3_hun_gsw
+  model:
+    <<: *model_defaults
+    finetune_on: outputs/2_hun/model.pkl
+
+third_stage_hun_fao:
+  <<: [*defaults, *stage3_fao_spec]
+  output_dir: outputs/3_hun_fao
+  model:
+    <<: *model_defaults
+    finetune_on: outputs/2_hun/model.pkl
+
+third_stage_hun_hsb:
+  <<: [*defaults, *stage3_hsb_spec]
+  output_dir: outputs/3_hun_hsb
+  model:
+    <<: *model_defaults
+    finetune_on: outputs/2_hun/model.pkl
+
+third_stage_hun_vep:
+  <<: [*defaults, *stage3_vep_spec]
+  output_dir: outputs/3_hun_vep
+  model:
+    <<: *model_defaults
+    finetune_on: outputs/2_hun/model.pkl

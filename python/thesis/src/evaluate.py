@@ -35,9 +35,9 @@ def main():
     correct_uem = 0
     correct_lem = 0
 
-    with open(os.path.join(cfg.out_dir, 'predictions.tsv')) as f:
+    with open(os.path.join(cfg.output_dir, 'predictions.tsv'), 'w') as f:
         f.write(f'Token ID\tWord\tGold head\tPred. head\tGold tag\tPred. tag\n')
-        for inst in reader.read(cfg.datset.name):
+        for inst in reader.read(cfg.dataset.name):
             result = predictor.predict_instance(inst)
 
             words = result['words']
@@ -45,7 +45,7 @@ def main():
             pred_heads = result['heads']
             pred_tags = result['head_tags']
 
-            gold_heads = [int(t) for t in inst.fields['heads_indices'].labels]
+            gold_heads = [int(t) for t in inst.fields['head_indices'].labels]
             gold_tags = inst.fields['head_tags'].labels
 
             all_ua_correct = True
@@ -66,7 +66,7 @@ def main():
                     correct_uas += 1
                 else:
                     all_ua_correct = False
-                if lab_ok:
+                if lab_ok and arc_ok:
                     correct_las += 1
                 else:
                     all_la_correct = False

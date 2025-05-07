@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-URL="https://raw.githubusercontent.com/UniversalDependencies/UD_Alemannic-UZH/refs/heads/dev/gsw_uzh-ud-test.conllu"
+URL="https://raw.githubusercontent.com/UniversalDependencies/UD_Veps-VWT/refs/heads/dev/vep_vwt-ud-test.conllu"
 LANGUAGE_CODE="vep"
 FILENAME="vep_vwt-ud-test.conllu"
 DATA_DIR="data/${LANGUAGE_CODE}/${FILENAME}"
