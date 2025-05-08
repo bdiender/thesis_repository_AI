@@ -4,10 +4,14 @@ defaults: &defaults
   seed: 1
 
 training_defaults: &training_defaults
+  batch_size: 16
   lr_model: 0.0001
   lr_classifier: 0.001
+  scheduler: cosine
+  weight_decay: 0.01
   warmup_rate: 0.1
-  batch_size: 32
+  freeze_bert: false
+  num_frozen_epochs: 0
 
 model_defaults: &model_defaults
   encoder:
@@ -17,7 +21,7 @@ model_defaults: &model_defaults
     batch_first: true
   decoder:
     tag_repr_dim: 256
-    arc_repr_dim: 256
+    arc_repr_dim: 768
     dropout: 0.2
   layer_dropout: 0.1
 
@@ -209,7 +213,7 @@ stage2_ces_spec: &stage2_ces_spec
     total_updates: *stage2_updates  
   dataset:
     <<: *dataset_stage2_common
-    name: nl_lassysmall
+    name: cs_cac
 
 stage2_hun_spec: &stage2_hun_spec
   training:
@@ -217,7 +221,7 @@ stage2_hun_spec: &stage2_hun_spec
     total_updates: *stage2_updates  
   dataset:
     <<: *dataset_stage2_common
-    name: sv_talbanken
+    name: hu_szeged
 
 ### Second stage arguments (use these)
 second_stage_nld:

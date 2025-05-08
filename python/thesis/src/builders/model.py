@@ -8,7 +8,7 @@ from allennlp.models.archival import load_archive
 from allennlp.models.model import Model
 from allennlp.modules.text_field_embedders import BasicTextFieldEmbedder
 from allennlp.modules.token_embedders import PretrainedTransformerEmbedder
-from allennlp.modules.seq2seq_encoders import PytorchSeq2SeqWrapper
+from allennlp.modules.seq2seq_encoders.pass_through_encoder import PassThroughEncoder
 
 from models import BaseModel, DependencyDecoder
 
@@ -27,31 +27,20 @@ def build_model(cfg: Dict[str, Any], vocab: Vocabulary, cuda_device: int = 0) ->
     token_embedder = PretrainedTransformerEmbedder("bert-base-multilingual-cased")
     text_field_embedder = BasicTextFieldEmbedder({"tokens": token_embedder})
 
-    shared_encoder = PytorchSeq2SeqWrapper(
-        torch.nn.LSTM(
-            input_size=text_field_embedder.get_output_dim(),
-            hidden_size=384,
-            num_layers=2,
-            bidirectional=True,
-            batch_first=True,
-        )
+    shared_encoder = PassThroughEncoder(
+        input_dim=text_field_embedder.get_output_dim()
     )
 
-    decoder_encoder = PytorchSeq2SeqWrapper(
-        torch.nn.LSTM(
-            input_size=shared_encoder.get_output_dim(),
-            hidden_size=384,
-            num_layers=2,
-            bidirectional=True,
-            batch_first=True,
-        )
+    decoder_encoder = PassThroughEncoder(
+        input_dim=shared_encoder.get_output_dim()
     )
+
     decoder = DependencyDecoder(
         vocab=vocab,
         encoder=decoder_encoder,
-        tag_representation_dim=256,
-        arc_representation_dim=256,
-        dropout=0.2,  # TODO: Check
+        tag_representation_dim=cfg.model.decoder.tag_repr_dim,
+        arc_representation_dim=cfg.model.decoder.arc_repr_dim,
+        dropout=cfg.model.decoder.dropout
     )
 
     return BaseModel(
@@ -60,5 +49,5 @@ def build_model(cfg: Dict[str, Any], vocab: Vocabulary, cuda_device: int = 0) ->
         encoder=shared_encoder,
         decoder=decoder,
         mix_embedding=12,
-        layer_dropout=0.1,
+        layer_dropout=0.1
     )
