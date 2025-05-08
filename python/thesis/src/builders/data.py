@@ -24,11 +24,13 @@ def build_data_loaders(vocab: Vocabulary, cfg: Dict[str, Any]) -> Tuple[SimpleDa
     batch_size = cfg.training.batch_size
     train_loader = SimpleDataLoader.from_dataset_reader(
         UniversalDependenciesReader(split=cfg.dataset.splits.train),
+        data_path=cfg.dataset.name,
         batch_size=batch_size,
         shuffle=True
     )
     dev_loader = SimpleDataLoader.from_dataset_reader(
         UniversalDependenciesReader(split=cfg.dataset.splits.train),
+        data_path=cfg.dataset.name,
         batch_size=batch_size,
         shuffle=True
     )
