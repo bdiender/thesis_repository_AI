@@ -9,6 +9,7 @@ latex/latex_template/
 python/language_selection
 python/thesis/data/
 python/thesis/outputs/
+python/thesis/master_vocab/
 python/thesis/src/test.py
 
 ### LaTeX-related:

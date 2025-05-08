@@ -43,7 +43,7 @@ def main():
 
     # Load data, vocab, data loaders
     train_ds, dev_ds = build_datasets(cfg)
-    vocab = build_vocab(train_ds, dev_ds)
+    vocab = build_vocab()
     train_loader, dev_loader = build_data_loaders(train_ds, dev_ds, vocab, cfg)
 
     # Build model
