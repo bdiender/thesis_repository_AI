@@ -45,7 +45,7 @@ class UniversalDependenciesReader(DatasetReader):
             tb = parse_incr(open(local_path, encoding="utf-8"))
             local = True
         else:
-            tb = load_dataset("universal_dependencies", file_path, split=self.split)
+            tb = load_dataset("universal_dependencies", file_path, split=self.split, streaming=True)
             local = False
 
         for example in tb:

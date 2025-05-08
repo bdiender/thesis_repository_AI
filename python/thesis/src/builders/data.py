@@ -7,12 +7,12 @@ from allennlp.data.data_loaders import SimpleDataLoader
 from dataset_readers import UniversalDependenciesReader
 
 
-def build_datasets(cfg: Dict[str, Any]) -> Tuple[List[Instance], List[Instance]]:
-    tb_name = cfg.dataset.name
-    train = list(UniversalDependenciesReader(split=cfg.dataset.splits.train).read(tb_name))
-    dev = list(UniversalDependenciesReader(split=cfg.dataset.splits.dev).read(tb_name))
+# def build_datasets(cfg: Dict[str, Any]) -> Tuple[List[Instance], List[Instance]]:
+#     tb_name = cfg.dataset.name
+#     train = list(UniversalDependenciesReader(split=cfg.dataset.splits.train).read(tb_name))
+#     dev = list(UniversalDependenciesReader(split=cfg.dataset.splits.dev).read(tb_name))
 
-    return train, dev
+#     return train, dev
 
 
 def build_vocab() -> Vocabulary:
@@ -20,11 +20,18 @@ def build_vocab() -> Vocabulary:
 
 
 
-def build_data_loaders(train: List[Instance], dev: List[Instance],
-                      vocab: Vocabulary, cfg: Dict[str, Any]) -> Tuple[SimpleDataLoader, SimpleDataLoader]:
+def build_data_loaders(vocab: Vocabulary, cfg: Dict[str, Any]) -> Tuple[SimpleDataLoader, SimpleDataLoader]:
     batch_size = cfg.training.batch_size
-    train_loader = SimpleDataLoader(train, batch_size=batch_size, shuffle=True)
-    dev_loader = SimpleDataLoader(dev, batch_size=batch_size, shuffle=False)
+    train_loader = SimpleDataLoader.from_dataset_reader(
+        UniversalDependenciesReader(split=cfg.dataset.splits.train),
+        batch_size=batch_size,
+        shuffle=True
+    )
+    dev_loader = SimpleDataLoader.from_dataset_reader(
+        UniversalDependenciesReader(split=cfg.dataset.splits.train),
+        batch_size=batch_size,
+        shuffle=True
+    )
 
     for loader in (train_loader, dev_loader):
         loader.index_with(vocab)
