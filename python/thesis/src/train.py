@@ -42,9 +42,12 @@ def main():
     cuda_device = cfg.cuda_device if torch.cuda.is_available() else -1
 
     # Load data, vocab, data loaders
-    train_ds, dev_ds = build_datasets(cfg)
     vocab = build_vocab()
-    train_loader, dev_loader = build_data_loaders(train_ds, dev_ds, vocab, cfg)
+    train_loader, dev_loader = build_data_loaders(vocab, cfg)
+    for loader in (train_loader, dev_loader):
+         loader.index_with(vocab)
+         if cuda_device >= 0:
+             loader.set_target_device(torch.device(f'cuda:{cuda_device}'))
 
     # Build model
     model = build_model(cfg, vocab, cuda_device=cuda_device)
