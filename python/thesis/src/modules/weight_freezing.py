@@ -1,29 +1,46 @@
-from allennlp.training.callbacks.callback import Events, TrainerCallback, handle_event
+from typing import Any, Dict
 
+from allennlp.training.callbacks.callback import TrainerCallback
+
+from allennlp.training.callbacks.callback import TrainerCallback
+
+@TrainerCallback.register("unfreeze-bert")
 class UnfreezeBertCallback(TrainerCallback):
-    def __init__(self, frozen_epochs: int = 1):
-        super().__init__()
+    def __init__(
+        self,
+        serialization_dir: str,
+        freeze_bert: bool = False,
+        frozen_epochs: int = 1,
+        lr_model: float = 1e-5,
+        weight_decay: float = 0.0
+    ):
+        super().__init__(serialization_dir)
         self.frozen_epochs = frozen_epochs
-    
-    @handle_event(Events.TRAINING_START)
-    def freeze(self, trainer, **kwargs):
-        if trainer.model._configuration.training.freeze_bert:
-            for p in trainer.model.text_field_embedder._token_embedders['tokens'].transformer_model.parameters():
-                p.requires_grad = False
-    
-    @handle_event(Events.EPOCH_END)
-    def unfreeze(self, trainer, **kwargs):
-        if trainer._epochs_completed == self.frozen_epochs \
-            and trainer.model._configuration.training.freeze_bert:
-            bert_module = trainer.model.text_field_embedder._token_embedders['tokens'].transformer_model
-            new_params = []
+        self.freeze_bert = freeze_bert
+        self.lr_model = lr_model
+        self.weight_decay = weight_decay
 
-            for p in bert_module.parameters():
+    def on_start(self, trainer, **kwargs):
+        if self.freeze_bert:
+            bert = trainer.model.text_field_embedder._token_embedders["tokens"].transformer_model
+
+            bert_params = set(bert.parameters())
+            for p in bert_params:
+                p.requires_grad = False
+
+            for group in trainer.optimizer.param_groups:
+                group["params"] = [p for p in group["params"] if p not in bert_params]
+
+
+    def on_epoch(self, trainer, metrics, epoch, **kwargs):
+        if self.freeze_bert and epoch == self.frozen_epochs:
+            bert = trainer.model.text_field_embedder._token_embedders["tokens"].transformer_model
+            new_params = []
+            for p in bert.parameters():
                 p.requires_grad = True
                 new_params.append(p)
-            
             trainer.optimizer.add_param_group({
-                'params': new_params,
-                'lr': trainer.model._configuration.training.lr_model,
-                'weight_decay': trainer.model._configuration.training.weight_decay
+                "params": new_params,
+                "lr": self.lr_model,
+                "weight_decay": self.weight_decay
             })

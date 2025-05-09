@@ -7,7 +7,7 @@ from allennlp.data.data_loaders import SimpleDataLoader
 from allennlp.models.model import Model
 from allennlp.training.checkpointer import Checkpointer
 from allennlp.training.gradient_descent_trainer import GradientDescentTrainer
-from allennlp.training.learning_rate_schedulers import CosineWithWarmupLearningRateScheduler, NoamLearningRateScheduler
+from allennlp.training.learning_rate_schedulers import CosineWithWarmupLearningRateScheduler, NoamLR
 
 from modules import UnfreezeBertCallback
 
@@ -40,7 +40,7 @@ def build_trainer(
             num_training_steps=updates
         )
     elif cfg.training.scheduler == 'noam':
-        scheduler = NoamLearningRateScheduler(
+        scheduler = NoamLR(
             optimizer=optimizer,
             model_size=cfg.model.encoder.hidden_size,
             warmup_steps=int(cfg.training.warmup_rate * updates)
@@ -61,7 +61,12 @@ def build_trainer(
         learning_rate_scheduler=scheduler,
         num_epochs=epochs,
         serialization_dir=cfg.output_dir,
-        callbacks=[UnfreezeBertCallback(unfreeze_epoch=cfg.training.num_frozen_epochs)],
+        callbacks=[UnfreezeBertCallback(cfg.output_dir,
+            freeze_bert=cfg.training.freeze_bert,
+            frozen_epochs=max(0, cfg.training.num_frozen_epochs - 1),
+            lr_model=cfg.training.lr_model,
+            weight_decay=cfg.training.weight_decay
+        )],
         cuda_device=cuda_device,
         checkpointer=checkpointer
     )
