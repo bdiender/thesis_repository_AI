@@ -19,6 +19,9 @@ def build_trainer(
         cuda_device: int
     ):
     classifier_params = list(model.decoder.parameters())
+    if cfg.training.freeze_classifier:
+        for p in classifier_params:
+            p.requires_grad = False
     classifier_param_ids = {id(p) for p in classifier_params}
     model_params = [p for p in model.parameters() if id(p) not in classifier_param_ids]
     
@@ -39,12 +42,6 @@ def build_trainer(
             num_warmup_steps=num_warmup_steps,
             num_training_steps=updates
         )
-    elif cfg.training.scheduler == 'noam':
-        scheduler = NoamLR(
-            optimizer=optimizer,
-            model_size=cfg.model.encoder.hidden_size,
-            warmup_steps=int(cfg.training.warmup_rate * updates)
-        )
 
     checkpointer = Checkpointer(
         serialization_dir=cfg.output_dir,
@@ -63,7 +60,7 @@ def build_trainer(
         serialization_dir=cfg.output_dir,
         callbacks=[UnfreezeBertCallback(cfg.output_dir,
             freeze_bert=cfg.training.freeze_bert,
-            frozen_epochs=max(0, cfg.training.num_frozen_epochs - 1),
+            frozen_epochs=max(0, cfg.training.freeze_bert_until),
             lr_model=cfg.training.lr_model,
             weight_decay=cfg.training.weight_decay
         )],

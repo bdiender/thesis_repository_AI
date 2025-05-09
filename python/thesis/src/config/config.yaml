@@ -5,20 +5,16 @@ defaults: &defaults
 
 training_defaults: &training_defaults
   batch_size: 4
-  lr_model: 0.0001
-  lr_classifier: 0.001
+  lr_model: 0.00003
+  lr_classifier: 0.0005
   scheduler: cosine
   weight_decay: 0.01
   warmup_rate: 0.1
+  freeze_classifier: false
   freeze_bert: false
-  num_frozen_epochs: 0
+  freeze_bert_until: 0
 
 model_defaults: &model_defaults
-  encoder:
-    hidden_size: 384
-    num_layers: 2
-    bidirectional: true
-    batch_first: true
   decoder:
     tag_repr_dim: 256
     arc_repr_dim: 768
@@ -116,6 +112,22 @@ first_stage_deu:
     batch_size: 32
     freeze_bert: true
     num_frozen_epochs: 1
+  dataset:
+    <<: *dataset_stage2_common
+    name: de_hdt
+  model:
+    <<: *model_defaults
+
+first_stage_deu_f:
+  <<: *defaults
+  output_dir: outputs/1_deu_f
+  training:
+    <<: *training_defaults
+    total_updates: 150000
+    batch_size: 32
+    freeze_classifier: true
+    lr_model: 0.0001
+    lr_classifier: 0.0
   dataset:
     <<: *dataset_stage2_common
     name: de_hdt
