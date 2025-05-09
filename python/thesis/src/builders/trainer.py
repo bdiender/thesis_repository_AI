@@ -7,8 +7,9 @@ from allennlp.data.data_loaders import SimpleDataLoader
 from allennlp.models.model import Model
 from allennlp.training.checkpointer import Checkpointer
 from allennlp.training.gradient_descent_trainer import GradientDescentTrainer
-from allennlp.training.learning_rate_schedulers import CosineWithWarmupLearningRateScheduler
+from allennlp.training.learning_rate_schedulers import CosineWithWarmupLearningRateScheduler, NoamLR
 
+from modules import UnfreezeBertCallback
 
 def build_trainer(
         model: Model,
@@ -18,6 +19,9 @@ def build_trainer(
         cuda_device: int
     ):
     classifier_params = list(model.decoder.parameters())
+    if cfg.training.freeze_classifier:
+        for p in classifier_params:
+            p.requires_grad = False
     classifier_param_ids = {id(p) for p in classifier_params}
     model_params = [p for p in model.parameters() if id(p) not in classifier_param_ids]
     
@@ -26,16 +30,18 @@ def build_trainer(
     epochs = math.ceil(updates / num_steps_per_epoch)
   
     optimizer = Adam([
-        {'params': model_params, 'lr': cfg.training.lr_model},
-        {'params': classifier_params, 'lr': cfg.training.lr_classifier}
+        {'params': model_params, 'lr': cfg.training.lr_model, 'weight_decay': cfg.training.weight_decay},
+        {'params': classifier_params, 'lr': cfg.training.lr_classifier, 'weight_decay': cfg.training.weight_decay}
     ])
     
-    num_warmup_steps = int(cfg.training.warmup_rate * updates)
-    scheduler = CosineWithWarmupLearningRateScheduler(
-        optimizer=optimizer,
-        num_warmup_steps=num_warmup_steps,
-        num_training_steps=updates
-    )
+    scheduler = None
+    if cfg.training.scheduler == 'cosine':
+        num_warmup_steps = math.ceil(cfg.training.warmup_rate * updates)
+        scheduler = CosineWithWarmupLearningRateScheduler(
+            optimizer=optimizer,
+            num_warmup_steps=num_warmup_steps,
+            num_training_steps=updates
+        )
 
     checkpointer = Checkpointer(
         serialization_dir=cfg.output_dir,
@@ -52,6 +58,12 @@ def build_trainer(
         learning_rate_scheduler=scheduler,
         num_epochs=epochs,
         serialization_dir=cfg.output_dir,
+        callbacks=[UnfreezeBertCallback(cfg.output_dir,
+            freeze_bert=cfg.training.freeze_bert,
+            frozen_epochs=max(0, cfg.training.freeze_bert_until),
+            lr_model=cfg.training.lr_model,
+            weight_decay=cfg.training.weight_decay
+        )],
         cuda_device=cuda_device,
         checkpointer=checkpointer
     )

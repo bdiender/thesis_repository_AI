@@ -1,23 +1,23 @@
 ### Basic anchors
 defaults: &defaults
-  cuda_device: -1
+  cuda_device: 0
   seed: 1
 
 training_defaults: &training_defaults
-  lr_model: 0.0001
-  lr_classifier: 0.001
+  batch_size: 4
+  lr_model: 0.00003
+  lr_classifier: 0.0005
+  scheduler: cosine
+  weight_decay: 0.01
   warmup_rate: 0.1
-  batch_size: 32
+  freeze_classifier: false
+  freeze_bert: false
+  freeze_bert_until: 0
 
 model_defaults: &model_defaults
-  encoder:
-    hidden_size: 384
-    num_layers: 2
-    bidirectional: true
-    batch_first: true
   decoder:
     tag_repr_dim: 256
-    arc_repr_dim: 256
+    arc_repr_dim: 768
     dropout: 0.2
   layer_dropout: 0.1
 
@@ -36,155 +36,6 @@ dataset_stage3_common: &dataset_stage3_common
     dev: dev
     test: test
   number_of_updates: &stage3_updates 100
-
-### First stage argument (use this)
-hpt_far_m1c1:
-  <<: *defaults
-  output_dir: outputs/hpt_m1c1
-  training:
-    <<: *training_defaults
-    total_updates: 40900
-  dataset:
-    <<: *dataset_stage2_common
-    name: fa_perdt
-  model:
-    <<: *model_defaults
-
-hpt_far_m1c2:
-  <<: *defaults
-  output_dir: outputs/hpt_m1c2
-  training:
-    <<: *training_defaults
-    total_updates: 40900
-    lr_classifier: 0.005
-  dataset:
-    <<: *dataset_stage2_common
-    name: fa_perdt
-  model:
-    <<: *model_defaults
-
-hpt_far_m1c3:
-  <<: *defaults
-  output_dir: outputs/hpt_m1c3
-  training:
-    <<: *training_defaults
-    total_updates: 40900
-    lr_classifier: 0.0001
-  dataset:
-    <<: *dataset_stage2_common
-    name: fa_perdt
-  model:
-    <<: *model_defaults
-
-hpt_far_m2c1:
-  <<: *defaults
-  output_dir: outputs/hpt_m2c1
-  training:
-    <<: *training_defaults
-    total_updates: 40900
-    lr_model: 0.0005
-  dataset:
-    <<: *dataset_stage2_common
-    name: fa_perdt
-  model:
-    <<: *model_defaults
-
-hpt_far_m2c2:
-  <<: *defaults
-  output_dir: outputs/hpt_m2c2
-  training:
-    <<: *training_defaults
-    total_updates: 40900
-    lr_model: 0.0005
-    lr_classifier: 0.005
-  dataset:
-    <<: *dataset_stage2_common
-    name: fa_perdt
-  model:
-    <<: *model_defaults
-
-hpt_far_m2c3:
-  <<: *defaults
-  output_dir: outputs/hpt_m2c3
-  training:
-    <<: *training_defaults
-    total_updates: 40900
-    lr_model: 0.0005
-    lr_classifier: 0.0001
-  dataset:
-    <<: *dataset_stage2_common
-    name: fa_perdt
-  model:
-    <<: *model_defaults
-
-hpt_far_m3c1:
-  <<: *defaults
-  output_dir: outputs/hpt_m3c1
-  training:
-    <<: *training_defaults
-    total_updates: 40900
-    lr_model: 0.0001
-  dataset:
-    <<: *dataset_stage2_common
-    name: fa_perdt
-  model:
-    <<: *model_defaults
-
-hpt_far_m3c2:
-  <<: *defaults
-  output_dir: outputs/hpt_m3c2
-  training:
-    <<: *training_defaults
-    total_updates: 40900
-    lr_model: 0.0001
-    lr_classifier: 0.005
-  dataset:
-    <<: *dataset_stage2_common
-    name: fa_perdt
-  model:
-    <<: *model_defaults
-
-hpt_far_m3c3:
-  <<: *defaults
-  output_dir: outputs/hpt_m3c3
-  training:
-    <<: *training_defaults
-    total_updates: 40900
-    lr_model: 0.0001
-    lr_classifier: 0.0001
-  dataset:
-    <<: *dataset_stage2_common
-    name: fa_perdt
-  model:
-    <<: *model_defaults
-
-first_stage_deu:
-  <<: *defaults
-  output_dir: outputs/1_deu
-  training:
-    <<: *training_defaults
-    total_updates: 750000
-  dataset:
-    <<: *dataset_stage2_common
-    name: de_hdt
-  model:
-    <<: *model_defaults
-
-veps_test:
-  <<: *defaults
-  output_dir: outputs/vep_test_2
-  training:
-    <<: *training_defaults
-    total_updates: 10
-    batch_size: 16
-  dataset:
-    splits:
-      train: train
-      dev: dev
-      test: test
-    name: data/vep/vep_vwt-ud
-  model:
-    <<: *model_defaults
 
 ### Stage/language-specific defaults
 stage2_nld_spec: &stage2_nld_spec
@@ -209,7 +60,7 @@ stage2_ces_spec: &stage2_ces_spec
     total_updates: *stage2_updates  
   dataset:
     <<: *dataset_stage2_common
-    name: nl_lassysmall
+    name: cs_cac
 
 stage2_hun_spec: &stage2_hun_spec
   training:
@@ -217,7 +68,71 @@ stage2_hun_spec: &stage2_hun_spec
     total_updates: *stage2_updates  
   dataset:
     <<: *dataset_stage2_common
-    name: sv_talbanken
+    name: hu_szeged
+
+stage3_gsw_spec: &stage3_gsw_spec
+  training:
+    <<: *training_defaults
+    total_updates: *stage3_updates
+  dataset:
+    <<: *dataset_stage3_common
+    name: data/gsw/gsw_uzh-ud
+
+stage3_fao_spec: &stage3_fao_spec
+  training:
+    <<: *training_defaults
+    total_updates: *stage3_updates
+  dataset:
+    <<: *dataset_stage3_common
+    name: data/fao/fo_oft-ud
+
+stage3_hsb_spec: &stage3_hsb_spec
+  training:
+    <<: *training_defaults
+    total_updates: *stage3_updates
+  dataset:
+    <<: *dataset_stage3_common
+    name: data/hsb/hsb_ufal-ud
+
+stage3_vep_spec: &stage3_vep_spec
+  training:
+    <<: *training_defaults
+    total_updates: *stage3_updates
+  dataset:
+    <<: *dataset_stage3_common
+    name: data/vep/vep_vwt-ud
+
+### First stage argument (use this)
+first_stage_deu:
+  <<: *defaults
+  output_dir: outputs/1_deu
+  training:
+    <<: *training_defaults
+    total_updates: 150000
+    batch_size: 32
+    freeze_bert: true
+    num_frozen_epochs: 1
+  dataset:
+    <<: *dataset_stage2_common
+    name: de_hdt
+  model:
+    <<: *model_defaults
+
+first_stage_deu_f:
+  <<: *defaults
+  output_dir: outputs/1_deu_f
+  training:
+    <<: *training_defaults
+    total_updates: 150000
+    batch_size: 32
+    freeze_classifier: true
+    lr_model: 0.0001
+    lr_classifier: 0.0
+  dataset:
+    <<: *dataset_stage2_common
+    name: de_hdt
+  model:
+    <<: *model_defaults
 
 ### Second stage arguments (use these)
 second_stage_nld:
@@ -247,39 +162,6 @@ second_stage_hun:
   model:
     <<: *model_defaults
     finetune_on: outputs/1_deu/model.pkl
-
-### Stage/language-specific defaults
-stage3_gsw_spec: &stage3_gsw_spec
-  training:
-    <<: *training_defaults
-    total_updates: *stage3_updates
-  dataset:
-    <<: *dataset_stage3_common
-    name: data/gsw/gsw_uzh-ud
-
-stage3_fao_spec: &stage3_fao_spec
-  training:
-    <<: *training_defaults
-    total_updates: *stage3_updates
-  dataset:
-    <<: *dataset_stage3_common
-    name: data/gsw/gsw_uzh-ud
-
-stage3_hsb_spec: &stage3_hsb_spec
-  training:
-    <<: *training_defaults
-    total_updates: *stage3_updates
-  dataset:
-    <<: *dataset_stage3_common
-    name: data/gsw/gsw_uzh-ud
-
-stage3_vep_spec: &stage3_vep_spec
-  training:
-    <<: *training_defaults
-    total_updates: *stage3_updates
-  dataset:
-    <<: *dataset_stage3_common
-    name: data/gsw/gsw_uzh-ud
 
 ### Third stage arguments (use these)
 third_stage_nld_gsw:
@@ -393,3 +275,19 @@ third_stage_hun_vep:
   model:
     <<: *model_defaults
     finetune_on: outputs/2_hun/model.pkl
+
+veps_test:
+  <<: *defaults
+  output_dir: outputs/vep_test_fb
+  training:
+    <<: *training_defaults
+    total_updates: 50
+    batch_size: 16
+  dataset:
+    splits:
+      train: train
+      dev: dev
+      test: test
+    name: data/vep/vep_vwt-ud
+  model:
+    <<: *model_defaults
