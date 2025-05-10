@@ -5,6 +5,8 @@
 /scripts/
 
 latex/latex_template/
+latex/notes/
+latex/preliminary_results/
 
 python/language_selection
 python/thesis/data/
