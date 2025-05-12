@@ -5,7 +5,7 @@ defaults: &defaults
 
 training_defaults: &training_defaults
   batch_size: 8
-  lr_model: 0.00003
+  lr_model: 0.0001
   lr_classifier: 0.0005
   scheduler: cosine
   weight_decay: 0.01
@@ -48,7 +48,7 @@ stage2_nld_spec: &stage2_nld_spec
     total_updates: *stage2_updates
   dataset:
     <<: *dataset_stage2_common
-    name: nl_lassysmall
+    name: nl_alpino
 
 stage2_swe_spec: &stage2_swe_spec
   training:
@@ -73,6 +73,22 @@ stage2_hun_spec: &stage2_hun_spec
   dataset:
     <<: *dataset_stage2_common
     name: hu_szeged
+
+stage2_nob_spec: &stage2_nob_spec
+  training:
+    <<: *training_defaults
+    total_updates: *stage2_updates  
+  dataset:
+    <<: *dataset_stage2_common
+    name: no_bokmaal
+
+stage2_fin_spec: &stage2_fin_spec
+  training:
+    <<: *training_defaults
+    total_updates: *stage2_updates  
+  dataset:
+    <<: *dataset_stage2_common
+    name: fi_tdt
 
 stage3_gsw_spec: &stage3_gsw_spec
   training:
@@ -168,6 +184,20 @@ second_stage_ces:
 second_stage_hun:
   <<: [*defaults, *stage2_hun_spec]
   output_dir: outputs/2_hun
+  model:
+    <<: *model_defaults
+    finetune_on: outputs/1_deu/model.pkl
+
+second_stage_nob:
+  <<: [*defaults, *stage2_nob_spec]
+  output_dir: outputs/2_nob
+  model:
+    <<: *model_defaults
+    finetune_on: outputs/1_deu/model.pkl
+
+second_stage_fin:
+  <<: [*defaults, *stage2_fin_spec]
+  output_dir: outputs/2_fin
   model:
     <<: *model_defaults
     finetune_on: outputs/1_deu/model.pkl
