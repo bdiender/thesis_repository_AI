@@ -1,6 +1,6 @@
 ### Basic anchors
 defaults: &defaults
-  cuda_device: -1
+  cuda_device: 0
   seed: 1
 
 training_defaults: &training_defaults
@@ -37,8 +37,8 @@ dataset_stage3_common: &dataset_stage3_common
     train: train
     dev: dev
     test: test
-  samples_train: 10000
-  samples_dev: 500
+  samples_train: 50
+  samples_dev: 25
   number_of_updates: &stage3_updates 100
 
 ### Stage/language-specific defaults
@@ -231,33 +231,33 @@ third_stage_nld_vep:
     <<: *model_defaults
     finetune_on: outputs/2_nld/model.pkl
 
-third_stage_swe_gsw:
+third_stage_nob_gsw:
   <<: [*defaults, *stage3_gsw_spec]
-  output_dir: outputs/3_swe_gsw
+  output_dir: outputs/3_nob_gsw
   model:
     <<: *model_defaults
-    finetune_on: outputs/2_swe/model.pkl
+    finetune_on: outputs/2_nob/model.pkl
 
-third_stage_swe_fao:
+third_stage_nob_fao:
   <<: [*defaults, *stage3_fao_spec]
-  output_dir: outputs/3_swe_fao
+  output_dir: outputs/3_nob_fao
   model:
     <<: *model_defaults
-    finetune_on: outputs/2_swe/model.pkl
+    finetune_on: outputs/2_nob/model.pkl
 
-third_stage_swe_hsb:
+third_stage_nob_hsb:
   <<: [*defaults, *stage3_hsb_spec]
-  output_dir: outputs/3_swe_hsb
+  output_dir: outputs/3_nob_hsb
   model:
     <<: *model_defaults
-    finetune_on: outputs/2_swe/model.pkl
+    finetune_on: outputs/2_nob/model.pkl
 
-third_stage_swe_vep:
+third_stage_nob_vep:
   <<: [*defaults, *stage3_vep_spec]
-  output_dir: outputs/3_swe_vep
+  output_dir: outputs/3_nob_vep
   model:
     <<: *model_defaults
-    finetune_on: outputs/2_swe/model.pkl
+    finetune_on: outputs/2_nob/model.pkl
 
 third_stage_ces_gsw:
   <<: [*defaults, *stage3_gsw_spec]
@@ -287,33 +287,33 @@ third_stage_ces_vep:
     <<: *model_defaults
     finetune_on: outputs/2_ces/model.pkl
 
-third_stage_hun_gsw:
+third_stage_fin_gsw:
   <<: [*defaults, *stage3_gsw_spec]
-  output_dir: outputs/3_hun_gsw
+  output_dir: outputs/3_fin_gsw
   model:
     <<: *model_defaults
-    finetune_on: outputs/2_hun/model.pkl
+    finetune_on: outputs/2_fin/model.pkl
 
-third_stage_hun_fao:
+third_stage_fin_fao:
   <<: [*defaults, *stage3_fao_spec]
-  output_dir: outputs/3_hun_fao
+  output_dir: outputs/3_fin_fao
   model:
     <<: *model_defaults
-    finetune_on: outputs/2_hun/model.pkl
+    finetune_on: outputs/2_fin/model.pkl
 
-third_stage_hun_hsb:
+third_stage_fin_hsb:
   <<: [*defaults, *stage3_hsb_spec]
-  output_dir: outputs/3_hun_hsb
+  output_dir: outputs/3_fin_hsb
   model:
     <<: *model_defaults
-    finetune_on: outputs/2_hun/model.pkl
+    finetune_on: outputs/2_fin/model.pkl
 
-third_stage_hun_vep:
+third_stage_fin_vep:
   <<: [*defaults, *stage3_vep_spec]
-  output_dir: outputs/3_hun_vep
+  output_dir: outputs/3_fin_vep
   model:
     <<: *model_defaults
-    finetune_on: outputs/2_hun/model.pkl
+    finetune_on: outputs/2_fin/model.pkl
 
 veps_test:
   <<: *defaults
