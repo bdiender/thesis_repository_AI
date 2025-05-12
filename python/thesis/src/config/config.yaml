@@ -1,10 +1,10 @@
 ### Basic anchors
 defaults: &defaults
-  cuda_device: 0
+  cuda_device: -1
   seed: 1
 
 training_defaults: &training_defaults
-  batch_size: 4
+  batch_size: 8
   lr_model: 0.00003
   lr_classifier: 0.0005
   scheduler: cosine
@@ -28,13 +28,17 @@ dataset_stage2_common: &dataset_stage2_common
     train: train
     dev: validation
     test: test
-  number_of_updates: &stage2_updates 100000
+  samples_train: 10000
+  samples_dev: 500
+  number_of_updates: &stage2_updates 300
 
 dataset_stage3_common: &dataset_stage3_common
   splits:
     train: train
     dev: dev
     test: test
+  samples_train: 10000
+  samples_dev: 500
   number_of_updates: &stage3_updates 100
 
 ### Stage/language-specific defaults
@@ -113,7 +117,12 @@ first_stage_deu:
     freeze_bert: true
     num_frozen_epochs: 1
   dataset:
-    <<: *dataset_stage2_common
+    splits:
+      train: train
+      dev: validation
+      test: test
+    samples_train: 153035
+    samples_dev: 18434
     name: de_hdt
   model:
     <<: *model_defaults
@@ -154,7 +163,7 @@ second_stage_ces:
   output_dir: outputs/2_ces
   model:
     <<: *model_defaults
-    finetune_on: outputs/1_deu/model.pkl
+  #   finetune_on: outputs/1_deu/model.pkl
 
 second_stage_hun:
   <<: [*defaults, *stage2_hun_spec]
