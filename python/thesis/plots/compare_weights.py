@@ -1,12 +1,13 @@
 import argparse
 from datetime import datetime as dt
 import matplotlib.pyplot as plt
+import matplotlib.patches as patches
 import numpy as np
 import os
 import torch
 import seaborn as sns
 
-from .plot_utils import load_model
+from plot_utils import load_model
 
 MODELS = (
     ('nld', '#DE8900', 'Dutch'),
@@ -85,7 +86,7 @@ def visualize_weight_changes(model1, model2, color='#FF0000', title=None):
 
 def visualize_all_weight_changes(models, lang_dict, title=None):
     title = title or 'Relative BERT-Layer Changes by Language'
-    ref_model, _ = models[0]
+    _, ref_model = models[0]
     others = models[1:]
 
     n_comp = len(COMPONENTS)
@@ -112,9 +113,21 @@ def visualize_all_weight_changes(models, lang_dict, title=None):
             ax.axhline(0, linewidth=0.3)
             ax.set_ylim(0, data.max() * 1.05)
             if j == 0:
-                ax.set_ylabel(COMPONENTS[i], rotation=0, labelpad=20, va='center')
+                ax.set_ylabel(
+                    NICE_LABELS[COMPONENTS[i]],
+                    rotation=0,
+                    labelpad=5,
+                    va='center',
+                    ha='right'
+                )
             if i == n_comp - 1:
-                ax.set_xlabel(f'L{i}', labelpad=5)
+                ax.set_xlabel(f'Layer {j}', labelpad=5)
+    
+    handles = [
+        patches.Patch(color=lang_dict[mn], label={mn: ma for mn, _, ma in MODELS}[mn])
+        for mn, _ in others
+    ]
+    fig.legend(handles=handles, loc='upper right')
 
     fig.suptitle(title)
     plt.tight_layout(rect=[0, 0, 1, 0.96])
@@ -126,7 +139,12 @@ if __name__ == '__main__':
     parser.add_argument(
         '--visualize',
         required=True,
-        help='One of {"all", "nld", "nob", "ces", "fin"}'
+        help='One of {"all", "nld", "nob", "ces", "fin"}.'
+    )
+    parser.add_argument(
+        '--exclude',
+        default=None,
+        help='Comma-separated list of {"nld", "nob", "ces", "fin"} of models to exclude.'
     )
     parser.add_argument(
         '--model_dir',
@@ -159,8 +177,12 @@ if __name__ == '__main__':
     fig = None
     if args.visualize == 'all':
         local = [('deu', deu)]
+        if args.exclude:
+            exclude = [l.strip() for l in args.exclude.split(',')]
     
         for mn, _, ma in MODELS:
+            if mn in exclude:
+                continue
             path = os.path.join(model_dir, f'2_{mn}', 'model.pkl')
             if os.path.isfile(path):
                 m = load_model(path)
@@ -174,24 +196,34 @@ if __name__ == '__main__':
             elif args.verbose:
                 print(f'Could not find {ma} model at {path}')
     
-        fig = visualize_all_weight_changes(local, {ma: mc for _, mc, ma in MODELS}, title=args.plot_title)
+        fig = visualize_all_weight_changes(local, {mn: mc for mn, mc, _ in MODELS}, 
+                                           title=args.plot_title)
+        output_file = os.path.join(output_dir, f'weights_heatmap_{args.visualize}.pdf')
+        fig.savefig(output_file)
+        
+        if args.verbose:
+            print(f'[{now()}] Plot saved at {output_file}')
     
     else:
         mn = args.visualize
         path = os.path.join(model_dir, f'2_{mn}', 'model.pkl')
         color = {mn: mc for mn, mc, _ in MODELS}[mn]
+        adj = {mn: ma for mn, _, ma in MODELS}[mn]
     
         if os.path.isfile(path):
             model = load_model(path)
             model.cpu()
     
             if args.verbose:
-                print(f'[{now()}] {mn} model loaded.')
+                print(f'[{now()}] {adj} model loaded.')
     
         elif args.verbose:
             print(f'Could not find {mn} model at {path}')
     
-        fig = visualize_weight_changes(deu, model, color=color, title=args.plot_title)
-    
-    if fig:
-        fig.savefig(os.path.join(output_dir, f'weights_heatmap_{args.visualize}.pdf'))
+        plot_title = args.plot_title or f'Weight Changes after Fine-Tuning on {adj} Dataset'
+        fig = visualize_weight_changes(deu, model, color=color, title=plot_title)
+        output_file = os.path.join(output_dir, f'weights_heatmap_{args.visualize}.pdf')
+        fig.savefig(output_file)
+        
+        if args.verbose:
+            print(f'[{now()}] {adj} plot saved at {output_file}')
