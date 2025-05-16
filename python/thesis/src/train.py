@@ -1,8 +1,9 @@
 import argparse
+import dill
 import json
+import math
 import os
 import random
-import dill
 
 import numpy as np
 import torch
@@ -47,6 +48,11 @@ def main():
          loader.index_with(vocab)
          if cuda_device >= 0:
              loader.set_target_device(torch.device(f'cuda:{cuda_device}'))
+
+    with open(os.path.join(cfg.output_dir, 'config.json'), 'w') as f:
+        cfg_dict = cfg.to_dict()
+        cfg_dict['training']['epochs'] = math.ceil(cfg.training.total_updates / len(train_loader))
+        json.dump(cfg_dict, f, indent=2)
 
     # Build model
     model = build_model(cfg, vocab, cuda_device=cuda_device)
