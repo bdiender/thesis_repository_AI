@@ -143,22 +143,6 @@ first_stage_deu:
   model:
     <<: *model_defaults
 
-first_stage_deu_f:
-  <<: *defaults
-  output_dir: outputs/1_deu_f
-  training:
-    <<: *training_defaults
-    total_updates: 150000
-    batch_size: 32
-    freeze_classifier: true
-    lr_model: 0.0001
-    lr_classifier: 0.0
-  dataset:
-    <<: *dataset_stage2_common
-    name: de_hdt
-  model:
-    <<: *model_defaults
-
 ### Second stage arguments (use these)
 second_stage_nld:
   <<: [*defaults, *stage2_nld_spec]

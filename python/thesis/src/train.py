@@ -29,6 +29,9 @@ def main():
 
     cfg = GLOBAL_CONFIG.get(args.config)
 
+    # Make output dir
+    os.makedirs(cfg.output_dir, exist_ok=True)
+
     # Set random seed
     s = cfg.get('seed', None)
     if s is not None:
@@ -58,9 +61,6 @@ def main():
     model = build_model(cfg, vocab, cuda_device=cuda_device)
     if cuda_device >= 0:
         model = model.cuda(cuda_device)
-
-    # Make output dir
-    os.makedirs(cfg.output_dir, exist_ok=True)
 
     # Build and apply trainer
     trainer = build_trainer(model, train_loader, dev_loader, cfg, cuda_device)
