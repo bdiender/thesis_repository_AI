@@ -2,6 +2,7 @@
 defaults: &defaults
   cuda_device: 0
   seed: 1
+  enable_wandb: false
 
 training_defaults: &training_defaults
   batch_size: 8
@@ -21,6 +22,9 @@ model_defaults: &model_defaults
     dropout: 0.2
   layer_dropout: 0.1
 
+wandb_defaults: &wandb_defaults
+  project: ai-thesis
+  entity: entity-name
 
 ### Stage-specific defaults
 dataset_stage2_common: &dataset_stage2_common
@@ -142,6 +146,8 @@ first_stage_deu:
     name: de_hdt
   model:
     <<: *model_defaults
+  wb:
+    <<: *wandb_defaults
 
 ### Second stage arguments (use these)
 second_stage_nld:
@@ -150,6 +156,8 @@ second_stage_nld:
   model:
     <<: *model_defaults
     finetune_on: outputs/1_deu/model.pkl
+  wb:
+    <<: *wandb_defaults
 
 second_stage_swe:
   <<: [*defaults, *stage2_swe_spec]
@@ -157,13 +165,17 @@ second_stage_swe:
   model:
     <<: *model_defaults
     finetune_on: outputs/1_deu/model.pkl
+  wb:
+    <<: *wandb_defaults
 
 second_stage_ces:
   <<: [*defaults, *stage2_ces_spec]
   output_dir: outputs/2_ces
   model:
     <<: *model_defaults
-  #   finetune_on: outputs/1_deu/model.pkl
+    finetune_on: outputs/1_deu/model.pkl
+  wb:
+    <<: *wandb_defaults
 
 second_stage_hun:
   <<: [*defaults, *stage2_hun_spec]
@@ -171,6 +183,8 @@ second_stage_hun:
   model:
     <<: *model_defaults
     finetune_on: outputs/1_deu/model.pkl
+  wb:
+    <<: *wandb_defaults
 
 second_stage_nob:
   <<: [*defaults, *stage2_nob_spec]
@@ -178,6 +192,8 @@ second_stage_nob:
   model:
     <<: *model_defaults
     finetune_on: outputs/1_deu/model.pkl
+  wb:
+    <<: *wandb_defaults
 
 second_stage_fin:
   <<: [*defaults, *stage2_fin_spec]
@@ -185,6 +201,8 @@ second_stage_fin:
   model:
     <<: *model_defaults
     finetune_on: outputs/1_deu/model.pkl
+  wb:
+    <<: *wandb_defaults
 
 ### Third stage arguments (use these)
 third_stage_nld_gsw:
@@ -200,6 +218,8 @@ third_stage_nld_fao:
   model:
     <<: *model_defaults
     finetune_on: outputs/2_nld/model.pkl
+  wb:
+    <<: *wandb_defaults
 
 third_stage_nld_hsb:
   <<: [*defaults, *stage3_hsb_spec]
@@ -207,6 +227,8 @@ third_stage_nld_hsb:
   model:
     <<: *model_defaults
     finetune_on: outputs/2_nld/model.pkl
+  wb:
+    <<: *wandb_defaults
 
 third_stage_nld_vep:
   <<: [*defaults, *stage3_vep_spec]
@@ -214,6 +236,8 @@ third_stage_nld_vep:
   model:
     <<: *model_defaults
     finetune_on: outputs/2_nld/model.pkl
+  wb:
+    <<: *wandb_defaults
 
 third_stage_nob_gsw:
   <<: [*defaults, *stage3_gsw_spec]
@@ -221,6 +245,8 @@ third_stage_nob_gsw:
   model:
     <<: *model_defaults
     finetune_on: outputs/2_nob/model.pkl
+  wb:
+    <<: *wandb_defaults
 
 third_stage_nob_fao:
   <<: [*defaults, *stage3_fao_spec]
@@ -228,6 +254,8 @@ third_stage_nob_fao:
   model:
     <<: *model_defaults
     finetune_on: outputs/2_nob/model.pkl
+  wb:
+    <<: *wandb_defaults
 
 third_stage_nob_hsb:
   <<: [*defaults, *stage3_hsb_spec]
@@ -235,6 +263,8 @@ third_stage_nob_hsb:
   model:
     <<: *model_defaults
     finetune_on: outputs/2_nob/model.pkl
+  wb:
+    <<: *wandb_defaults
 
 third_stage_nob_vep:
   <<: [*defaults, *stage3_vep_spec]
@@ -242,6 +272,8 @@ third_stage_nob_vep:
   model:
     <<: *model_defaults
     finetune_on: outputs/2_nob/model.pkl
+  wb:
+    <<: *wandb_defaults
 
 third_stage_ces_gsw:
   <<: [*defaults, *stage3_gsw_spec]
@@ -249,6 +281,8 @@ third_stage_ces_gsw:
   model:
     <<: *model_defaults
     finetune_on: outputs/2_ces/model.pkl
+  wb:
+    <<: *wandb_defaults
 
 third_stage_ces_fao:
   <<: [*defaults, *stage3_fao_spec]
@@ -256,6 +290,8 @@ third_stage_ces_fao:
   model:
     <<: *model_defaults
     finetune_on: outputs/2_ces/model.pkl
+  wb:
+    <<: *wandb_defaults
 
 third_stage_ces_hsb:
   <<: [*defaults, *stage3_hsb_spec]
@@ -263,6 +299,8 @@ third_stage_ces_hsb:
   model:
     <<: *model_defaults
     finetune_on: outputs/2_ces/model.pkl
+  wb:
+    <<: *wandb_defaults
 
 third_stage_ces_vep:
   <<: [*defaults, *stage3_vep_spec]
@@ -270,6 +308,8 @@ third_stage_ces_vep:
   model:
     <<: *model_defaults
     finetune_on: outputs/2_ces/model.pkl
+  wb:
+    <<: *wandb_defaults
 
 third_stage_fin_gsw:
   <<: [*defaults, *stage3_gsw_spec]
@@ -277,6 +317,8 @@ third_stage_fin_gsw:
   model:
     <<: *model_defaults
     finetune_on: outputs/2_fin/model.pkl
+  wb:
+    <<: *wandb_defaults
 
 third_stage_fin_fao:
   <<: [*defaults, *stage3_fao_spec]
@@ -284,6 +326,8 @@ third_stage_fin_fao:
   model:
     <<: *model_defaults
     finetune_on: outputs/2_fin/model.pkl
+  wb:
+    <<: *wandb_defaults
 
 third_stage_fin_hsb:
   <<: [*defaults, *stage3_hsb_spec]
@@ -291,6 +335,8 @@ third_stage_fin_hsb:
   model:
     <<: *model_defaults
     finetune_on: outputs/2_fin/model.pkl
+  wb:
+    <<: *wandb_defaults
 
 third_stage_fin_vep:
   <<: [*defaults, *stage3_vep_spec]
@@ -298,6 +344,8 @@ third_stage_fin_vep:
   model:
     <<: *model_defaults
     finetune_on: outputs/2_fin/model.pkl
+  wb:
+    <<: *wandb_defaults
 
 veps_test:
   <<: *defaults

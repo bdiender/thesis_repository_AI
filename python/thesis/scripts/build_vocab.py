@@ -5,9 +5,9 @@ from dataset_readers.dataset_reader import UniversalDependenciesReader
 def main():
     datasets = ['de_hdt',
                 'nl_lassysmall',
-                'sv_talbanken',
+                'no_bokmaal',
                 'cs_cac',
-                'hu_szeged',
+                'fi_tdt',
                 'data/gsw/gsw_uzh-ud',
                 'data/fao/fo_oft-ud',
                 'data/hsb/hsb_ufal-ud',

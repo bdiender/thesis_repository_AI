@@ -9,7 +9,7 @@ from allennlp.training.checkpointer import Checkpointer
 from allennlp.training.gradient_descent_trainer import GradientDescentTrainer
 from allennlp.training.learning_rate_schedulers import CosineWithWarmupLearningRateScheduler, NoamLR
 
-from modules import UnfreezeBertCallback
+from callbacks import UnfreezeBertCallback, WandBMetricsCallback
 
 def build_trainer(
         model: Model,
@@ -43,6 +43,16 @@ def build_trainer(
             num_training_steps=updates
         )
 
+    callbacks = [UnfreezeBertCallback(cfg.output_dir,
+            freeze_bert=cfg.training.freeze_bert,
+            frozen_epochs=max(0, cfg.training.freeze_bert_until),
+            lr_model=cfg.training.lr_model,
+            weight_decay=cfg.training.weight_decay
+        )]
+    
+    if cfg.enable_wandb:
+        callbacks.append(WandBMetricsCallback(cfg.output_dir))
+
     checkpointer = Checkpointer(
         serialization_dir=cfg.output_dir,
         keep_most_recent_by_count=0,
@@ -58,12 +68,7 @@ def build_trainer(
         learning_rate_scheduler=scheduler,
         num_epochs=epochs,
         serialization_dir=cfg.output_dir,
-        callbacks=[UnfreezeBertCallback(cfg.output_dir,
-            freeze_bert=cfg.training.freeze_bert,
-            frozen_epochs=max(0, cfg.training.freeze_bert_until),
-            lr_model=cfg.training.lr_model,
-            weight_decay=cfg.training.weight_decay
-        )],
+        callbacks=callbacks,
         cuda_device=cuda_device,
         checkpointer=checkpointer
     )

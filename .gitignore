@@ -13,6 +13,7 @@ python/thesis/data/
 python/thesis/outputs/
 python/thesis/master_vocab/
 python/thesis/src/test.py
+python/thesis/wandb/
 
 ### LaTeX-related:
 ## Core latex/pdflatex auxiliary files:
