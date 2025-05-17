@@ -17,17 +17,31 @@ from builders import (
 )
 from config import GLOBAL_CONFIG
 
+from datetime import datetime as dt
 
 def main():
+    now = lambda: dt.now().strftime('%H:%M:%S')
+    
+    def update(update: str):
+        print(f'[{now()}] {update}')
+
+    update('Starting!')
     parser = argparse.ArgumentParser()
     parser.add_argument(
         '--config',
         required=True,
         help='Key of configuration settings for run.'
     )
-    args = parser.parse_args()
+    args, unknown = parser.parse_known_args()
+    update('Got arguments')
 
     cfg = GLOBAL_CONFIG.get(args.config)
+
+    for override in unknown:
+        if override.startswith('--') and '=' in override:
+            cfg.set(*override[2:].split('=', 1))
+    
+    update('Updated config')
 
     # Make output dir
     os.makedirs(cfg.output_dir, exist_ok=True)
@@ -42,13 +56,19 @@ def main():
         torch.backends.cudnn.deterministic = True
         torch.backends.cudnn.benchmark = False
 
+    update('Set random seed')
+
     cuda_device = cfg.cuda_device if torch.cuda.is_available() else -1
+    update('Set device')
 
     # Load data, vocab, data loaders
     vocab = build_vocab()
+    update('Built vocab')
     train_loader, dev_loader = build_data_loaders(vocab, cfg)
+    update('Built loaders')
     for loader in (train_loader, dev_loader):
          loader.index_with(vocab)
+         update('Indexed a loader with vocab')
          if cuda_device >= 0:
              loader.set_target_device(torch.device(f'cuda:{cuda_device}'))
 

@@ -43,8 +43,36 @@ class Config:
                 return default
 
         return node
+    
+    def set(self, key_path: str, value: str):
+        parent, key = self._search_leaf(key_path)
+        if parent is None:
+            return
+        
+        orig = parent[key]
+        try:
+            if isinstance(orig, bool):
+                parent[key] = value.lower() in ('true', '1')
+            else:
+                parent[key] = type(orig)(value)
+        except Exception:
+            parent[key] = value
 
     def to_dict(self):
         return self._data
+
+    def _search_leaf(self, parameter: str):
+        stack = [self._data]
+
+        while stack:
+            node = stack.pop()
+
+            for k, v in node.items():
+                if k == parameter and not isinstance(v, dict):
+                    return node, k
+                if isinstance(v, dict):
+                    stack.append(v)
+        
+        return None, None
 
 GLOBAL_CONFIG = Config()
