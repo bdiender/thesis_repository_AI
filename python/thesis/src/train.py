@@ -90,7 +90,10 @@ def main():
         model = model.cuda(cuda_device)
 
     # Build and apply trainer
-    trainer = build_trainer(model, train_loader, dev_loader, cfg, cuda_device)
+    trainer = build_trainer(model, train_loader, dev_loader, cfg, cuda_device, in_sweep)
+    if in_sweep:
+        trainer._load_model_state = lambda *args, **kwargs: None
+
     metrics = trainer.train()
 
     if cfg.enable_wandb:

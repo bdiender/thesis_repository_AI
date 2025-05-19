@@ -8,7 +8,7 @@ def main():
                 'no_bokmaal',
                 'cs_cac',
                 'fi_tdt',
-                'bg_btb',
+                'pt_gsd',
                 'data/gsw/gsw_uzh-ud',
                 'data/fao/fo_oft-ud',
                 'data/hsb/hsb_ufal-ud',

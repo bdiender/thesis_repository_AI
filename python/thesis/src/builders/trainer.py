@@ -16,7 +16,8 @@ def build_trainer(
         train_loader: SimpleDataLoader,
         dev_loader:SimpleDataLoader,
         cfg: Dict[str, Any],
-        cuda_device: int
+        cuda_device: int,
+        in_sweep: bool
     ):
     classifier_params = list(model.decoder.parameters())
     if cfg.training.freeze_classifier:
@@ -59,12 +60,15 @@ def build_trainer(
     if cfg.enable_wandb:
         callbacks.append(WandBMetricsCallback(cfg.output_dir))
 
-    checkpointer = Checkpointer(
-        serialization_dir=cfg.output_dir,
-        keep_most_recent_by_count=0,
-        save_completed_epochs=False,
-        save_every_num_batches=None
-    )
+    if in_sweep:
+        checkpointer = None
+    else:
+        checkpointer = Checkpointer(
+            serialization_dir=cfg.output_dir,
+            keep_most_recent_by_count=0,
+            save_completed_epochs=False,
+            save_every_num_batches=None
+        )
 
     return GradientDescentTrainer(
         model=model,

@@ -129,6 +129,7 @@ stage3_vep_spec: &stage3_vep_spec
 hpt_test:
   <<: *defaults
   output_dir: outputs/hp_sweep_test
+  enable_wandb: true
   training:
     <<: *training_defaults
     total_updates: 100
@@ -151,6 +152,7 @@ hpt_test:
 hyperpar_tuning:
   <<: *defaults
   output_dir: outputs/hp_sweep
+  enable_wandb: true
   training:
     <<: *training_defaults
     total_updates: 95000

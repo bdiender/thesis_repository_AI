@@ -1,12 +1,12 @@
 program: src/train.py
 method: bayes
 metric:
-  name: validation/LAS
+  name: validation_LAS
   goal: maximize
 
 parameters:
   config:
-    values: ['hyperpar_tuning']
+    values: ['hpt_test']
   lr_model:
     distribution: uniform
     min: 1e-5
