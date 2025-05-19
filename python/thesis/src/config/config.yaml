@@ -126,14 +126,13 @@ stage3_vep_spec: &stage3_vep_spec
     <<: *dataset_stage3_common
     name: data/vep/vep_vwt-ud
 
-### First stage argument (use this)
-first_stage_deu:
+hpt_test:
   <<: *defaults
-  output_dir: outputs/1_deu
+  output_dir: outputs/hp_sweep_test
   training:
     <<: *training_defaults
-    total_updates: 150000
-    batch_size: 32
+    total_updates: 100
+    batch_size: 5
     freeze_bert: true
     num_frozen_epochs: 1
   dataset:
@@ -141,8 +140,53 @@ first_stage_deu:
       train: train
       dev: validation
       test: test
-    samples_train: 153035
-    samples_dev: 18434
+    samples_train: 100
+    samples_dev: 10
+    name: pt_gsd
+  model:
+    <<: *model_defaults
+  wb:
+    <<: *wandb_defaults
+
+hyperpar_tuning:
+  <<: *defaults
+  output_dir: outputs/hp_sweep
+  training:
+    <<: *training_defaults
+    total_updates: 95000
+    batch_size: 5
+    freeze_bert: true
+    num_frozen_epochs: 1
+  dataset:
+    splits:
+      train: train
+      dev: validation
+      test: test
+    samples_train: 9500
+    samples_dev: 1000
+    name: pt_gsd
+  model:
+    <<: *model_defaults
+  wb:
+    <<: *wandb_defaults
+
+### First stage argument (use this)
+first_stage_deu:
+  <<: *defaults
+  output_dir: outputs/1_deu
+  training:
+    <<: *training_defaults
+    total_updates: 1800000
+    batch_size: 5
+    freeze_bert: true
+    num_frozen_epochs: 1
+  dataset:
+    splits:
+      train: train
+      dev: validation
+      test: test
+    samples_train: 150000
+    samples_dev: 18000
     name: de_hdt
   model:
     <<: *model_defaults

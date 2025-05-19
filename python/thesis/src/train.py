@@ -33,7 +33,9 @@ def main():
     for override in unknown:
         if override.startswith('--') and '=' in override:
             cfg.set(*override[2:].split('=', 1))
-    
+
+    in_sweep = False
+
     if cfg.enable_wandb:
         import wandb
 
@@ -44,8 +46,17 @@ def main():
             name=f'{args.config}-{dt.now():%Y%m%d-%H%M%S}'
         )
 
+        in_sweep = (run.sweep_id is not None)
+
+        if in_sweep:
+            for k, v in run.config.items():
+                if k in ('project', 'entity'):
+                    continue
+                cfg.set(k, str(v))
+
     # Make output dir
-    os.makedirs(cfg.output_dir, exist_ok=True)
+    if not in_sweep:
+        os.makedirs(cfg.output_dir, exist_ok=True)
 
     # Set random seed
     s = cfg.get('seed', None)
@@ -67,10 +78,11 @@ def main():
          if cuda_device >= 0:
              loader.set_target_device(torch.device(f'cuda:{cuda_device}'))
 
-    with open(os.path.join(cfg.output_dir, 'config.json'), 'w') as f:
-        cfg_dict = cfg.to_dict()
-        cfg_dict['training']['epochs'] = math.ceil(cfg.training.total_updates / len(train_loader))
-        json.dump(cfg_dict, f, indent=2)
+    if not in_sweep:
+        with open(os.path.join(cfg.output_dir, 'config.json'), 'w') as f:
+            cfg_dict = cfg.to_dict()
+            cfg_dict['training']['epochs'] = math.ceil(cfg.training.total_updates / len(train_loader))
+            json.dump(cfg_dict, f, indent=2)
 
     # Build model
     model = build_model(cfg, vocab, cuda_device=cuda_device)
@@ -86,14 +98,15 @@ def main():
         run.finish()
 
     # Save model weights, vocabulary, model, and metrics
-    torch.save(model.state_dict(), os.path.join(cfg.output_dir, 'weights.th'))
-    vocab.save_to_files(os.path.join(cfg.output_dir, 'vocabulary'))
+    if not in_sweep:
+        torch.save(model.state_dict(), os.path.join(cfg.output_dir, 'weights.th'))
+        vocab.save_to_files(os.path.join(cfg.output_dir, 'vocabulary'))
 
-    with open(os.path.join(cfg.output_dir, 'model.pkl'), 'wb') as f:
-        dill.dump(model, f)
+        with open(os.path.join(cfg.output_dir, 'model.pkl'), 'wb') as f:
+            dill.dump(model, f)
 
-    with open(os.path.join(cfg.output_dir, 'metrics.json'), 'w') as f:
-        json.dump(metrics, f, indent=2)
+        with open(os.path.join(cfg.output_dir, 'metrics.json'), 'w') as f:
+            json.dump(metrics, f, indent=2)
 
     
 if __name__ == "__main__":

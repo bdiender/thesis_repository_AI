@@ -35,12 +35,18 @@ def build_trainer(
     ])
     
     scheduler = None
+    num_warmup_steps = math.ceil(cfg.training.warmup_rate * updates)
     if cfg.training.scheduler == 'cosine':
-        num_warmup_steps = math.ceil(cfg.training.warmup_rate * updates)
         scheduler = CosineWithWarmupLearningRateScheduler(
             optimizer=optimizer,
             num_warmup_steps=num_warmup_steps,
             num_training_steps=updates
+        )
+    elif cfg.training.scheduler == 'noam':
+        scheduler = NoamLR(
+            optimizer=optimizer,
+            model_size=768,
+            warmup_steps=num_warmup_steps
         )
 
     callbacks = [UnfreezeBertCallback(cfg.output_dir,
