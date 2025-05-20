@@ -6,7 +6,7 @@ metric:
 
 parameters:
   config:
-    values: ['hpt_test']
+    values: ['hyperpar_tuning']
   lr_model:
     distribution: uniform
     min: 1e-5

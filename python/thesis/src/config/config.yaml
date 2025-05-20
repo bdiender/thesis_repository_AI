@@ -34,7 +34,7 @@ dataset_stage2_common: &dataset_stage2_common
     test: test
   samples_train: 10000
   samples_dev: 500
-  number_of_updates: &stage2_updates 300
+  number_of_updates: &stage2_updates 100000
 
 dataset_stage3_common: &dataset_stage3_common
   splits:
