@@ -28,7 +28,9 @@ def build_trainer(
     
     updates = cfg.training.total_updates
     num_steps_per_epoch = len(train_loader)
-    epochs = math.ceil(updates / num_steps_per_epoch)
+    accumulation_steps = cfg.training.gradient_accumulation_steps
+    updates_per_epoch = math.ceil(num_steps_per_epoch / accumulation_steps)
+    epochs = math.ceil(updates / updates_per_epoch)
   
     optimizer = Adam([
         {'params': model_params, 'lr': cfg.training.lr_model, 'weight_decay': cfg.training.weight_decay},
