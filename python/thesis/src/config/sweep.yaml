@@ -33,3 +33,8 @@ parameters:
     max: 0.5
   scheduler:
     values: ['cosine', 'noam', 'none']
+
+early_terminate:
+  type: hyperband
+  min_iter: 8
+  eta: 3
