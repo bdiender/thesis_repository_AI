@@ -19,5 +19,5 @@ class WandBMetricsCallback(TrainerCallback):
             for name in ('loss', 'UAS', 'LAS', 'UEM', 'LEM'):
                 key = f"{split}_{name}"
                 if key in metrics:
-                    to_log[f"{split}/{name}"] = metrics[key]
+                    to_log[f"{split}_{name}"] = metrics[key]
         wandb.log(to_log)

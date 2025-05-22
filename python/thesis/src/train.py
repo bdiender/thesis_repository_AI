@@ -81,7 +81,8 @@ def main():
     if not in_sweep:
         with open(os.path.join(cfg.output_dir, 'config.json'), 'w') as f:
             cfg_dict = cfg.to_dict()
-            cfg_dict['training']['epochs'] = math.ceil(cfg.training.total_updates / len(train_loader))
+            updates_per_epoch = math.ceil(len(train_loader) / cfg.training.gradient_accumulation_steps)
+            cfg_dict['training']['epochs'] = math.ceil(cfg.training.total_updates / updates_per_epoch)
             json.dump(cfg_dict, f, indent=2)
 
     # Build model

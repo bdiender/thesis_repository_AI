@@ -135,15 +135,13 @@ hpt_test:
     <<: *training_defaults
     total_updates: 100
     batch_size: 5
-    freeze_bert: true
-    num_frozen_epochs: 1
   dataset:
     splits:
       train: train
       dev: validation
       test: test
-    samples_train: 100
-    samples_dev: 10
+    samples_train: 50
+    samples_dev: 20
     name: pt_gsd
   model:
     <<: *model_defaults
