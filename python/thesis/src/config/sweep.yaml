@@ -6,19 +6,19 @@ metric:
 
 parameters:
   config:
-    values: ['hpt_test']
+    values: ['hyperpar_tuning']
   lr_model:
     distribution: uniform
-    min: 1e-6
+    min: 5e-6
     max: 1e-4
   lr_classifier:
     distribution: uniform
-    min: 1e-5
-    max: 1e-3
+    min: 3e-4
+    max: 2e-3
   weight_decay:
     distribution: uniform
     min: 0.0
-    max: 0.01
+    max: 0.02
   warmup_rate:
     distribution: uniform
     min: 0.0
@@ -30,11 +30,11 @@ parameters:
   layer_dropout:
     distribution: uniform
     min: 0.0
-    max: 0.5
+    max: 0.3
   scheduler:
     values: ['cosine', 'noam', 'none']
 
 early_terminate:
   type: hyperband
-  min_iter: 1
-  eta: 3
+  min_iter: 2
+  eta: 2
