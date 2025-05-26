@@ -17,8 +17,13 @@ def main():
         required=True,
         help='Key of configuration settings for run.'
     )
-    args = parser.parse_args()
+    args, unknown = parser.parse_known_args()
+
     cfg = GLOBAL_CONFIG.get(args.config)
+
+    for override in unknown:
+        if override.startswith('--') and '=' in override:
+            cfg.set(*override[2:].split('=', 1))
     
     reader = UniversalDependenciesReader(split=cfg.dataset.splits.test)
     
