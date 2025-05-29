@@ -3,7 +3,7 @@
 \section{Methodology}
 \label{sec:methodology}
 
-The methodology involves a three-stage fine-tuning setup outlined in Section~\ref{sub:training_setup}, with the model being fine-tuned for dependency parsing in a variety of languages. The choice for dependency parsing was based on the availability of uniform datasets in a wide variety of languages through Universal Dependencies (UD)~\cite{nivre-etal-2016-universal}. The selection of languages is clarified in Section~\ref{sub:languages}, the specifics of the model are discussed in Section~\ref{sub:model}.
+The methodology involves a three-stage finetuning setup outlined in Section~\ref{sub:training_setup}, with the model being fine-tuned for dependency parsing in a variety of languages. The choice for dependency parsing is based on the availability of uniform datasets in a wide variety of languages through Universal Dependencies (UD)~\cite{nivre-etal-2016-universal}. The selection of languages is clarified in Section~\ref{sub:languages}, the specifics of the model are discussed in Section~\ref{sub:model}.
 
 \subsection{Model}
 \label{sub:model}
@@ -15,10 +15,9 @@ The methodology involves a three-stage fine-tuning setup outlined in Section~\re
 
 	\noindent where $\mathbf{U}_{i,j}$ is the output of layer $i$ at token position $j$, $\eta$ a trainable scalar, and $\mathbf{\lambda}$ a vector of trainable scalar mixing weights. Next, $\mathbf{r}_j$ is passed through two separate biaffine attention classifiers~\cite{dozat-manning-2016-deep} for predicting the arc and the tag, respectively. Finally, the Chu-Liu/Egmonds algorithm~\cite{chu-1965-shortest} is used to obtain a valid dependency tree.
 
-
 \subsection{Fine-tuning setup}
 \label{sub:training_setup}
-	As stated, the fine-tuning setup follows three stages. In the first stage, the model $M$ is fine-tuned on a German-language (\textit{deu}) treebank to instill general knowledge of the task at hand. In the second stage, four copies of $M$ are fine-tuned separately on treebanks of auxiliary languages $\ell \in \{\textit{nld}\textit{nor}\textit{ces}, \textit{fin}\}$\footnote{Dutch, Norwegian, Czech, and Finnish.} to obtain four instances of $M^\ell$. Finally, each $M^\ell$ is fine-tuned on each target language $\lambda \in \{\textit{gsw}, \textit{fao}, \textit{hsb}, \textit{vep}\}$,\footnote{Alemannic, Faroese, Upper Sorbian, and Veps.} resulting in 16 instances of \m{\ell}{\lambda}. If time permits, both the second and third stage are ideally repeated across at least five random seeds.
+	As stated, the fine-tuning setup follows three stages. In the first stage, the model $M$ is fine-tuned on a German-language (\textit{deu}) treebank to instill general knowledge of the task at hand. In the second stage, $M$ is fine-tuned separately on treebanks of auxiliary languages $\ell \in \{\textit{nld}, \textit{nor}, \textit{ces}, \textit{fin}\}$\footnote{Dutch, Norwegian, Czech, and Finnish.} to obtain four instances of $M^\ell$. Finally, each $M^\ell$ is fine-tuned on each target language $\lambda \in \{\textit{gsw}, \textit{fao}, \textit{hsb}, \textit{vep}\}$,\footnote{Alemannic, Faroese, Upper Sorbian, and Veps.} resulting in 16 instances of \m{\ell}{\lambda}.
 
 % \subsection{Languages}
 % \label{sub:languages}
