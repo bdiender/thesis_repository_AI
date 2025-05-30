@@ -19,6 +19,18 @@ def main():
     )
     args, unknown = parser.parse_known_args()
 
+    suffixes = {
+        'de_hdt': 'deu',
+        'nl_alpino': 'nld',
+        'data/gsw/gsw_uzh-ud': 'gsw',
+        'no_bokmaal': 'nob',
+        'data/fao/fo_oft-ud': 'fao',
+        'cs_cac': 'ces',
+        'data/hsb/hsb_ufal-ud': 'hsb',
+        'fi_tdt': 'fin',
+        'data/vep/vep_vwt-ud': 'vep'
+    }
+
     cfg = GLOBAL_CONFIG.get(args.config)
 
     for override in unknown:
@@ -40,7 +52,11 @@ def main():
     correct_uem = 0
     correct_lem = 0
 
-    with open(os.path.join(cfg.output_dir, 'predictions.tsv'), 'w') as f:
+    suffix = suffixes[cfg.dataset.name] if cfg.dataset.name in suffixes else None
+
+    output_tsv = 'predictions.tsv' if suffix is None else f'predictions_{suffix}.tsv'
+
+    with open(os.path.join(cfg.output_dir, output_tsv), 'w') as f:
         f.write(f'Token ID\tWord\tGold head\tPred. head\tGold tag\tPred. tag\n')
         for inst in reader.read(cfg.dataset.name):
             result = predictor.predict_instance(inst)
@@ -93,12 +109,24 @@ def main():
     uem = correct_uem / sent_count
     lem = correct_lem / sent_count
 
-    with open(os.path.join(cfg.output_dir, 'eval_results.json'), 'w') as out:
-        json.dump(
-            {"UAS": uas, "LAS": las, "UEM": uem, "LEM": lem},
-            out,
-            indent=2
-        )
+    agg_json = os.path.join(cfg.output_dir, 'eval_results.json')
+    try:
+        with open(agg_json, 'r') as f:
+            all_results = json.load(f)
+    except FileNotFoundError:
+        all_results = {}
+
+    key = suffix if suffix is not None else cfg.dataset.name
+
+    all_results[key] = {
+        "UAS": uas,
+        "LAS": las,
+        "UEM": uem,
+        "LEM": lem
+    }
+
+    with open(agg_json, 'w') as out:
+        json.dump(all_results, out, indent=2)
 
 
 if __name__ == '__main__':

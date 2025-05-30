@@ -44,7 +44,7 @@ dataset_stage3_common: &dataset_stage3_common
     test: test
   samples_train: 50
   samples_dev: 25
-  number_of_updates: &stage3_updates 100
+  number_of_updates: &stage3_updates 50
 
 ### Stage/language-specific defaults
 stage2_nld_spec: &stage2_nld_spec
@@ -164,6 +164,29 @@ hyperpar_tuning:
       test: test
     samples_train: 9500
     samples_dev: 1000
+    name: pt_gsd
+  model:
+    <<: *model_defaults
+    finetune_on: outputs/1_deu_old/model.pkl
+  wb:
+    <<: *wandb_defaults
+
+small_hp_tuning:
+  <<: *defaults
+  output_dir: outputs/hp_sweep
+  enable_wandb: true
+  training:
+    <<: *training_defaults
+    total_updates: 50
+    batch_size: 1
+    gradient_accumulation_steps: 1
+  dataset:
+    splits:
+      train: train
+      dev: validation
+      test: test
+    samples_train: 50
+    samples_dev: 25
     name: pt_gsd
   model:
     <<: *model_defaults

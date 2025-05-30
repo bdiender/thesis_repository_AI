@@ -6,19 +6,25 @@ metric:
 
 parameters:
   config:
-    values: ['hyperpar_tuning']
+    values: ['small_hp_tuning']
+  seed:
+    values: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+  name:
+    values: ['pt_gsd']
+  finetune_on:
+    values: ['outputs/2_nld/model.pkl', 'outputs/2_nob/model.pkl', 'outputs/2_ces/model.pkl', 'outputs/2_fin/model.pkl']
   lr_model:
     distribution: uniform
-    min: 5e-6
-    max: 1e-4
+    min: 1e-5
+    max: 1e-3
   lr_classifier:
     distribution: uniform
-    min: 3e-4
-    max: 2e-3
+    min: 1e-5
+    max: 1e-3
   weight_decay:
     distribution: uniform
     min: 0.0
-    max: 0.02
+    max: 0.05
   warmup_rate:
     distribution: uniform
     min: 0.0
@@ -30,11 +36,11 @@ parameters:
   layer_dropout:
     distribution: uniform
     min: 0.0
-    max: 0.3
+    max: 0.5
   scheduler:
     values: ['cosine', 'noam', 'none']
 
 early_terminate:
   type: hyperband
-  min_iter: 2
+  min_iter: 4
   eta: 2
