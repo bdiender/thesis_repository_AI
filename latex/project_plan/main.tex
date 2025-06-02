@@ -3,7 +3,8 @@
 % Version 2.21 of 2022/01/12
 %
 \documentclass[runningheads]{template/llncs}
-%
+\raggedbottom%
+
 \usepackage{array}
 \usepackage[T1]{fontenc}
 % T1 fonts will be used to generate the final print and online PDFs,
@@ -35,11 +36,13 @@
 % \numberwithin{figure}{section}
 % \numberwithin{table}{section}
 
-\newcommand{\m}[2]{$M^{#1,#2}$}
+\newcommand{\m}[2]{$M_{#1,#2}$}
+\newcommand{\mde}{$M_\textit{\scriptsize deu}$}
+\newcommand{\mbase}{$M_\textit{\scriptsize base}$}
 
 \begin{document}
 %
-\input{template/title_page}
+% \input{template/title_page}
 \title{Project Proposal}
 %
 %\titlerunning{Abbreviated paper title}
@@ -82,21 +85,22 @@
 \begin{table}
 \centering
 \label{tab:data}
-	\begin{tabular}{llrr}
+	\begin{tabular}{lllrr}
 		\toprule
-		\textbf{Language} & \textbf{Treebank} & \multicolumn{1}{l}{\textbf{Number of tokens}} & \multicolumn{1}{l}{\textbf{Number of sentences}} \\
+		\textbf{Language} & \textbf{Family} & \textbf{Treebank} & \multicolumn{1}{l}{\textbf{Number of tokens}} & \multicolumn{1}{l}{\textbf{Number of sentences}} \\
 		\midrule
-			Czech & CAC & 494\,142 & 24\,709 \\
-			Dutch & LassySmall & 297\,486 & 17\,120 \\
-			Faroese & OFT & 10\,002 & 1\,208 \\
-			German & HDT & 3\,399\,390 & 189\,928 \\
-			Hungarian & Szeged & 42\,032 & 1\,800 \\
-			Swedish & Talbanken & 96\,859 & 6\,026\\
-			Swiss German & ATB & 652 & 98\\
-			Upper Sorbian & UFAL & 11\,196 & 646 \\
-			Veps & VWT & 1\,303 & 103 \\
+			Czech & West Slavic & CAC & 494\,142 & 24\,709 \\
+			Dutch & West Germanic & Alpino & 208\,745 & 13\,603 \\
+			Faroese & North Germanic & OFT & 10\,002 & 1\,208 \\
+			Finnish & Finnic & TDT & 202\,210 & 15\,136 \\
+			German & West Germanic & HDT & 3\,399\,390 & 189\,928 \\
+			Norwegian & North Germanic & Bokmaal & 310\,221 & 20\,044\\
+			Portuguese & Romance & GSD & 12\,020 & 296\,169 \\
+			Swiss German & West Germanic & ATB & 652 & 98\\
+			Upper Sorbian & West Slavic & UFAL & 11\,196 & 646 \\
+			Veps & Finnic & VWT & 1\,303 & 103 \\
 		\bottomrule
 	\end{tabular}
-	\caption{The specific UD treebanks featured in the project.}
+	\caption{The specific UD treebanks featured in the project. Portuguese GSD is only used for hyperparameter tuning.}
 \end{table}
 \end{document}
