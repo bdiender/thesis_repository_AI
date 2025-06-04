@@ -1,4 +1,5 @@
 import json
+import os
 import sys
 
 import numpy as np
@@ -71,7 +72,7 @@ class LanguageIDProbe(nn.Module):
                  y_test: np.ndarray,
                  batch_size: int=1,
                  labels: list=None,
-                 output_dir: str=None,
+                 output_dir: str=None
         ):
         device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
         self.to(device)
@@ -90,7 +91,7 @@ class LanguageIDProbe(nn.Module):
                 predictions = logits.argmax(dim=1)
 
                 all_predictions.extend(predictions.cpu().tolist())
-                all_labels.extend(y_batch().cpu().tolist())
+                all_labels.extend(y_batch.cpu().tolist())
 
         correct = sum(int(pred == gold) for pred, gold in zip(all_predictions, all_labels))
         total = len(all_labels)
@@ -100,13 +101,13 @@ class LanguageIDProbe(nn.Module):
         cm = confusion_matrix(all_labels, all_predictions, labels=list(range(len(labels))))
 
         results = {
-            'confusion_matrics': cm.to_list(),
+            'confusion_matrix': cm.tolist(),
             'classification_report': report_dict,
             'accuracy': accuracy
         }
 
         if output_dir is not None:
-            with open(output_dir, 'w') as f:
+            with open(os.path.join(output_dir, 'language_id.json'), 'w') as f:
                 json.dump(results, f, indent=2)
 
         return accuracy
