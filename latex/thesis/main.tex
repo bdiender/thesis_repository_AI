@@ -1,0 +1,43 @@
+\documentclass[runningheads]{template/llncs}
+\raggedbottom
+
+\usepackage{array}
+\usepackage[T1]{fontenc}
+\usepackage{newtxtext, newtxmath}
+
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage[utf8]{inputenc}
+
+\usepackage{booktabs}
+\usepackage{enumitem}
+
+\begin{document}
+
+	\input{template/title_page}
+	\title{Contribution Title}  % TODO: Change
+
+	\author{Bas Diender}
+	\authorrunning{B. Diender}
+
+	\institute{Vrije Universiteit Amsterdam, Amsterdam}
+
+	\maketitle
+
+	\begin{abstract}
+		The abstract should briefly summarize the contents of the paper in 150--250 words.
+
+		\keywords{First keyword \and Second keyword \and Another keyword.}
+	\end{abstract}
+
+	\input{chapters/1/introduction}
+	\input{chapters/2/background}
+	\input{chapters/3/methodology}
+	\input{chapters/4/results}
+	\input{chapters/5/discussion}
+	\input{chapters/6/conclusion}
+
+	\bibliographystyle{plain}
+	\bibliography{bibliography/bibliography}
+
+\end{document}
