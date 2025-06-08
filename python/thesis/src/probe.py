@@ -74,15 +74,16 @@ def main(args):
     langs = sorted(set(train_labels))
     langs_idx = {lang: i for i, lang in enumerate(langs)}
 
-    X_train = np.array([get_sentence_embedding(embedder, tokenizer, s, device=device) for s in train_sents])
-    y_train = np.array([langs_idx[l] for l in train_labels])
+    for layer in range(12):
+        X_train = np.array([get_sentence_embedding(embedder, tokenizer, s, layer_idx=layer, device=device) for s in train_sents])
+        y_train = np.array([langs_idx[l] for l in train_labels])
 
-    X_test = np.array([get_sentence_embedding(embedder, tokenizer, s, device=device) for s in test_sents])
-    y_test = np.array([langs_idx[l] for l in test_labels])
+        X_test = np.array([get_sentence_embedding(embedder, tokenizer, s, layer_idx=layer, device=device) for s in test_sents])
+        y_test = np.array([langs_idx[l] for l in test_labels])
 
-    probe = LanguageIDProbe()
-    probe.fit(X_train, y_train)
-    probe.evaluate(X_test, y_test, labels=langs, output_dir=args.model_dir)
+        probe = LanguageIDProbe()
+        probe.fit(X_train, y_train, epochs=args.epochs, batch_size=args.batch_size, lr=args.lr)
+        probe.evaluate(X_test, y_test, labels=langs, output_dir=args.model_dir, layer_idx=layer)
 
 
 if __name__ == '__main__':
@@ -91,7 +92,14 @@ if __name__ == '__main__':
                         help='Path that contains the datasets.')
     parser.add_argument('--model-dir', default=None,
                         help='Path to folder that contains model.pkl, default to pre-trained M-BERT if left empty.')
-    parser.add_argument('--seed', default=1)
+    parser.add_argument('--seed', default=1,
+                        help='Random seed.')
+    parser.add_argument('--batch-size', default=1,
+                        help='Batch size.')
+    parser.add_argument('--lr', default=1e-3,
+                        help='Learning rate.')
+    parser.add_argument('--epochs', default=10,
+                        help='Number of epochs.')
     # TODO: Split dataset in this script
     args = parser.parse_args()
     main(args)

@@ -35,6 +35,19 @@ class LanguageIDProbe(nn.Module):
 
         return data_loader
     
+    def _check_and_save(self, results, layer_idx: int, output_dir: str):
+        path = os.path.join(output_dir, 'language_id.json')
+        if os.path.exists(path):
+            with open(path, 'r') as f:
+                data = json.load(f)
+        
+        else:
+            data = {}
+        
+        data[str(layer_idx)] = results
+        with open(path, 'w') as f:
+            json.dump(data, f, indent=2)
+    
     def fit(self,
             X_train: np.ndarray,
             y_train: np.ndarray,
@@ -72,7 +85,8 @@ class LanguageIDProbe(nn.Module):
                  y_test: np.ndarray,
                  batch_size: int=1,
                  labels: list=None,
-                 output_dir: str=None
+                 output_dir: str=None,
+                 layer_idx: int=-1
         ):
         device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
         self.to(device)
@@ -107,7 +121,6 @@ class LanguageIDProbe(nn.Module):
         }
 
         if output_dir is not None:
-            with open(os.path.join(output_dir, 'language_id.json'), 'w') as f:
-                json.dump(results, f, indent=2)
+            self._check_and_save(results, layer_idx, output_dir)
 
         return accuracy
