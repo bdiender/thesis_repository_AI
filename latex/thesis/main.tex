@@ -4,13 +4,26 @@
 \usepackage{array}
 \usepackage[T1]{fontenc}
 \usepackage{newtxtext, newtxmath}
+\usepackage{microtype}
 
+\usepackage{xcolor}
 \usepackage{graphicx}
 \usepackage{amsmath}
 \usepackage[utf8]{inputenc}
 
 \usepackage{booktabs}
 \usepackage{enumitem}
+
+\usepackage{gb4e}
+\noautomath
+
+\newcommand{\textred}[1]{\textcolor{red}{#1}}
+
+\newcommand{\textsup}[1]{$^\text{#1}$}
+\newcommand{\textsub}[1]{$_\text{#1}$}
+
+\newcommand{\notetoself}[1]{\textsup{\textred{#1}}}
+\newcommand{\cit}{\notetoself{[citation needed]}}
 
 \begin{document}
 
