@@ -3,21 +3,44 @@
 
 \usepackage{array}
 \usepackage[T1]{fontenc}
-\usepackage{newtxtext, newtxmath}
+\usepackage[scosf]{newtxtext}
+\usepackage{newtxmath}
 \usepackage{microtype}
 
 \usepackage{xcolor}
 \usepackage{graphicx}
+\graphicspath{
+  {chapters/1/figures/}
+  {chapters/2/figures/}
+  {chapters/3/figures/}
+  {chapters/4/figures/}
+  {chapters/5/figures/}
+  {chapters/6/figures/}
+}
+
+\usepackage{import}
+\usepackage{chngcntr}
+\counterwithin{table}{section}
+
 \usepackage{amsmath}
 \usepackage[utf8]{inputenc}
 
 \usepackage{booktabs}
+\usepackage{subcaption}
+\usepackage{colortbl}
+\usepackage{float}
+
 \usepackage{enumitem}
 
 \usepackage{gb4e}
 \noautomath
 
+\newcommand{\longpage}{\enlargethispage{\textheight}}
+
+\newcommand{\loadtable}[1]{\subimport{tables/}{#1.tex}}
+
 \newcommand{\textred}[1]{\textcolor{red}{#1}}
+\newcommand{\textwhite}[1]{\textcolor{white}{#1}}
 
 \newcommand{\textsup}[1]{$^\text{#1}$}
 \newcommand{\textsub}[1]{$_\text{#1}$}
@@ -25,32 +48,39 @@
 \newcommand{\notetoself}[1]{\textsup{\textred{#1}}}
 \newcommand{\cit}{\notetoself{[citation needed]}}
 
+\newlength{\norwegian}
+\settowidth{\norwegian}{\textbf{Norwegian}}
+\newcolumntype{N}{>{\centering\arraybackslash}p{\norwegian}}
+
+\newlength{\uppersorbian}
+\settowidth{\uppersorbian}{\textbf{Upper Sorbian}}
+\newcolumntype{U}{>{\centering\arraybackslash}p{\uppersorbian}}
+
 \begin{document}
+	% \input{template/title_page}
+	% \title{Contribution Title}  % TODO: Change
 
-	\input{template/title_page}
-	\title{Contribution Title}  % TODO: Change
+	% \author{Bas Diender}
+	% \authorrunning{B. Diender}
 
-	\author{Bas Diender}
-	\authorrunning{B. Diender}
+	% \institute{Vrije Universiteit Amsterdam, Amsterdam}
 
-	\institute{Vrije Universiteit Amsterdam, Amsterdam}
+	% \maketitle
 
-	\maketitle
+	% \begin{abstract}
+	% 	The abstract should briefly summarize the contents of the paper in 150--250 words.
 
-	\begin{abstract}
-		The abstract should briefly summarize the contents of the paper in 150--250 words.
+	% 	\keywords{First keyword \and Second keyword \and Another keyword.}
+	% \end{abstract}
 
-		\keywords{First keyword \and Second keyword \and Another keyword.}
-	\end{abstract}
+	% \subimport{chapters/1}{introduction}
+	% \subimport{chapters/2}{background}
+	\subimport{chapters/3}{methodology}
+	% \subimport{chapters/4}{results}
+	% \subimport{chapters/5}{discussion}
+	% \subimport{chapters/6}{conclusion}
 
-	\input{chapters/1/introduction}
-	\input{chapters/2/background}
-	\input{chapters/3/methodology}
-	\input{chapters/4/results}
-	\input{chapters/5/discussion}
-	\input{chapters/6/conclusion}
-
-	\bibliographystyle{plain}
-	\bibliography{bibliography/bibliography}
+	% \bibliographystyle{plain}
+	% \bibliography{bibliography/bibliography}
 
 \end{document}

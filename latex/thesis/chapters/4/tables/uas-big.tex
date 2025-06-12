@@ -1,0 +1,20 @@
+%!TEX root = ../../../main.tex
+\begin{table}
+    \centering
+    \begin{tabular}{rrrrrrr}
+        \toprule
+        \multicolumn{1}{r}{\textbf{Model language}} & \multicolumn{5}{c}{\textbf{Evaluation languages}} \\
+        \cmidrule{2-6}
+        & \multicolumn{1}{N}{\textbf{German}} & \multicolumn{1}{N}{\textbf{Dutch}} & \multicolumn{1}{N}{\textbf{Norwegian}} & \multicolumn{1}{N}{\textbf{Czech}} & \multicolumn{1}{N}{\textbf{Finnish}} \\
+        \midrule
+        German & $0.9158$ & $0.6472$ & $0.5613$ & $0.3948$ & $0.3859$ \\
+        \addlinespace[.25em]
+        Dutch & \cellcolor[HTML]{f6eacb}$0.8909$ & \cellcolor[HTML]{79c8bc}$0.8270$ & \cellcolor[HTML]{d7eeeb}$0.6159$ & \cellcolor[HTML]{ebf3f2}$0.4127$ & \cellcolor[HTML]{f2f4f4}$0.3913$ \\
+        Norwegian & \cellcolor[HTML]{bb7d2a}$0.8257$ & \cellcolor[HTML]{f6ebcd}$0.6241$ & \cellcolor[HTML]{23867e}$0.8480$ & \cellcolor[HTML]{eff3f3}$0.4075$ & \cellcolor[HTML]{e6f1f0}$0.4129$ \\
+        Czech & \cellcolor[HTML]{cc9a4c}$0.8392$ & \cellcolor[HTML]{543005}\textwhite{$0.4258$} & \cellcolor[HTML]{cc9a4c}$0.4842$ & \cellcolor[HTML]{67bbb0}$0.5939$ & \cellcolor[HTML]{e7f2f0}$0.4126$ \\
+        Finnish & \cellcolor[HTML]{e5cc8f}$0.8639$ & \cellcolor[HTML]{543005}\textwhite{$0.4453$} & \cellcolor[HTML]{f5f2e8}$0.5535$ & \cellcolor[HTML]{e6f1f0}$0.4249$ & \cellcolor[HTML]{6abdb2}$0.5825$ \\
+        \bottomrule
+    \end{tabular}
+    \caption{Unlabeled Attachment Score of the 1st and 2nd stage models on the test sets of German, Dutch, Norwegian, Czech, and Finnish. Colored cells show the effect of additional training on the auxiliary languages: brown cells indicate decreased UAS, green cells indicate increased UAS.}
+    \label{tab:uas_big}
+\end{table}

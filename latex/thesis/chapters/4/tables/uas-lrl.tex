@@ -1,0 +1,73 @@
+%!TEX root = ../../../main.tex
+\begin{table}[H]
+    \centering
+    \begin{tabular}{lrrrrr}
+        \toprule
+        \multicolumn{2}{l}{\textbf{Model language}} & \multicolumn{4}{c}{\textbf{Evaluation languages}} \\
+        \cmidrule{3-6}
+        & & \multicolumn{1}{U}{\textbf{Swiss German}} & \multicolumn{1}{U}{\textbf{Faroese}} & \multicolumn{1}{U}{\textbf{Upper Sorbian}} & \multicolumn{1}{U}{\textbf{Veps}} \\
+        \midrule
+        \textbf{German} & & & & & \\
+        & Zero-shot & $0.3663$ & $0.5254$ & $0.3805$ & $0.2712$ \\
+\addlinespace[.25em]
+        \multicolumn{2}{r}{Swiss German} & $0.5590$ & $0.5802$ & $0.3723$ & $0.2217$ \\
+        % & & $(+0.1928)$ & $(+0.0547)$ & $(-0.0082)$ & $(-0.0495)$ \\
+        \multicolumn{2}{r}{Faroese} & $0.4651$ & $0.6910$ & $0.4263$ & $0.2358$ \\
+        % & & $(+0.0988)$ & $(+0.1655)$ & $(+0.0458)$ & $(-0.0354)$ \\
+        \multicolumn{2}{r}{Upper Sorbian} & $0.5133$ & $0.6109$ & $0.4450$ & $0.2193$ \\
+        % & & $(+0.1470)$ & $(+0.0855)$ & $(+0.0645)$ & $(-0.0519)$ \\
+        \multicolumn{2}{r}{Veps} & $0.3807$ & $0.5672$ & $0.3618$ & $0.3774$ \\
+        % & & $(+0.0145)$ & $(+0.0418)$ & $(-0.0187)$ & $(+0.1061)$ \\
+        \midrule
+        \textbf{Dutch} & & & & & \\
+        & Zero-shot & \cellcolor[HTML]{e9f2f1}$0.3735$ & \cellcolor[HTML]{f5f1e4}$0.5199$ & \cellcolor[HTML]{f6ecd3}$0.3694$ & \cellcolor[HTML]{d3aa5f}$0.2335$ \\
+\addlinespace[.25em]
+        \multicolumn{2}{r}{Swiss German} & \cellcolor[HTML]{c1e8e2}$\mathbf{0.5880}$ & \cellcolor[HTML]{f5f0e2}$0.5740$ & \cellcolor[HTML]{def0ed}$0.3855$ & \cellcolor[HTML]{ddefed}$0.2358$ \\
+        % & & \cellcolor[HTML]{c1e8e2}$(+0.2145)$ & \cellcolor[HTML]{f5f0e2}$(+0.0541)$ & \cellcolor[HTML]{def0ed}$(+0.0160)$ & \cellcolor[HTML]{ddefed}$(+0.0024)$ \\
+        \multicolumn{2}{r}{Faroese} & \cellcolor[HTML]{f6e9c7}$0.4506$ & \cellcolor[HTML]{e7f2f0}$0.6984$ & \cellcolor[HTML]{f6ecd1}$0.4146$ & \cellcolor[HTML]{f5efde}$0.2288$ \\
+        % & & \cellcolor[HTML]{f6e9c7}$(+0.0771)$ & \cellcolor[HTML]{e7f2f0}$(+0.1785)$ & \cellcolor[HTML]{f6ecd1}$(+0.0452)$ & \cellcolor[HTML]{f5efde}$(-0.0047)$ \\
+        \multicolumn{2}{r}{Upper Sorbian} & \cellcolor[HTML]{d4ede9}$0.5325$ & \cellcolor[HTML]{dbefec}$0.6265$ & \cellcolor[HTML]{e6f1f0}$0.4537$ & \cellcolor[HTML]{edf3f2}$0.2241$ \\
+        % & & \cellcolor[HTML]{d4ede9}$(+0.1590)$ & \cellcolor[HTML]{dbefec}$(+0.1066)$ & \cellcolor[HTML]{e6f1f0}$(+0.0843)$ & \cellcolor[HTML]{edf3f2}$(-0.0094)$ \\
+        \multicolumn{2}{r}{Veps} & \cellcolor[HTML]{f6edd7}$0.3711$ & \cellcolor[HTML]{b97b29}$0.5177$ & \cellcolor[HTML]{f6e9c7}$0.3470$ & \cellcolor[HTML]{e4ca8c}$0.3491$ \\
+        % & & \cellcolor[HTML]{f6edd7}$(-0.0024)$ & \cellcolor[HTML]{b97b29}$(-0.0023)$ & \cellcolor[HTML]{f6e9c7}$(-0.0225)$ & \cellcolor[HTML]{e4ca8c}$(+0.1156)$ \\
+        \midrule
+        \textbf{Norwegian} & & & & & \\
+        & Zero-shot & \cellcolor[HTML]{e7cf94}$0.3398$ & \cellcolor[HTML]{003c30}\textwhite{$0.6592$} & \cellcolor[HTML]{9b5f14}\textwhite{$0.3216$} & \cellcolor[HTML]{e0f0ee}$0.2830$ \\
+\addlinespace[.25em]
+        \multicolumn{2}{r}{Swiss German} & \cellcolor[HTML]{dfc37e}$0.5277$ & \cellcolor[HTML]{8fd3c9}$0.6275$ & \cellcolor[HTML]{f6e9c7}$0.3580$ & \cellcolor[HTML]{f0f4f3}$0.2241$ \\
+        % & & \cellcolor[HTML]{dfc37e}$(+0.1880)$ & \cellcolor[HTML]{8fd3c9}$(-0.0317)$ & \cellcolor[HTML]{f6e9c7}$(+0.0365)$ & \cellcolor[HTML]{f0f4f3}$(-0.0590)$ \\
+        \multicolumn{2}{r}{Faroese} & \cellcolor[HTML]{6c3e07}\textwhite{$0.3928$} & \cellcolor[HTML]{c4e9e4}$\mathbf{0.7182}$ & \cellcolor[HTML]{c48b3a}$0.3814$ & \cellcolor[HTML]{8fd3c9}$0.2830$ \\
+        % & & \cellcolor[HTML]{6c3e07}\textwhite{$(+0.0530)$} & \cellcolor[HTML]{c4e9e4}$(+0.0590)$ & \cellcolor[HTML]{c48b3a}$(+0.0598)$ & \cellcolor[HTML]{8fd3c9}$(+0.0000)$ \\
+        \multicolumn{2}{r}{Upper Sorbian} & \cellcolor[HTML]{b57826}$0.4627$ & \cellcolor[HTML]{6abdb2}$0.6725$ & \cellcolor[HTML]{f6eac9}$0.4313$ & \cellcolor[HTML]{edf3f2}$0.2241$ \\
+        % & & \cellcolor[HTML]{b57826}$(+0.1229)$ & \cellcolor[HTML]{6abdb2}$(+0.0133)$ & \cellcolor[HTML]{f6eac9}$(+0.1097)$ & \cellcolor[HTML]{edf3f2}$(-0.0590)$ \\
+        \multicolumn{2}{r}{Veps} & \cellcolor[HTML]{e7cf94}$0.3542$ & \cellcolor[HTML]{6dbfb4}$0.6275$ & \cellcolor[HTML]{f6e9c7}$0.3472$ & \cellcolor[HTML]{e0c481}$0.3467$ \\
+        % & & \cellcolor[HTML]{e7cf94}$(+0.0145)$ & \cellcolor[HTML]{6dbfb4}$(-0.0317)$ & \cellcolor[HTML]{f6e9c7}$(+0.0257)$ & \cellcolor[HTML]{e0c481}$(+0.0637)$ \\
+        \midrule
+        \textbf{Czech} & & & & & \\
+        & Zero-shot & \cellcolor[HTML]{f6ebcf}$0.3542$ & \cellcolor[HTML]{c28633}$0.4791$ & \cellcolor[HTML]{ddefed}$0.3951$ & \cellcolor[HTML]{419f97}$0.3467$ \\
+\addlinespace[.25em]
+        \multicolumn{2}{r}{Swiss German} & \cellcolor[HTML]{edf3f2}$0.5639$ & \cellcolor[HTML]{f6eed9}$0.5711$ & \cellcolor[HTML]{87d0c5}$0.4231$ & \cellcolor[HTML]{f6eac9}$0.2075$ \\
+        % & & \cellcolor[HTML]{edf3f2}$(+0.2096)$ & \cellcolor[HTML]{f6eed9}$(+0.0920)$ & \cellcolor[HTML]{87d0c5}$(+0.0280)$ & \cellcolor[HTML]{f6eac9}$(-0.1392)$ \\
+        \multicolumn{2}{r}{Faroese} & \cellcolor[HTML]{e4f1ef}$0.4747$ & \cellcolor[HTML]{f2e2b8}$0.6728$ & \cellcolor[HTML]{f5f1e4}$0.4211$ & \cellcolor[HTML]{b6e3dd}$0.2689$ \\
+        % & & \cellcolor[HTML]{e4f1ef}$(+0.1205)$ & \cellcolor[HTML]{f2e2b8}$(+0.1937)$ & \cellcolor[HTML]{f5f1e4}$(+0.0260)$ & \cellcolor[HTML]{b6e3dd}$(-0.0778)$ \\
+        \multicolumn{2}{r}{Upper Sorbian} & \cellcolor[HTML]{9d6116}\textwhite{$0.4554$} & \cellcolor[HTML]{d8b46c}$0.5756$ & \cellcolor[HTML]{ebf3f2}$\mathbf{0.4511}$ & \cellcolor[HTML]{e9f2f1}$0.2264$ \\
+        % & & \cellcolor[HTML]{9d6116}\textwhite{$(+0.1012)$} & \cellcolor[HTML]{d8b46c}$(+0.0965)$ & \cellcolor[HTML]{ebf3f2}$(+0.0560)$ & \cellcolor[HTML]{e9f2f1}$(-0.1203)$ \\
+        \multicolumn{2}{r}{Veps} & \cellcolor[HTML]{c89343}$0.3373$ & \cellcolor[HTML]{c08430}$0.5202$ & \cellcolor[HTML]{c7eae5}$0.3890$ & \cellcolor[HTML]{eedbaa}$0.3561$ \\
+        % & & \cellcolor[HTML]{c89343}$(-0.0169)$ & \cellcolor[HTML]{c08430}$(+0.0411)$ & \cellcolor[HTML]{c7eae5}$(-0.0061)$ & \cellcolor[HTML]{eedbaa}$(+0.0094)$ \\
+        \midrule
+        \textbf{Finnish} & & & & & \\
+        & Zero-shot & \cellcolor[HTML]{edf3f2}$0.3711$ & \cellcolor[HTML]{eff3f3}$0.5290$ & \cellcolor[HTML]{edd9a8}$0.3583$ & \cellcolor[HTML]{066b63}\textwhite{$0.3750$} \\
+\addlinespace[.25em]
+        \multicolumn{2}{r}{Swiss German} & \cellcolor[HTML]{f5f1e6}$0.5542$ & \cellcolor[HTML]{f5e7c0}$0.5637$ & \cellcolor[HTML]{e6f1f0}$0.3817$ & \cellcolor[HTML]{edf3f2}$0.2264$ \\
+        % & & \cellcolor[HTML]{f5f1e6}$(+0.1831)$ & \cellcolor[HTML]{f5e7c0}$(+0.0347)$ & \cellcolor[HTML]{e6f1f0}$(+0.0233)$ & \cellcolor[HTML]{edf3f2}$(-0.1486)$ \\
+        \multicolumn{2}{r}{Faroese} & \cellcolor[HTML]{f4e5be}$0.4482$ & \cellcolor[HTML]{e6f1f0}$0.7000$ & \cellcolor[HTML]{f5f0e0}$0.4196$ & \cellcolor[HTML]{10746c}\textwhite{$0.3349$} \\
+        % & & \cellcolor[HTML]{f4e5be}$(+0.0771)$ & \cellcolor[HTML]{e6f1f0}$(+0.1710)$ & \cellcolor[HTML]{f5f0e0}$(+0.0613)$ & \cellcolor[HTML]{10746c}\textwhite{$(-0.0401)$} \\
+        \multicolumn{2}{r}{Upper Sorbian} & \cellcolor[HTML]{543005}\textwhite{$0.4337$} & \cellcolor[HTML]{cbebe6}$0.6359$ & \cellcolor[HTML]{ebf3f2}$0.4505$ & \cellcolor[HTML]{bce5df}$0.2500$ \\
+        % & & \cellcolor[HTML]{543005}\textwhite{$(+0.0627)$} & \cellcolor[HTML]{cbebe6}$(+0.1069)$ & \cellcolor[HTML]{ebf3f2}$(+0.0922)$ & \cellcolor[HTML]{bce5df}$(-0.1250)$ \\
+        \multicolumn{2}{r}{Veps} & \cellcolor[HTML]{9d6116}\textwhite{$0.3229$} & \cellcolor[HTML]{bd7f2c}$0.5190$ & \cellcolor[HTML]{e9d39d}$0.3370$ & \cellcolor[HTML]{a8ddd5}$\mathbf{0.4151}$ \\
+        % & & \cellcolor[HTML]{9d6116}\textwhite{$(-0.0482)$} & \cellcolor[HTML]{bd7f2c}$(-0.0100)$ & \cellcolor[HTML]{e9d39d}$(-0.0213)$ & \cellcolor[HTML]{a8ddd5}$(+0.0401)$ \\
+        \bottomrule
+    \end{tabular}
+    \caption{Unlabeled Attachment Scores (UAS) of all models on the low-resource languages. The best result for each language is set in boldface. Colored cells show the effect of the auxiliary languages with the German-based models: brown cells indicate decreased UAS, green cells indicate increased UAS.}
+    \label{tab:uas_lrl}
+\end{table}
