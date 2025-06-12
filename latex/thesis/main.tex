@@ -1,13 +1,22 @@
 \documentclass[runningheads]{template/llncs}
 \raggedbottom
 
-\usepackage{array}
+% Encoding & font
 \usepackage[T1]{fontenc}
 \usepackage[scosf]{newtxtext}
 \usepackage{newtxmath}
-\usepackage{microtype}
+% \usepackage[utf8]{inputenc}
 
-\usepackage{xcolor}
+% Meta-LaTeX
+\usepackage{chngcntr}
+\counterwithin{table}{section}
+\counterwithin{figure}{section}
+\usepackage{import}
+
+% Tables and figures
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{colortbl}
 \usepackage{graphicx}
 \graphicspath{
   {chapters/1/figures/}
@@ -17,36 +26,54 @@
   {chapters/5/figures/}
   {chapters/6/figures/}
 }
-
-\usepackage{import}
-\usepackage{chngcntr}
-\counterwithin{table}{section}
-
-\usepackage{amsmath}
-\usepackage[utf8]{inputenc}
-
-\usepackage{booktabs}
 \usepackage{subcaption}
-\usepackage{colortbl}
-\usepackage{float}
+\usepackage{tabularx}
 
+% Typesetting
+\usepackage{float}
+\usepackage{microtype}
+\usepackage{xcolor}
 \usepackage{enumitem}
 
+
+% Math & Linguistics
+\usepackage{amsmath}
 \usepackage{gb4e}
 \noautomath
 
-\newcommand{\longpage}{\enlargethispage{\textheight}}
+% Add counters for subsubsections/make paragraph bold again
+\makeatletter
+\setcounter{secnumdepth}{3}
+\renewcommand\subsubsection{%
+	\@startsection{subsubsection}{3}{\z@}%
+	  {-3.25ex \@plus -1ex \@minus -.2ex}%
+	  {1.5ex \@plus .2ex}%
+	  {\normalfont\normalsize\bfseries}%
+}
+\renewcommand\paragraph{%
+	\@startsection{paragraph}{4}{\z@}%
+  {-18\p@ \@plus -4\p@ \@minus -4\p@}%
+  {-0.5em \@plus -0.22em \@minus -0.1em}%
+  {\normalfont\normalsize\bfseries\boldmath}
+}
+\makeatother
 
+\newcommand{\longpage}{\enlargethispage{\textheight}}
 \newcommand{\loadtable}[1]{\subimport{tables/}{#1.tex}}
 
 \newcommand{\textred}[1]{\textcolor{red}{#1}}
 \newcommand{\textwhite}[1]{\textcolor{white}{#1}}
-
 \newcommand{\textsup}[1]{$^\text{#1}$}
 \newcommand{\textsub}[1]{$_\text{#1}$}
 
 \newcommand{\notetoself}[1]{\textsup{\textred{#1}}}
 \newcommand{\cit}{\notetoself{[citation needed]}}
+
+\newcommand{\smt}[1]{\textit{\scriptsize{#1}}}
+\newcommand{\m}[1]{$M_{\smt{#1}}$}
+\newcommand{\s}[2]{$\text{s}(#1, #2)$}
+\newcommand{\uas}[2]{$\text{UAS}(M_{\smt{#1}},#2)$}
+\newcommand{\dl}[3]{$\Delta_{\smt{#1}}(M_{\smt{#2}},M_{\smt{#3}})$}
 
 \newlength{\norwegian}
 \settowidth{\norwegian}{\textbf{Norwegian}}
@@ -80,7 +107,14 @@
 	% \subimport{chapters/5}{discussion}
 	% \subimport{chapters/6}{conclusion}
 
-	% \bibliographystyle{plain}
-	% \bibliography{bibliography/bibliography}
+	\bibliographystyle{plain}
+	\bibliography{bibliography/bibliography}
+
+	\newpage
+
+	\appendix
+
+	\section{Appendix}
+	\label{app:hyperparameters}
 
 \end{document}
